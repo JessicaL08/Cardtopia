@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-
+gem "devise"
 ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
