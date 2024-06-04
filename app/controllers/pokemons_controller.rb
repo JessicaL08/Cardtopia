@@ -3,10 +3,11 @@ class PokemonsController < ApplicationController
 
   # Affiche le formulaire pour ajouter un nouveau Pokémon
   def new
+    @user = current_user
     @collection = Collection.find(params[:collection_id])
     @album = Album.find(params[:album_id])
     @pokemons = Pokemon.new_user_collection_album_pokemon(params[:name]) if params[:name].present?
-      @pokemons = []
+    @pokemons = []
   end
 
 
@@ -16,7 +17,7 @@ class PokemonsController < ApplicationController
     @album = Album.find(params[:album_id])
     @pokemon = Pokemon.new(pokemon_params)
     if @pokemon.save
-      redirect_to collection_album_path(@collection, @album), notice: 'Pokemon added successfully.'
+      redirect_to user_collection_album_path(@user, @collection, @album), notice: 'Pokemon added successfully.'
     else
       render :new
     end

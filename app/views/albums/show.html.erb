@@ -14,4 +14,4 @@
 </ul>
 
 <%= link_to "Add New Pokemon", new_user_collection_album_pokemon_path(collection_id: @collection.id, album_id: @album.id), class: "btn btn-success" %>
-<%= link_to 'Back to Albums', user_collection_albums_path(collection_id: @collection.id, album_id: @album.id), class: 'btn btn-secondary' %>
+<%= link_to 'Back to Albums', user_collection_path(current_user, @collection), class: 'btn btn-secondary' %>

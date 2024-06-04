@@ -13,4 +13,4 @@
 <% end %>
 
 <%= link_to 'Add New Album', new_user_collection_album_path(user_id: @collection.user_id, collection_id: @collection.id), class: 'btn btn-success' %>
-<%= link_to 'Back to Collections', root_path, class: 'btn btn-secondary' %>
+<%= link_to 'Back to Collections', user_collections_path(current_user), class: 'btn btn-secondary' %>
