@@ -12,13 +12,13 @@
   <h2>Search Results:</h2>
   <%= form_with(model: [@collection, @album, @pokemon], url: user_collection_album_pokemons_path(@collection, @album), method: :post) do |form| %>
     <div class="form-group">
-      <%= label_tag :pokemon, "Select Pokémon" %>
+      <%= label_tag :pokemon, "Select Pokemon" %>
       <%= select_tag :pokemon_id, options_from_collection_for_select(@pokemons, :id, :name), { prompt: "Choose Pokémon", class: "form-control" } %>
     </div>
     <%= submit_tag "Add Pokémon", class: "btn btn-primary" %>
   <% end %>
 <% else %>
-  <p>No Pokémon found with the given name.</p>
+  <p>No Pokemon found with the given name.</p>
 <% end %>
 
 <%= link_to "Back", user_collection_album_path(@user, @collection, @album), class: "btn btn-secondary" %>
