@@ -1,17 +1,15 @@
 <h1><%= @album.name %></h1>
 
 <%= link_to 'Edit Album', edit_user_collection_album_path(@collection, @album), class: 'btn btn-primary' %>
-<%# <%= link_to 'Delete Album', collection_album_path(@collection, @album), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %> %>
 
-<h2>pokemons</h2>
+<h2>Pokemons</h2>
 <ul>
-  <% @album.pokemons.each do |pokemon| %>
+  <% @pokemons.each do |pokemon| %>
     <li>
-      <%= link_to pokemon.name, collection_album_pokemon_path(@collection, @album, pokemon) %>
-      <%= image_tag pokemon.image_url if pokemon.image_url.present? %>
+      <%= pokemon.pokemon_name %>
+      <%= image_tag pokemon.image if pokemon.image.present? %>
     </li>
   <% end %>
 </ul>
-
 <%= link_to "Add New Pokemon", new_user_collection_album_pokemon_path(collection_id: @collection.id, album_id: @album.id), class: "btn btn-success" %>
 <%= link_to 'Back to Albums', user_collection_path(current_user, @collection), class: 'btn btn-secondary' %>

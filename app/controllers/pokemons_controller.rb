@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 class PokemonsController < ApplicationController
   # Recherche les Pokémon par leur nom
 
@@ -15,16 +17,18 @@ class PokemonsController < ApplicationController
 
 
   # Crée un nouveau Pokémon dans l'album spécifié
-  def create
-    @collection = Collection.find(params[:collection_id])
-    @album = Album.find(params[:album_id])
-    @pokemon = Pokemon.new(pokemon_params)
-    if @pokemon.save
-      redirect_to user_collection_album_path(@user, @collection, @album), notice: 'Pokemon added successfully.'
-    else
-      render :new
-    end
+def create
+  @user = current_user
+  @collection = Collection.find(params[:collection_id])
+  @album = Album.find(params[:album_id])
+  @pokemon = Pokemon.find(params[:pokemon_id])
+  @album_pokemon = AlbumPokemon.new(album: @album, pokemon: @pokemon)
+  if @album_pokemon.save
+    redirect_to user_collection_album_path(@user, @collection, @album), notice: 'Pokemon ajouté avec succès.'
+  else
+    render :new
   end
+end
 
   private
 
