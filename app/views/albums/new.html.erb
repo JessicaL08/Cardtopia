@@ -6,4 +6,4 @@
   <%= form.submit "Create Album", class: 'btn btn-primary' %>
 <% end %>
 
-<%= link_to 'Back to Albums', user_collection_albums_path(@collection), class: 'btn btn-secondary' %>
+<%= link_to 'Back to Albums', user_collection_path(current_user, @collection), class: 'btn btn-secondary' %>
