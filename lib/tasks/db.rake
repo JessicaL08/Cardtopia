@@ -1,3 +1,4 @@
+require 'pry-byebug'
 namespace :db do
 
   desc "Dumps the database to db/APP_NAME.dump"
@@ -18,8 +19,8 @@ namespace :db do
       cmd = "pg_restore --verbose --host #{host} --username #{user} --clean --no-owner --no-acl --dbname #{db} -C #{Rails.root}/db/cardtopia_dbV2.dump"
       # "pg_restore -F #{fmt} -v -c -C #{file}"
     end
-    Rake::Task["db:drop"].invoke
-    Rake::Task["db:create"].invoke
+    # Rake::Task["db:drop"].invoke
+    # Rake::Task["db:create"].invoke
     puts cmd
     exec cmd
   end
@@ -27,9 +28,11 @@ namespace :db do
   private
 
   def with_config
+
     yield Rails.env.development? ? 'localhost' : ActiveRecord::Base.connection_db_config.configuration_hash[:host],
     ActiveRecord::Base.connection_db_config.configuration_hash[:database],
     Rails.env.development? ? 'postgres' : ActiveRecord::Base.connection_db_config.configuration_hash[:username]
   end
 
+  end
 end
