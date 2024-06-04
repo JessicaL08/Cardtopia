@@ -6,8 +6,11 @@ class PokemonsController < ApplicationController
     @user = current_user
     @collection = Collection.find(params[:collection_id])
     @album = Album.find(params[:album_id])
-    @pokemons = Pokemon.new_user_collection_album_pokemon(params[:name]) if params[:name].present?
-    @pokemons = []
+    if params[:name].present?
+      @pokemons = Pokemon.where("pokemon_name ILIKE ?", "%#{params[:name]}%")
+    else
+      @pokemons = []
+    end
   end
 
 
