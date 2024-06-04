@@ -32,5 +32,4 @@ namespace :db do
 
     Rails.env.development? ? 'postgres' : ActiveRecord::Base.connection_db_config.configuration_hash[:username]
   end
-
 end
