@@ -1,0 +1,22 @@
+<p>Cardtopia vous permet de virtualiser vos albums de cartes Pokémon. Ajoutez des cartes à vos albums, gérez vos collections et bien plus encore.</p>
+
+<div class="actions">
+  <% if user_signed_in? %>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
+  <% else %>
+    <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary' %>
+    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-secondary' %>
+  <% end %>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq">
+  <div class="question">
+    <h3>Comment ajouter une carte à mon album ?</h3>
+    <p>Cliquez sur "Add New Card" dans l'album de votre choix, puis remplissez le formulaire avec le nom du Pokémon.</p>
+  </div>
+  <div class="question">
+    <h3>Comment puis-je rechercher des cartes Pokémon ?</h3>
+    <p>Utilisez la barre de recherche en haut de la page pour trouver des cartes par leur nom.</p>
+  </div>
+</div>

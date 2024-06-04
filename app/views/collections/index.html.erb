@@ -1,0 +1,11 @@
+<h1>My Collections</h1>
+
+<% @collections.each do |collection| %>
+  <div class="collection">
+    <h2><%= link_to collection.name, user_collection_path(current_user, collection) %></h2>
+    <%= link_to 'Edit', edit_user_collection_path(current_user, collection) %>
+    <%# <%= link_to 'Delete', user_collection_path(current_user, collection), method: :delete, data: { confirm: 'Are you sure?' } %> %>
+  </div>
+<% end %>
+
+<%= link_to 'Add New Collection', new_user_collection_path(current_user), class: 'btn btn-primary' %>
