@@ -36,3 +36,4 @@
 
 # Ignore file dump for DB
 # *.dump
+/db/cardtopia_db.dump
