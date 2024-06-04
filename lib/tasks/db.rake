@@ -26,10 +26,11 @@ namespace :db do
   private
 
   def with_config
-    binding.pry
-    yield Rails.env.development? ? 'localhost' : ActiveRecord::Base.connection_db_config[:host],
+    # binding.pry
+    yield Rails.env.development? ? 'localhost' : ActiveRecord::Base.connection_db_config.configuration_hash[:host],
     ActiveRecord::Base.connection_db_config.configuration_hash[:database],
-    Rails.env.development? ? 'postgres' : 'cardtopia'
+
+    Rails.env.development? ? 'postgres' : ActiveRecord::Base.connection_db_config.configuration_hash[:username]
   end
 
 end
