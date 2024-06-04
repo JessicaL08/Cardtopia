@@ -11,6 +11,7 @@ class AlbumsController < ApplicationController
     @user = current_user
     @collection = Collection.find(params[:collection_id])
     @album = Album.find(params[:id])
+    @pokemons = @album.pokemons
   end
 
   def new
@@ -51,7 +52,7 @@ class AlbumsController < ApplicationController
   end
 
   def set_album
-    @album = @collection.albums.find(params[:id])
+    @album = Album.find(params[:id])
   end
 
   def album_params
