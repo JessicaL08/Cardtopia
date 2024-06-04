@@ -35,4 +35,4 @@
 /config/master.key
 
 # Ignore file dump for DB
-*.dump
+# *.dump
