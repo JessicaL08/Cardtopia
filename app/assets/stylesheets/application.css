@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+@import "colors";
+@import "bootstrap";
+@import "pagesindex";
+@import "cards";

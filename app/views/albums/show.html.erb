@@ -1,15 +1,40 @@
-<h1><%= @album.name %></h1>
+<div class="container">
+  <h1><%= @album.name %></h1>
 
-<%= link_to 'Edit Album', edit_user_collection_album_path(@collection, @album), class: 'btn btn-primary' %>
+<%# --------------------------- TEST NAVBAR ALBUM --------------------------- %>
+<div class="dropdown-center navbar-album">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Editer mon album
+  </button>
+  <ul class="dropdown-menu">
+    <%# <li><a class="dropdown-item" href="#">Renommer mon album</a></li> %>
+    <%# <li><a class="dropdown-item" href="#">Ajouter des cartes</a></li> %>
+    <%# <li><a class="dropdown-item" href="#">Supprimer des cartes</a></li> %>
+    <%= link_to 'Renommer mon album', edit_user_collection_album_path(@collection, @album), class: 'dropdown-item' %>
+    <%= link_to 'Ajouter des cartes', user_collection_album_path(@collection, @album), class: 'dropdown-item' %>
+    <%= link_to 'Supprimer des cartes', edit_user_collection_album_path(@collection, @album), class: 'dropdown-item' %>
+  </ul>
+</div>
+<%# --------------------------- TEST NAVBAR ALBUM --------------------------- %>
 
-<h2>Pokemons</h2>
-<ul>
+  <%= link_to 'Edit Album', edit_user_collection_album_path(@collection, @album), class: 'btn btn-primary' %>
+
+  <h2 class="titlePoke">Mes cartes Pokemons</h2>
+
+<ul class="row">
   <% @pokemons.each do |pokemon| %>
-    <li>
-      <%= pokemon.pokemon_name %>
-      <%= image_tag pokemon.image if pokemon.image.present? %>
+    <li class="col-md-3 col-sm-6 card-size">
+      <div class="content col">
+        <span class="name-style">
+          <%= pokemon.pokemon_name %>
+        </span>
+        <div class="img-size">
+          <%= image_tag(pokemon.image, class: "pokemon-image") if pokemon.image.present? %>
+        </div>
+      </div>
     </li>
   <% end %>
 </ul>
-<%= link_to "Add New Pokemon", new_user_collection_album_pokemon_path(collection_id: @collection.id, album_id: @album.id), class: "btn btn-success" %>
-<%= link_to 'Back to Albums', user_collection_path(current_user, @collection), class: 'btn btn-secondary' %>
+  <%= link_to "Add New Pokemon", new_user_collection_album_pokemon_path(collection_id: @collection.id, album_id: @album.id), class: "btn btn-success" %>
+  <%= link_to 'Back to Albums', user_collection_path(current_user, @collection), class: 'btn btn-secondary' %>
+</div>
