@@ -1,0 +1,8 @@
+<h1>Edit Collection</h1>
+
+<%= form_with(model: [@user, @collection], local: true, method: :patch) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.submit "Update Collection", class: 'btn btn-primary' %>
+<% end %>

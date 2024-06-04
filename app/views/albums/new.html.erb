@@ -1,0 +1,9 @@
+<h1>New Album</h1>
+
+<%= form_with(model: @album, url: user_collection_albums_path(current_user, @collection), method: :post) do |form| %>
+  <%= form.label :name, "Album Name" %>
+  <%= form.text_field :name %>
+  <%= form.submit "Create Album", class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Back to Albums', user_collection_albums_path(@collection), class: 'btn btn-secondary' %>

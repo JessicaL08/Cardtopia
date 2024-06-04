@@ -1,0 +1,8 @@
+<h1>New Collection</h1>
+
+<%= form_with(model: @collection, url: collections_path, method: :post) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.submit "Create Collection", class: 'btn btn-primary' %>
+<% end %>

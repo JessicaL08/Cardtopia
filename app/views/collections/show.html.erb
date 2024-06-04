@@ -1,0 +1,16 @@
+<h1><%= @collection.name %></h1>
+
+<%= link_to 'Edit Collection', edit_user_collection_path(current_user, @collection), class: 'btn btn-primary' %>
+<%# <%= link_to 'Delete Collection', user_collection_path(current_user, @collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %> %>
+
+<h2>Albums</h2>
+<% @collection.albums.each do |album| %>
+  <div class="album">
+    <h3><%= link_to album.name, user_collection_album_path(current_user, @collection, album) %></h3>
+    <%= link_to 'Edit',  edit_user_collection_album_path(current_user, @collection, album) %>
+    <%# <%= link_to 'Delete', collection_album_path(@collection, album), method: :delete, data: { confirm: 'Are you sure?' } %> %>
+  </div>
+<% end %>
+
+<%= link_to 'Add New Album', new_user_collection_album_path(user_id: @collection.user_id, collection_id: @collection.id), class: 'btn btn-success' %>
+<%= link_to 'Back to Collections', root_path, class: 'btn btn-secondary' %>
