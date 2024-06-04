@@ -1,12 +1,6 @@
 <h1>Search Pokémon by Name</h1>
 
-<%= form_tag new_user_collection_album_pokemon_path(@user, @collection, @album), method: :get do %>
-  <div class="form-group">
-    <%= label_tag :name, "Pokemon Name" %>
-    <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Enter Pokemon name" %>
-  </div>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+<%= render 'search' %>
 
 <% if @pokemons.any? %>
   <h2>Search Results:</h2>

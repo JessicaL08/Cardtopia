@@ -1,0 +1,8 @@
+<%= form_tag new_user_collection_album_pokemon_path(@user, @collection, @album), method: :get do %>
+  <div class="form-group" data-controller="search">
+    <% filters = [['Nom pokemon', :pokemon_name], ['Nom saison', :season_name], ['Nom extension', :extension_name], ['Pokemon id', :id_pokemon]] %>
+    <%= select_tag :filter, options_for_select(filters) %>
+    <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Enter Pokemon name" %>
+  </div>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
