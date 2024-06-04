@@ -2,7 +2,9 @@ source "https://rubygems.org"
 gem "devise"
 ruby "3.1.2"
 gem "pry-byebug"
-gem "bootstrap", "~> 5.2"
+# Import bootstrap
+gem 'bootstrap', '~> 5.3.3'
+gem 'jquery-rails'
 gem "sassc-rails"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -21,7 +23,7 @@ gem "puma", ">= 5.0"
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+# gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
