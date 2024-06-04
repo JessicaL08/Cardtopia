@@ -13,10 +13,16 @@
   <%= form_with(model: [@collection, @album, @pokemons], url: user_collection_album_pokemons_path(@collection, @album), method: :post) do |form| %>
     <div class="form-group">
       <%= label_tag :pokemon_id, "Select Pokemon" %>
-      <%= select_tag :pokemon_id, options_from_collection_for_select(@pokemons, :id, :pokemon_name), { prompt: "Choose Pokémon", class: "form-control" } %>
+      <%= select_tag :pokemon_id, options_from_collection_for_select(@pokemons, :id, :pokemon_id), { prompt: "Choose Pokémon", class: "form-control" } %>
     </div>
     <%= submit_tag "Add Pokémon", class: "btn btn-primary" %>
   <% end %>
+  <ul>
+    <% @pokemons.each do |pokemon| %>
+      <li><p><%= pokemon.pokemon_name %> / <%= pokemon.pokemon_id %></p><img src="<%= pokemon.image %>" alt="<%= pokemon.pokemon_name %>"></li>
+    <% end %>
+  </ul>
+
 <% else %>
   <p>No Pokemon found with the given name.</p>
 <% end %>
