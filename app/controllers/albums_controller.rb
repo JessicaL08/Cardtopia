@@ -38,10 +38,10 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def destroy
-    @album.destroy # Supprime l'album
-    redirect_to collection_albums_path(@album.collection), notice: 'Album deleted successfully.' # Redirige vers la page d'index des albums de la collection
-  end
+def destroy
+  @album.destroy
+  redirect_to collection_path(@album.collection), notice: 'Album deleted successfully.'
+end
 
   private
 
