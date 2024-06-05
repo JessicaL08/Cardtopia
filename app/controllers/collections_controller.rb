@@ -34,6 +34,7 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
+    # raise
     @collection.destroy
     redirect_to collections_path, notice: 'Collection deleted successfully.'
   end

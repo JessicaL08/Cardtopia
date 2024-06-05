@@ -3,6 +3,7 @@
 <%= form_with(model: @album, url: collection_albums_path(@collection), method: :post) do |form| %>
   <%= form.label :name, "Album Name" %>
   <%= form.text_field :name %>
+  <%= form.hidden_field :collection_id, value: @collection&.id %>
   <%= form.submit "Create Album", class: 'btn btn-primary' %>
 <% end %>
 

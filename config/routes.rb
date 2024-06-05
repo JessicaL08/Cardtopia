@@ -10,13 +10,14 @@ Rails.application.routes.draw do
 
   # Définir la racine de l'application
   root to: 'pages#home'
+  # delete 'collections/:collection_id/albums/:id', to: 'albums#destroy_collection_album', as: 'collection_album'
 
   # Routes pour les collections
   resources :collections, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :albums, only: [:new, :create]
   end
 
-  resources :albums, only: [:show, :create, :edit, :update, :destroy]
+  resources :albums, only: [:show, :edit, :update, :destroy]
   # Routes pour les pokemons
   resources :albums, only: [] do
     resources :album_pokemons, only: [:new, :create] do
