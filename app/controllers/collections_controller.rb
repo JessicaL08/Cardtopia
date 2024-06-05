@@ -13,23 +13,21 @@ class CollectionsController < ApplicationController
     @collection = current_user.collections.build
   end
 
-def create
-  @collection = current_user.collections.build(collection_params)
-  if @collection.save
-    redirect_to user_collection_path(current_user, @collection), notice: 'Collection created successfully.'
-  else
-    render :new
+  def create
+    @collection = current_user.collections.build(collection_params)
+    if @collection.save
+      redirect_to collection_path(@collection), notice: 'Collection created successfully.'
+    else
+      render :new
+    end
   end
-end
 
-def edit
-  @user = current_user
-  @collection = Collection.find(params[:id])
-end
+  def edit
+  end
 
   def update
     if @collection.update(collection_params)
-      redirect_to user_collection_path(current_user, @collection), notice: 'Collection updated successfully.'
+      redirect_to collection_path(@collection), notice: 'Collection updated successfully.'
     else
       render :edit
     end
@@ -37,13 +35,13 @@ end
 
   def destroy
     @collection.destroy
-    redirect_to user_collections_path(current_user), notice: 'Collection deleted successfully.'
+    redirect_to collections_path, notice: 'Collection deleted successfully.'
   end
 
   private
 
   def set_collection
-    @collection = current_user.collections.find(params[:id])
+    @collection = Collection.find(params[:id])
   end
 
   def collection_params

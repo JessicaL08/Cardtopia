@@ -1,0 +1,2 @@
+module AlbumPokemonsHelper
+end

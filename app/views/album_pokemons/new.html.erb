@@ -2,9 +2,9 @@
 
 <%= render 'search' %>
 
-<% if @pokemons.any? %>
+<% if @pokemons&.any? %>
   <h2>Search Results:</h2>
-  <%= form_with(model: [@collection, @album, @pokemons], url: user_collection_album_pokemons_path(@collection, @album), method: :post) do |form| %>
+  <%= form_with(model: [@album, @pokemons], url: album_album_pokemons_path(@album), method: :post) do |form| %>
     <div class="form-group">
       <%= label_tag :pokemon_id, "Choisis le Pokemon à ajouter" %>
       <%= select_tag :pokemon_id, options_from_collection_for_select(@pokemons, :id, :pokemon_id), { prompt: "Pokémon", class: "form-control" } %>
@@ -21,4 +21,5 @@
   <p>No Pokemon found with the given name.</p>
 <% end %>
 
-<%= link_to "Back", user_collection_album_path(@user, @collection, @album), class: "btn btn-secondary" %>
+<%= link_to "Back", album_path(@collection, @album), class: "btn btn-secondary" %>
+Assurez-vous que vos contrôleurs et vues utilisent correctement les nouvelles routes simplifiées.
