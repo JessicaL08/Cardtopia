@@ -6,8 +6,8 @@
   <h2>Search Results:</h2>
   <%= form_with(model: [@album, @pokemons], url: album_album_pokemons_path(@album), method: :post) do |form| %>
     <div class="form-group">
-      <%= label_tag :pokemon_id, "Select Pokemon" %>
-      <%= select_tag :pokemon_id, options_from_collection_for_select(@pokemons, :id, :pokemon_id), { prompt: "Choose Pokémon", class: "form-control" } %>
+      <%= label_tag :pokemon_id, "Choisis le Pokemon à ajouter" %>
+      <%= select_tag :pokemon_id, options_from_collection_for_select(@pokemons, :id, :pokemon_id), { prompt: "Pokémon", class: "form-control" } %>
     </div>
     <%= submit_tag "Add Pokémon", class: "btn btn-primary" %>
   <% end %>
