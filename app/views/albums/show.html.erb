@@ -7,23 +7,21 @@
     Editer mon album
   </button>
   <ul class="dropdown-menu">
-    <%# <li><a class="dropdown-item" href="#">Renommer mon album</a></li> %>
-    <%# <li><a class="dropdown-item" href="#">Ajouter des cartes</a></li> %>
-    <%# <li><a class="dropdown-item" href="#">Supprimer des cartes</a></li> %>
     <%= link_to 'Renommer mon album', edit_user_collection_album_path(@collection, @album), class: 'dropdown-item' %>
-    <%= link_to 'Ajouter des cartes', user_collection_album_path(@collection, @album), class: 'dropdown-item' %>
-    <%= link_to 'Supprimer des cartes', edit_user_collection_album_path(@collection, @album), class: 'dropdown-item' %>
+    <%= link_to 'Ajouter des cartes', user_collection_album_path(@collection, @album), class: 'dropdown-item' %> <%# Redirection erronée à paramétrer %>
+    <%= link_to 'Supprimer des cartes', edit_user_collection_album_path(@collection, @album), class: 'dropdown-item' %> <%# Redirection erronée à paramétrer %>
   </ul>
 </div>
+
 <%# --------------------------- TEST NAVBAR ALBUM --------------------------- %>
 
   <%= link_to 'Edit Album', edit_user_collection_album_path(@collection, @album), class: 'btn btn-primary' %>
 
   <h2 class="titlePoke">Mes cartes Pokemons</h2>
 
-<ul class="row">
+<ul class="row p-0">
   <% @pokemons.each do |pokemon| %>
-    <li class="col-md-3 col-sm-6 card-size">
+    <li class="card-size">
       <div class="content col">
         <span class="name-style">
           <%= pokemon.pokemon_name %>

@@ -9,18 +9,16 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: center;
+  justify-content: center;
 }
 
 .card-size {
-  margin-bottom: 4%;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   background-color: $orange;
   box-sizing: border-box;
-  margin-right: 8px;
-  margin-left: 8px;
-  width: 300px;
+  margin-inline: 8px;
   border-radius: 12px;
   // box-shadow: 9px 10px 7px 0px rgba(239, 169, 28, 0.75);
 }
@@ -61,14 +59,28 @@
 }
 
 /* Media Queries pour ajuster le layout sur les écrans plus petits */
-@media (max-width: 1200px) {
+@media (max-width: 767px) {
   .card-size {
-    width: 45%; /* Deux cartes par ligne */
+    width: calc(92 / 2 * 1%); /* Deux cartes par ligne */
   }
 }
 
-@media (max-width: 768px) {
+/* Media Queries pour ajuster le layout sur les écrans plus petits */
+@media (min-width: 768px) and (max-width: 1023px) {
   .card-size {
-    width: 100%; /* Une carte par ligne */
+    width: calc(92 / 3 * 1%); /* Trois cartes par ligne */
   }
 }
+
+/* Media Queries pour ajuster le layout sur les écrans plus petits */
+@media (min-width: 1024px) {
+  .card-size {
+    width: calc(92 / 4 * 1%); /* Trois cartes par ligne */
+  }
+}
+
+// @media (max-width: 768px) {
+//   .card-size {
+//     width: calc(); /* Une carte par ligne */
+//   }
+// }
