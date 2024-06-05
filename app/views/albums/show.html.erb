@@ -29,9 +29,9 @@
           </span>
           <div class="img-size">
             <% if pokemon.image != "/high.webp" %>
-              <%= image_tag(pokemon.image, class: "pokemon-image") %>
+            <%= link_to image_tag(pokemon.image, class: "pokemon-image"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
             <% else %>
-              <%= image_tag("Pika-no-image", class: "pokemon-image no-image") %>
+              <%= link_to image_tag("Pika-no-image", class: "pokemon-image no-image"), album_album_pokemon_pokemon_path(pokemon.id) %>
             <% end %>
           </div>
           <%= extension["extension_name"] %> | <%= extension["season_name"] %>
