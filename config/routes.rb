@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       resources :users, only: [] do
         resources :collections do
           resources :albums, only: [:new, :create, :show, :edit, :update, :destroy] do
-            resources :pokemons, only: [:new, :create]
+            resources :pokemons, only: [:new, :create, :show]
           end
         end
       end

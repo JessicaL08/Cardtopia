@@ -50,15 +50,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_130731) do
 
   create_table "pokemons", force: :cascade do |t|
     t.string "pokemon_name"
-    t.string "pokemon_id"
     t.string "pokemon_index"
-    t.string "category"
-    t.string "rarity"
     t.string "image"
-    t.jsonb "metadata", default: {}
     t.bigint "extension_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
+    t.string "rarity"
+    t.jsonb "metadata"
+    t.string "pokemon_id"
     t.index ["extension_id"], name: "index_pokemons_on_extension_id"
   end
 

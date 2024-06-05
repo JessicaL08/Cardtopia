@@ -1,6 +1,6 @@
 <h1>Search Pokémon by Name</h1>
 
-<%= render 'search' %>
+<%= render 'search', user: current_user, collection: @collection, album: @album, seasons: @seasons  %>
 
 <% if @pokemons.any? %>
   <h2>Search Results:</h2>

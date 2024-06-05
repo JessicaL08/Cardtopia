@@ -1,28 +1,27 @@
 <div class="container">
   <h1><%= @album.name %></h1>
 
-<%# --------------------------- TEST NAVBAR ALBUM --------------------------- %>
+<%# --------------------------- NAVBAR EDIT ALBUM --------------------------- %>
 <div class="dropdown-center navbar-album">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Editer mon album
   </button>
   <ul class="dropdown-menu">
     <%= link_to 'Renommer mon album', edit_user_collection_album_path(@collection, @album), class: 'dropdown-item' %>
-    <%= link_to 'Ajouter des cartes', user_collection_album_path(@collection, @album), class: 'dropdown-item' %> <%# Redirection erronée à paramétrer %>
+    <%= link_to 'Ajouter des cartes', new_user_collection_album_pokemon_path(collection_id: @collection.id, album_id: @album.id), class: 'dropdown-item' %>
     <%= link_to 'Supprimer des cartes', edit_user_collection_album_path(@collection, @album), class: 'dropdown-item' %> <%# Redirection erronée à paramétrer %>
   </ul>
 </div>
-
-<%# --------------------------- TEST NAVBAR ALBUM --------------------------- %>
+<%# --------------------------- NAVBAR EDIT ALBUM --------------------------- %>
 
   <%= link_to 'Edit Album', edit_user_collection_album_path(@collection, @album), class: 'btn btn-primary' %>
 
   <h2 class="titlePoke">Mes cartes Pokemons</h2>
 
-<ul class="row p-0">
+<div class="row p-0">
   <% @pokemons.each do |pokemon| %>
   <% extension = ActiveRecord::Base.connection.execute("SELECT extension_name, season_name FROM extensions JOIN seasons ON extensions.season_id = seasons.id WHERE extensions.id = #{pokemon.extension_id}").first %>
-    <li class="card-size">
+    <%= link_to user_collection_album_pokemon_path(current_user, @collection, pokemon), class: 'card-size' do %>
       <div class="content col">
         <span class="name-style">
             <%= pokemon.pokemon_name %>
@@ -36,9 +35,9 @@
         </div>
           <%= extension["extension_name"] %> | <%= extension["season_name"] %>
       </div>
-    </li>
+    <% end %>
   <% end %>
-</ul>
+</div>
   <%= link_to "Add New Pokemon", new_user_collection_album_pokemon_path(collection_id: @collection.id, album_id: @album.id), class: "btn btn-success" %>
   <%= link_to 'Back to Albums', user_collection_path(current_user, @collection), class: 'btn btn-secondary' %>
 </div>

@@ -33,6 +33,10 @@ class PokemonsController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   private
 
   # Définit les paramètres autorisés pour la création d'un Pokémon
