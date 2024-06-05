@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :albums, only: [:new, :create]
   end
 
-  resources :albums, only: [:show, :create, :edit, :update, :destroy]
+  resources :albums, only: [:show, :edit, :update, :destroy]
   # Routes pour les pokemons
   resources :albums, only: [] do
     resources :album_pokemons, only: [:new, :create] do
