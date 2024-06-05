@@ -3,6 +3,13 @@
 
   <p>Cardtopia vous permet de virtualiser vos albums de cartes Pokémon. Ajoutez des cartes à vos albums, gérez vos collections et bien plus encore.</p>
 
+  <div class="card">
+    <div class="wrapper">
+      <%= link_to image_tag("mewto.webp", class: "cover-image") %>
+    </div>
+    <%= link_to image_tag("Mewto.png", class: "character") %>
+  </div>
+
   <div class="actions">
     <% if user_signed_in? %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
