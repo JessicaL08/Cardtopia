@@ -5,7 +5,7 @@ namespace :db do
   task :dump => :environment do
     cmd = nil
     with_config do | host, db, user|
-      cmd = "pg_dump --host #{host} --username #{user} --verbose --clean --no-owner --no-acl --format=c -d #{db} -f #{Rails.root}/db/cardtopia_dbV2.dump"
+      cmd = "pg_dump --host #{host} --username #{user} --verbose --clean --no-owner --no-acl --format=c -d #{db} -f #{Rails.root}/db/cardtopia_db.dump"
       # "pg_dump -F c -v -h #{host} -d #{db} -f #{Rails.root}/db/cardtopia_dbv2.dump"
     end
     puts cmd
@@ -16,7 +16,7 @@ namespace :db do
   task :restore => :environment do
     cmd = nil
     with_config do | host, db, user|
-      cmd = "pg_restore --verbose --host #{host} --username #{user} --clean --no-owner --no-acl --dbname #{db} -C #{Rails.root}/db/cardtopia_dbV2.dump"
+      cmd = "pg_restore --verbose --host #{host} --username #{user} --clean --no-owner --no-acl --dbname #{db} -C #{Rails.root}/db/cardtopia_db.dump"
       # "pg_restore -F #{fmt} -v -c -C #{file}"
     end
     # Rake::Task["db:drop"].invoke
