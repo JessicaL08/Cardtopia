@@ -35,6 +35,5 @@
 /config/master.key
 
 # Ignore file dump for DB
-# *.dump
+*.dump
 
-/db/cardtopia_db.dump
