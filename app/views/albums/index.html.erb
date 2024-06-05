@@ -2,11 +2,11 @@
 
 <% @albums.each do |album| %>
   <div class="album">
-    <h2><%= link_to album.name, user_collection_album_path(current_user, @collection, album) %></h2>
-    <%= link_to 'Edit',  edit_user_collection_album_path(current_user, @collection, album) %>
-    <%# <%= link_to 'Delete', user_collection_album_path(current_user, @collection, album), method: :delete, data: { confirm: 'Are you sure?' } %> %>
+    <h2><%= link_to album.name, collection_album_path(@collection, album) %></h2>
+    <%= link_to 'Edit',  edit_collection_album_path(@collection, album) %>
+    <%# <%= link_to 'Delete', collection_album_path(@collection, album), method: :delete, data: { confirm: 'Are you sure?' } %> %>
   </div>
 <% end %>
 
-<%= link_to 'Add New Album', new_user_collection_album_path(current_user, @collection), class: 'btn btn-primary' %>
-<%= link_to 'Back to Collections', user_collections_path, class: 'btn btn-secondary' %>
+<%= link_to 'Add New Album', new_collection_album_path(@collection), class: 'btn btn-primary' %>
+<%= link_to 'Back to Collections', collections_path, class: 'btn btn-secondary' %>
