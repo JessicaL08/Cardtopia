@@ -21,6 +21,7 @@ EXTENSION_API = 'https://api.tcgdex.net/v2/fr/sets'
 
 p 'Clear DB'
 if Rails.env.development?
+  AlbumPokemon.destroy_all
   Pokemon.destroy_all
   Extension.destroy_all
   Season.destroy_all
