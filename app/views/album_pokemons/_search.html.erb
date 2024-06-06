@@ -6,8 +6,13 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
-<div data-controller="search">
+<div>
   <% @seasons.each do |season| %>
-    <button data-action="click->search#fire"><%= season.season_name %></button>
+    <%= link_to season.season_name, request.params.merge(season_id: season.id) %>
+  <% end %>
+  <% unless @extensions.nil? %>
+    <% @extensions.each do |extension| %>
+      <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id) %>
+    <% end %>
   <% end %>
 </div>
