@@ -1,0 +1,95 @@
+@import "colors";
+
+.pokenametitle {
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+
+.allinfos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.single-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 24px;
+  margin-right: 24px;
+}
+
+.pokemon-image-info {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+}
+
+.info-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 12px;
+  max-width: 660px;
+}
+
+.zone1,
+.zone2,
+.zone3 {
+  background-color: $orange;
+  border: solid;
+  border-color: $red;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding: 12px;
+}
+
+/* Media Queries */
+
+/* Petits écrans (mobiles) */
+@media (max-width: 767px) {
+  .allinfos {
+    flex-direction: column; /* Disposition en colonne pour les petits écrans */
+  }
+
+  .single-img,
+  .info-zone {
+    flex: 1 1 100%; /* Occupe 100% de la largeur du conteneur parent */
+  }
+
+  .pokemon-image {
+    width: 80%; /* Ajuster la taille de l'image pour les petits écrans */
+  }
+}
+
+/* Tablettes et petits laptops */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .single-img,
+  .info-zone {
+    flex: 1 1 100%; /* Occupe 100% de la largeur du conteneur parent */
+  }
+
+  .single-img {
+    margin-bottom: 24px; /* Ajoute un espacement supplémentaire en dessous de l'image */
+  }
+
+  .pokemon-image {
+    width: 80%; /* Ajuster la taille de l'image pour les tablettes */
+  }
+}
+
+/* Laptops et grands écrans */
+@media (min-width: 1024px) {
+  .single-img,
+  .info-zone {
+    flex: 1 1 50%; /* Occupe 50% de la largeur du conteneur parent */
+  }
+
+  .pokemon-image {
+    width: 100%; /* Ajuster la taille de l'image pour les grands écrans */
+  }
+}
