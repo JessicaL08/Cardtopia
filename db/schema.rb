@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_084312) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_06_095456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_084312) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_collections_on_user_id"
+  end
+
+  create_table "exchange_requests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "pokemon_id", null: false
+    t.string "postal_code"
+    t.boolean "reserved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_id"], name: "index_exchange_requests_on_pokemon_id"
+    t.index ["user_id"], name: "index_exchange_requests_on_user_id"
   end
 
   create_table "extensions", force: :cascade do |t|
@@ -86,6 +97,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_084312) do
   add_foreign_key "album_pokemons", "pokemons"
   add_foreign_key "albums", "collections"
   add_foreign_key "collections", "users"
+  add_foreign_key "exchange_requests", "pokemons"
+  add_foreign_key "exchange_requests", "users"
   add_foreign_key "extensions", "seasons"
   add_foreign_key "pokemons", "extensions"
 end
