@@ -14,7 +14,9 @@
   </div>
 
   <%# --------------------------- TEST NAVBAR ALBUM --------------------------- %>
-
+  <%= render 'album_pokemons/search' %>
+  <%= render 'search_types' %>
+<%= link_to "Mes cartes", request.params.except(:type, :season_id, :name, :extension_id) %>
   <%= link_to 'Edit Album', edit_album_path(@album), class: 'btn btn-primary' %>
 
   <h2 class="titlePoke">Mes cartes Pokemons</h2>
