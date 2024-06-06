@@ -17,10 +17,12 @@ Rails.application.routes.draw do
     resources :albums, only: [:new, :create]
   end
 
+    delete '/album_pokemons', to: 'album_pokemons#destroy_multiple'
+
   resources :albums, only: [:show, :edit, :update, :destroy]
   # Routes pour les pokemons
   resources :albums, only: [] do
-    resources :album_pokemons, only: [:new, :create] do
+    resources :album_pokemons, only: [:new, :create, :destroy] do
       resources :pokemons, only: [:show]
       end
     end
