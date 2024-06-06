@@ -2,23 +2,38 @@
 
   <h1><%= @pokemon.pokemon_name%><h1>
 
-  <div class="row">
-    <div class="img-size">
-      <% if @pokemon.image != "/high.webp" %>
-      <%= link_to image_tag(@pokemon.image, class: "pokemon-image") %>
-      <% else %>
-      <%= link_to image_tag("Pika-no-image", class: "pokemon-image no-image") %>
-      <% end %>
+  <div class="allinfos col">
+
+    <div class="row">
+
+      <div class="single-img">
+        <% if @pokemon.image != "/high.webp" %>
+        <%= link_to image_tag(@pokemon.image, class: "pokemon-image-info") %>
+        <% else %>
+        <%= link_to image_tag("Pika-no-image", class: "pokemon-image no-image") %>
+        <% end %>
+      </div>
+
     </div>
 
     <div class="info-zone row">
-    <div class="col"><%= @pokemon.pokemon_name%></div>
-    <div class="col"><%= @pokemon.pokemon_id%></div>
-    <div class="col"><%= @pokemon.rarity%></div>
 
-<%= @pokemon.metadata["attaques"]%>
-<%= @pokemon.metadata["effect"]%>
+      <div class="zone1">
+        <p>Informations du Pokémon</p>
+        <div class="col">Nom : <%= @pokemon.pokemon_name%></div>
+        <div class="col"><%= @pokemon.pokemon_id%></div>
+      </div>
 
+      <div class="zone2">
+        <p>Rareté</p>
+        <div class="col"><%= @pokemon.rarity%></div>
+      </div>
+
+      <div class="zone3">
+        <p>Attaques et effets</p>
+        <%= @pokemon.metadata["attaques"]%>
+        <%= @pokemon.metadata["effect"]%>
+      </div>
 
     </div>
   </div>
