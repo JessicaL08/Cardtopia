@@ -40,9 +40,5 @@
     <% end %>
   </ul>
   <%= link_to "Add New Pokemon", new_album_album_pokemon_path(@album), class: "btn btn-success" %>
-  <%= link_to 'Back to Albums', collection_path(@album.collection), class: 'btn btn-secondary' %>
-  <%# <%= button_to 'Delete', album_path(album), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-  <%# <%= button_to 'Delete', album_path(@album), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-
-
+<%= link_to 'Back to Albums', collection_path(@album.collection), class: 'btn btn-secondary' %>
 </div>
