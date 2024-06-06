@@ -31,7 +31,7 @@
             <% if pokemon.image != "/high.webp" %>
             <%= link_to image_tag(pokemon.image, class: "pokemon-image"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
             <% else %>
-              <%= link_to image_tag("Pika-no-image", class: "pokemon-image no-image"), album_album_pokemon_pokemon_path(pokemon.id) %>
+              <%= link_to image_tag("Pika-no-image", class: "pokemon-image no-image"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
             <% end %>
           </div>
           <%= extension["extension_name"] %> | <%= extension["season_name"] %>
@@ -41,8 +41,8 @@
   </ul>
   <%= link_to "Add New Pokemon", new_album_album_pokemon_path(@album), class: "btn btn-success" %>
   <%= link_to 'Back to Albums', collection_path(@album.collection), class: 'btn btn-secondary' %>
-  <%= button_to 'Delete', collection_path(@album.collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-  <%# <%= button_to 'Delete', album_path(@album), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%> %>
+  <%# <%= button_to 'Delete', album_path(album), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <%# <%= button_to 'Delete', album_path(@album), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 
 
 </div>
