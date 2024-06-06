@@ -19,11 +19,11 @@
     <% end %>
   <% end %>
 </div>
-<div class="d-flex">
+<div class="d-flex gap-2">
 
   <% Pokemon::TYPES.each do |type| %>
     <%= link_to request.params.merge(type: type) do %>
-      <%= image_tag "energy/#{type}.png" %>
+      <%= image_tag("energy/#{type}.png", class: "type-large-icon") %>
     <% end %>
   <% end %>
 </div>
