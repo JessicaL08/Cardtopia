@@ -15,7 +15,7 @@
   <% end %>
   <% unless @extensions.nil? %>
     <% @extensions.each do |extension| %>
-      <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id) %>
+      <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil) %>
     <% end %>
   <% end %>
 </div>
