@@ -1,0 +1,8 @@
+<div class="d-flex">
+
+  <% Pokemon::TYPES.each do |type| %>
+    <%= link_to request.params.merge(type: type) do %>
+      <%= image_tag "types/#{type}.png" %>
+    <% end %>
+  <% end %>
+</div>

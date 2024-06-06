@@ -29,3 +29,23 @@
 
 en:
   hello: "Hello world"
+
+  pokemon_types:
+    fire: "Feu"
+    water: "Eau"
+    grass:  "Plante"
+    electric: "Électrique"
+    normal: "Incolore"
+    fighting: "Combat"
+    flying: "Vol"
+    poison: "Poison"
+    ground: "Sol"
+    rock: "Roche"
+    bug:  "Insecte"
+    ghost:  "Spectre"
+    steel:  "Métal"
+    ice:  "Glace"
+    psychic:  "Psy"
+    dragon: "Dragon"
+    dark: "Obscurité"
+    fairy:  "Fée"
