@@ -1,2 +1,9 @@
-<h1>Albums#edit</h1>
-<p>Find me in app/views/albums/edit.html.erb</p>
+<h1>Edit Album</h1>
+
+<%= form_with(model: @album, url: album_path(@album), method: :patch) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.submit "Update Album", class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Back to Album', collections_path, class: 'btn btn-secondary' %>
