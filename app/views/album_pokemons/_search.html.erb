@@ -1,3 +1,4 @@
+
 <%= form_with(method: :get) do %>
   <div class="form-group" >
     <%= label_tag :pokemon_id, "Nom Pokemon ou son ID" %>
@@ -5,6 +6,8 @@
   </div>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+
+<%# Code to have button of season or extension to find pokemon to add at the album %>
 
 <div>
   <% @seasons.each do |season| %>

@@ -5,11 +5,12 @@ class AlbumPokemonsController < ApplicationController
     @seasons = Season.includes(:extensions).all
     # find extension if user click on button season
     @extensions = Extension.where("season_id = ?", params[:season_id]) if params[:season_id].present?
+
     if params[:extension_id].present?
       # find pokemon where user click on button extension
       @pokemons = Pokemon.where("extension_id = ?", params[:extension_id])
     elsif params[:name].present?
-# find pokemon where user put name or
+    # find pokemon where user put name
       @pokemons = Pokemon.where("pokemon_name ILIKE ? OR pokemon_id ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
     end
   end

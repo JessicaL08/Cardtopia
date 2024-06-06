@@ -8,7 +8,10 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @seasons = Season.includes(:extensions).all
+    @extensions = Extension.where("season_id = ?", params[:season_id]) if params[:season_id].present?
     @pokemons = @album.pokemons # Récupère tous les Pokémon associés à l'album spécifique
+    search_pokemon
   end
 
   def new
@@ -55,5 +58,17 @@ end
 
   def album_params
     params.require(:album).permit(:name) # Autorise uniquement le paramètre :name pour la création ou la mise à jour d'un album
+  end
+
+  def search_pokemon
+    if params[:extension_id].present?
+      # find pokemon where user click on button extension
+      @pokemons = @pokemons.where("pokemons.extension_id = ?", params[:extension_id])
+    elsif params[:name].present?
+      # find pokemon where user put name
+      @pokemons = @pokemons.where("pokemons.pokemon_name ILIKE ? OR pokemons.pokemon_id ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
+    elsif params[:type].present?
+      @pokemons = @pokemons.where("metadata @> ?", { types: [I18n.t("pokemon_types.#{params[:type]}")] }.to_json)
+    end
   end
 end
