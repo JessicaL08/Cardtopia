@@ -61,7 +61,11 @@ end
   end
 
   def search_pokemon
-    if params[:extension_id].present?
+    if params[:type].present? && params[:extension_id].present?
+      @pokemons = @pokemons.where("extension_id = ?", params[:extension_id])
+      @pokemons = @pokemons.where("metadata @> ?", { types: [I18n.t("pokemon_types.#{params[:type]}")] }.to_json)
+    elsif
+      params[:extension_id].present?
       # find pokemon where user click on button extension
       @pokemons = @pokemons.where("pokemons.extension_id = ?", params[:extension_id])
     elsif params[:name].present?
