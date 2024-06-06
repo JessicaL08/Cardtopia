@@ -1,76 +1,40 @@
-// @import "colors";
-
-// .allinfos {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .single-img {
-//   width: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   overflow: hidden;
-//   margin-bottom: 12px;
-// }
-
-// .info-zone {
-// }
-
-// .zone1 {
-//   background-color: $orange;
-//   border: solid;
-//   border-color: $red;
-//   border-radius: 12px;
-//   margin-bottom: 12px;
-// }
-
-// .zone2 {
-//   background-color: $orange;
-//   border: solid;
-//   border-color: $red;
-//   border-radius: 12px;
-//   margin-bottom: 12px;
-// }
-
-// .zone3 {
-//   background-color: $orange;
-//   border: solid;
-//   border-color: $red;
-//   border-radius: 12px;
-//   margin-bottom: 12px;
-// }
-// ----------------------------------------------
 @import "colors";
+
+.pokenametitle {
+  margin-bottom: 24px;
+  font-weight: bold;
+}
 
 .allinfos {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding-left: 12px;
-  padding-right: 12px;
+  align-items: center;
+  justify-content: center;
 }
 
 .single-img {
-  flex: 1 1 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   margin-bottom: 24px;
+  margin-right: 24px;
 }
 
 .pokemon-image-info {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  max-width: 300px;
 }
 
 .info-zone {
-  flex: 1 1 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-right: 12px;
+  max-width: 660px;
 }
 
 .zone1,

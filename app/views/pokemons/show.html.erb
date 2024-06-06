@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1><%= @pokemon.pokemon_name%><h1>
+  <h1 class="pokenametitle"><%= @pokemon.pokemon_name%><h1>
 
   <div class="allinfos col">
 
@@ -10,7 +10,7 @@
         <% if @pokemon.image != "/high.webp" %>
         <%= link_to image_tag(@pokemon.image, class: "pokemon-image-info") %>
         <% else %>
-        <%= link_to image_tag("Pika-no-image", class: "pokemon-image no-image") %>
+        <%= link_to image_tag("Pika-no-image", class: "pokemon-image-info no-image") %>
         <% end %>
       </div>
 
@@ -21,7 +21,7 @@
       <div class="zone1">
         <p>Informations du Pokémon</p>
         <div class="col">Nom : <%= @pokemon.pokemon_name%></div>
-        <div class="col"><%= @pokemon.pokemon_id%></div>
+        <div class="col">Saison - Extension :<%= @pokemon.pokemon_id%></div>
       </div>
 
       <div class="zone2">
@@ -31,10 +31,26 @@
 
       <div class="zone3">
         <p>Attaques et effets</p>
-        <%= @pokemon.metadata["attaques"]%>
-        <%= @pokemon.metadata["effect"]%>
-      </div>
 
+    <% @pokemon.metadata["attaques"].each do |attaque| %>
+      <p>Coût:
+        <% attaque["cost"].each do |cost| %>
+          <% if cost == "Feu" %>
+            <%= image_tag('feuicon.png') %>
+          <% else %>
+            <%= cost %>
+          <% end %>
+        <% end %>
+      </p>
+
+
+          <%= image_tag("feuicon.png") %>
+          <p>Nom: <%= attaque["name"] %></p>
+          <p>Dégat: <%= attaque["damage"] %></p>
+          <p>Effet: <%= attaque["effect"] %></p>
+
+          <% end %>
+      </div>
     </div>
   </div>
 </div>
