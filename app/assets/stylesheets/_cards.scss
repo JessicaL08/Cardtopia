@@ -62,7 +62,7 @@
 /* Media Queries pour ajuster le layout sur les écrans plus petits */
 @media (max-width: 767px) {
   .card-size {
-    width: calc(92 / 2 * 1%); /* Deux cartes par ligne */
+    width: calc(90 / 2 * 1%); /* Deux cartes par ligne */
   }
 }
 
