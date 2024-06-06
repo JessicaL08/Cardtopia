@@ -4,7 +4,7 @@ class Pokemon < ApplicationRecord
 
   validates :pokemon_name, presence: true
 
-  TYPES = [:fire, :water, :grass, :electric, :normal, :fighting, :flying, :poison, :ground, :rock, :bug, :ghost, :steel, :ice, :psychic, :dragon, :dark, :fairy]
+  TYPES = [:fire, :water, :grass, :electric, :normal, :fighting, :steel, :psychic, :dragon, :dark, :fairy]
 
   def self.with_extension_and_season
     joins(extension: :season)
