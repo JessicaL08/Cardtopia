@@ -15,4 +15,10 @@ class Pokemon < ApplicationRecord
     type = self.metadata['types']&.first || 'unknown'
     I18n.t("pokemon_types").key(type)
   end
+
+  def icon_type_src(type)
+    type_en = I18n.t("pokemon_types").key(type)
+    "energy/#{type_en}.png"
+  end
+
 end
