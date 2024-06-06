@@ -62,6 +62,7 @@ end
 
   def search_pokemon
     if params[:extension_id].present?
+      
       # find pokemon where user click on button extension
       @pokemons = @pokemons.where("pokemons.extension_id = ?", params[:extension_id])
     elsif params[:name].present?
