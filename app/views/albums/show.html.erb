@@ -45,8 +45,7 @@
   </ul>
 
   <%= link_to "Add New Pokemon", new_album_album_pokemon_path(@album), class: "btn btn-success" %>
-  <%= link_to 'Back to Albums', collection_path(@album.collection), class: 'btn btn-secondary' %>
-
+<%= link_to 'Back to Albums', collection_path(@album.collection), class: 'btn btn-secondary' %>
   <button data-action="click->suppression#activer" id="activerSuppression">Activer la suppression des cartes</button>
 </div>
 </div>

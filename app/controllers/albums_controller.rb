@@ -61,6 +61,7 @@ end
   end
 
   def search_pokemon
+
     
     if params[:type].present? && params[:extension_id].present?
       @pokemons = @pokemons.where("extension_id = ?", params[:extension_id])
