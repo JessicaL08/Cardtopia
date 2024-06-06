@@ -22,11 +22,11 @@
 
   <h2 class="titlePoke">Mes cartes Pokemons</h2>
 
-<div data-controller="suppression">
+<div data-controller="suppression" id="liste-elements">
   <ul class="row p-0">
     <% @pokemons.each do |pokemon| %>
       <% extension = ActiveRecord::Base.connection.execute("SELECT extension_name, season_name FROM extensions JOIN seasons ON extensions.season_id = seasons.id WHERE extensions.id = #{pokemon.extension_id}").first %>
-      <li class="card-size" data-suppression-target="card">
+  <li class="card-size" data-suppression-target="card">
         <div class="content col carte">
           <span class="name-style">
             <%= pokemon.pokemon_name %>
@@ -40,12 +40,15 @@
           </div>
           <%= extension["extension_name"] %> | <%= extension["season_name"] %>
         </div>
+        <input type="checkbox" name="selected_pokemons[]" value="<%= pokemon.id %>" data-suppression-target="checkbox" disabled>
       </li>
     <% end %>
   </ul>
 
   <%= link_to "Add New Pokemon", new_album_album_pokemon_path(@album), class: "btn btn-success" %>
 <%= link_to 'Back to Albums', collection_path(@album.collection), class: 'btn btn-secondary' %>
-  <button data-action="click->suppression#activer" id="activerSuppression">Activer la suppression des cartes</button>
+<button data-action="click->suppression#supprimerSelection">Supprimer les cartes sélectionnées</button>
+<button data-action="click->suppression#activerSelection">Activer la sélection</button>
+
 </div>
 </div>

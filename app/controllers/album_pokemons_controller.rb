@@ -22,6 +22,12 @@ class AlbumPokemonsController < ApplicationController
     @album_pokemon.save ? redirect_to(album_path(@album), notice: 'Pokemon ajouté avec succès.') : render(:new)
   end
 
+def destroy_multiple
+  pokemon_ids = params[:pokemon_ids].split(',')
+  AlbumPokemon.where(pokemon_id: pokemon_ids).destroy_all
+  head :no_content
+end
+
   private
 
   def load_collection_and_album

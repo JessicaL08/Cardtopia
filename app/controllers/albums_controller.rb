@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+    protect_from_forgery with: :null_session
+
   before_action :authenticate_user! # Authentifie l'utilisateur avant d'accéder à toute action
   before_action :set_collection, only: [:index, :new, :create] # Définit la collection avant les actions index, new, create
   before_action :set_album, only: [:show, :edit, :update, :destroy] # Définit l'album avant les actions show, edit, update, destroy
