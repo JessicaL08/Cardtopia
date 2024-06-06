@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  pokemon: one
+  postal_code: MyString
+  reserved: false
+
+two:
+  user: two
+  pokemon: two
+  postal_code: MyString
+  reserved: false
