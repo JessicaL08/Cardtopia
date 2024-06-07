@@ -19,11 +19,11 @@ class AlbumPokemonsController < ApplicationController
     end
   end
 
-def destroy_multiple
-  pokemon_ids = params[:pokemon_ids].split(',')
-  AlbumPokemon.where(pokemon_id: pokemon_ids).destroy_all
-  head :no_content
-end
+  def destroy_multiple
+    pokemon_ids = params[:pokemon_ids].split(',')
+    AlbumPokemon.where(pokemon_id: pokemon_ids).destroy_all
+    head :no_content
+  end
 
   private
 
@@ -44,8 +44,8 @@ end
       @pokemons = Pokemon.where("pokemon_name ILIKE ? OR pokemon_id ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
     end
   end
-end
 
   def set_album
     @album = Album.find_by(id: params[:album_id])
   end
+end
