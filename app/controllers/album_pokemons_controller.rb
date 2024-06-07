@@ -41,7 +41,7 @@ class AlbumPokemonsController < ApplicationController
       @pokemons = Pokemon.where("extension_id = ?", params[:extension_id])
     elsif params[:name].present?
     # find pokemon where user put name
-      @pokemons = Pokemon.where("pokemon_name ILIKE ? OR pokemon_id ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
+      @pokemons = Pokemon.where("unaccent(pokemons.pokemon_name) ILIKE ? OR unaccent(pokemons.pokemon_id) ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
     end
   end
 
