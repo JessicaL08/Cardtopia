@@ -7,18 +7,18 @@ class AlbumsController < ApplicationController
 
   def index
     @albums = @collection.albums # Récupère tous les albums de la collection spécifiée
-  end
+    end
 
-  def show
-    @seasons = Season.includes(:extensions).all
-    @extensions = Extension.where("season_id = ?", params[:season_id]) if params[:season_id].present?
-    @pokemons = @album.pokemons # Récupère tous les Pokémon associés à l'album spécifique
-    search_pokemon
-  end
+    def show
+      @seasons = Season.includes(:extensions).all
+      @extensions = Extension.where("season_id = ?", params[:season_id]) if params[:season_id].present?
+      @pokemons = @album.pokemons # Récupère tous les Pokémon associés à l'album spécifique
+      search_pokemon
+      end
 
-  def new
-    @album = @collection.albums.build # Initialise un nouvel album associé à la collection
-  end
+    def new
+        @album = @collection.albums.build # Initialise un nouvel album associé à la collection
+    end
 
   def create
     @collection = Collection.find(params[:collection_id]) # Trouve la collection spécifiée dans les paramètres de la requête
@@ -33,7 +33,7 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-  end
+    end
 
   def update
     if @album.update(album_params)
@@ -66,13 +66,13 @@ end
     if params[:type].present? && params[:extension_id].present?
       @pokemons = @pokemons.where("extension_id = ?", params[:extension_id])
       @pokemons = @pokemons.where("metadata @> ?", { types: [I18n.t("pokemon_types.#{params[:type]}")] }.to_json)
-    elsif
+      elsif
       params[:extension_id].present?
       # find pokemon where user click on button extension
       @pokemons = @pokemons.where("pokemons.extension_id = ?", params[:extension_id])
     elsif params[:name].present?
       # find pokemon where user put name
-      @pokemons = @pokemons.where("pokemons.pokemon_name ILIKE ? OR pokemons.pokemon_id ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
+      @pokemons = @pokemons.where("unaccent(pokemons.pokemon_name) ILIKE ? OR unaccent(pokemons.pokemon_id) ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
     elsif params[:type].present?
       @pokemons = @pokemons.where("metadata @> ?", { types: [I18n.t("pokemon_types.#{params[:type]}")] }.to_json)
     end
