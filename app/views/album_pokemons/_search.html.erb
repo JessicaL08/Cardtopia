@@ -2,23 +2,33 @@
 <%= form_with(method: :get) do %>
   <div class="form-group" >
     <%= label_tag :pokemon_id, "Nom Pokemon ou son ID" %>
-    <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Evoli / pop3-13" %>
+    <div class="inline">
+      <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Evoli / pop3-13" %>
+    </div>
   </div>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <div class="inline">
+    <%= submit_tag "Recherche", class: "btn btn-primary" %>
+  </div>
 <% end %>
 
 <%# Code to have button of season or extension to find pokemon to add at the album %>
 
-<div>
-  <% @seasons.each do |season| %>
-    <%= link_to season.season_name, request.params.merge(season_id: season.id) %>
-  <% end %>
-  <% unless @extensions.nil? %>
-    <% @extensions.each do |extension| %>
-      <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil) %>
-    <% end %>
-  <% end %>
-</div>
+
+  <div class="caroussel">
+    <div id="caroussel_season">
+       <% @seasons.each do |season| %>
+        <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87" %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <% unless @extensions.nil? %>
+      <% @extensions.each do |extension| %>
+        <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil) %>
+      <% end %>
+    <%  end %>
+  </div>
+
 
 <div id="pokemon_type">
   <div id="type">
