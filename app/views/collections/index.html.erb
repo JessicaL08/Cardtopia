@@ -5,18 +5,10 @@
     <div class="collection">
       <h2><%= link_to collection.name, collection_path(collection) %></h2>
       <div class="actions">
-        <%= link_to 'Edit', edit_collection_path(collection), class: 'btn btn-secondary' %>
         <%= link_to 'Delete', collection_path(collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
       </div>
     </div>
   <% end %>
-
-  <%= link_to 'Add New Collection', new_collection_path, class: 'btn btn-primary' %>
-
-  <div class="actions">
-    <%= link_to 'Retour à la page principale', root_path, class: 'btn btn-secondary' %>
-    <button id="infoButton" class="btn btn-info">Info</button> <!-- Bouton Info -->
-  </div>
 
   <div id="infoText" style="display: none;"> <!-- Élément pour afficher l'explication -->
     <p>Ceci est ta page collection, c'est ici que tu retrouves toutes tes collections de cartes. Clique sur celle que tu veux pour accéder à tes albums.</p>
