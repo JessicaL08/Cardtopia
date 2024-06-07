@@ -1,3 +1,5 @@
+@import "colors";
+
 :root {
   --card-height: 300px;
   --card-width: calc(var(--card-height) / 1.5);
@@ -27,6 +29,8 @@
   padding: 0 36px;
   perspective: 2500px;
   margin: 50px 0;
+  background-color: $bg;
+  border: none;
 }
 
 .cover-image {
@@ -107,7 +111,7 @@
 
 .card:hover .character {
   opacity: 1;
-  transform: translate3d(-55%, -75%, 100px);
+  transform: translate3d(-0%, -15%, 100px);
 }
 
 .container {
