@@ -1,0 +1,50 @@
+.sticky-button {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0.6;
+  /* Opacité initiale du bouton principal */
+  transition: opacity 0.3s ease;
+  /* Transition de l'opacité */
+}
+
+.sub-buttons {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    background-color: blue;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sub-buttons button {
+    // display: block;
+    background-color: white;
+    color: blue;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+.sub-buttons button:hover {
+  color: black;
+  /* Changez la couleur selon votre préférence */
+}
+
+.sub-buttons button i {
+  font-size: 24px;
+  /* Ajustez la taille selon vos besoins */
+}
+
+
+
+.sticky-button.clicked {
+  opacity: 1;
+  /* Opacité maximale lorsqu'on clique */
+}

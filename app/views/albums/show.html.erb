@@ -2,7 +2,7 @@
   <h1><%= @album.name %></h1>
 
   <%# --------------------------- NAVBAR ALBUM DROPDOWN --------------------------- %>
-  <div class="dropdown-center navbar-album">
+ <!-- <div class="dropdown-center navbar-album">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Editer mon album
     </button>
@@ -11,11 +11,13 @@
       <%= link_to 'Ajouter des cartes', new_album_album_pokemon_path(@album), class: 'dropdown-item' %> <%# Redirection erronée à paramétrer %>
       <%= link_to 'Supprimer des cartes', edit_album_path(@album), class: 'dropdown-item' %> <%# Redirection erronée à paramétrer %>
     </div>
-  </div>
+  </div> -->
 
   <%# --------------------------- NAVBAR ALBUM DROPDOWN --------------------------- %>
 
-    <%= link_to 'Edit Album', edit_album_path(@album), class: 'btn btn-primary' %>
+  <div class="w-100" data-controller="suppression" id="liste-elements">
+    <ul class="d-flex flex-wrap justify-content-center m-0 p-0 row p-0">
+
     <%= render 'album_pokemons/search' %>
 
     <%= link_to "Mes cartes", request.params.except(:type, :season_id, :name, :extension_id), class: 'btn btn-primary' %>
@@ -47,9 +49,7 @@
       <% end %>
     </ul>
 
-    <%= link_to "Add New Pokemon", new_album_album_pokemon_path(@album), class: "btn btn-success" %>
-    <%= link_to 'Back to Albums', collection_path(@album.collection), class: 'btn btn-secondary' %>
-    <button data-action="click->suppression#supprimerSelection">Supprimer les cartes sélectionnées</button>
-    <button data-action="click->suppression#activerSelection">Activer la sélection</button>
+    <button id="deleteSelectedButton" data-action="click->suppression#supprimerSelection">Supprimer les cartes sélectionnées</button>
   </div>
 </div>
+<%= javascript_include_tag 'activate_button_delete' %>
