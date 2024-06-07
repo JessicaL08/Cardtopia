@@ -4,21 +4,83 @@
 
 <% if @pokemons&.any? %>
   <h2>Search Results:</h2>
-  <%= form_with(model: [@album, @pokemons], url: album_album_pokemons_path(@album), method: :post) do |form| %>
-    <div class="form-group">
-      <%= label_tag :pokemon_id, "Choisis le Pokemon à ajouter" %>
-      <%= select_tag :pokemon_id, options_from_collection_for_select(@pokemons, :id, :pokemon_id), { prompt: "Pokémon", class: "form-control" } %>
-    </div>
-    <%= submit_tag "Add Pokémon", class: "btn btn-primary" %>
-  <% end %>
-  <ul>
+  <div class="cards-container">
     <% @pokemons.each do |pokemon| %>
-      <li><p><%= pokemon.pokemon_name %> / <%= pokemon.pokemon_id %></p><img src="<%= pokemon.image %>" alt="<%= pokemon.pokemon_name %>"></li>
+      <div class="card" data-pokemon-id="<%= pokemon.id %>">
+        <img src="<%= pokemon.image %>" alt="<%= pokemon.pokemon_name %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= pokemon.pokemon_name %></h5>
+        </div>
+      </div>
     <% end %>
-  </ul>
-
+  </div>
 <% else %>
-  <p>No Pokemon found with the given name.</p>
+  <p>No Pokémon found with the given name.</p>
 <% end %>
 
 <%= link_to "Back", album_path(@album), class: "btn btn-secondary" %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+      card.addEventListener("click", function() {
+        cards.forEach(c => c.classList.remove("selected"));
+        card.classList.add("selected");
+        const pokemonId = card.getAttribute("data-pokemon-id");
+
+        fetch("<%= album_album_pokemons_path(@album) %>", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": "<%= form_authenticity_token %>"
+          },
+          body: JSON.stringify({ pokemon_id: pokemonId })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.success) {
+            alert("Pokémon ajouté à l'album!");
+          } else {
+            alert("Erreur: " + data.error);
+          }
+        })
+        .catch(error => {
+          console.error("Erreur:", error);
+          alert("Une erreur s'est produite. Veuillez réessayer.");
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+  }
+  .card.selected {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+</style>
