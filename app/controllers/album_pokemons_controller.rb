@@ -1,4 +1,5 @@
 class AlbumPokemonsController < ApplicationController
+  before_action :set_album
 
   def new
     load_collection_and_album
@@ -10,10 +11,12 @@ class AlbumPokemonsController < ApplicationController
   end
 
   def create
-    @album = Album.find(params[:album_id])
-    @pokemon = Pokemon.find(params[:pokemon_id])
-    @album_pokemon = AlbumPokemon.new(album: @album, pokemon: @pokemon)
-    @album_pokemon.save ? redirect_to(album_path(@album), notice: 'Pokemon ajouté avec succès.') : render(:new)
+    @album_pokemon = @album.album_pokemons.build(pokemon_id: params[:pokemon_id])
+    if @album_pokemon.save
+      render json: { success: true }
+    else
+      render json: { success: false, error: @album_pokemon.errors.full_messages.to_sentence }, status: :unprocessable_entity
+    end
   end
 
 def destroy_multiple
@@ -42,3 +45,7 @@ end
     end
   end
 end
+
+  def set_album
+    @album = Album.find_by(id: params[:album_id])
+  end
