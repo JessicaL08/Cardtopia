@@ -13,13 +13,9 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light .navbar-custom">
       <div class="container">
       <%= link_to image_tag("Cardtopia.png", alt: "Cardtopia Logo", class: "rounded responsive"), root_path %>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
@@ -43,12 +39,12 @@
 <div class="sticky-button" id="stickyButton">
     <i class="fa-solid fa-bars"></i>
     <div class="sub-buttons" id="subButtons">
-      <button onclick="window.location.href='/';"><i class="fa-solid fa-house"></i></button>
-      <button onclick="deleteItem();"><i class="fa-solid fa-trash"></i></button>
-      <button onclick="editItem();"><i class="fa-solid fa-pen-to-square"></i></button>
-      <button onclick="addItem();"><i class="fa-solid fa-plus"></i></button>
-      <button onclick="goBack();"><i class="fa-solid fa-arrow-left"></i></button>
-      <button onclick="showInfoPopup();"><i class="fa-solid fa-info-circle"></i></button>
+      <button id="home-button" onclick="window.location.href='/';"><i class="fa-solid fa-house"></i></button>
+      <button id="delete-item" onclick="deleteItem();"><i class="fa-solid fa-trash"></i></button>
+      <button id="edit-item" onclick="editItem();"><i class="fa-solid fa-pen-to-square"></i></button>
+      <button id="add-item" onclick="addItem();"><i class="fa-solid fa-plus"></i></button>
+      <button id="go-back" onclick="goBack();"><i class="fa-solid fa-arrow-left"></i></button>
+      <button id="info-popup" onclick="showInfoPopup();"><i class="fa-solid fa-info-circle"></i></button>
     </div>
 </div>
 </div>
