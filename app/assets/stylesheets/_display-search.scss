@@ -1,0 +1,36 @@
+.display-search {
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    /* Réduire l'espacement entre les cartes */
+  }
+
+  .card {
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    /* Réduire le padding */
+    margin: 0.25rem;
+    /* Réduire le margin */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex: 1 1 calc(25% - 1rem);
+    /* Assurez-vous que 4 cartes tiennent sur une ligne */
+    box-sizing: border-box;
+    /* Inclure padding et margin dans la taille totale de la carte */
+  }
+
+  .card img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 0.25rem;
+    /* Réduire l'espacement en bas de l'image */
+  }
+
+  .card.selected {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
