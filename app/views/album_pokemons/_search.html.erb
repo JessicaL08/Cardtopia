@@ -44,7 +44,7 @@
   <% end %>
 </div>
 
-<div id="pokemon_type" class="button-container">
+<div id="pokemon_type" class="button-container d-flex flex-wrap justify-content-center">
   <span class="label">Types :</span>
   <% Pokemon::TYPES.each do |type| %>
     <%= link_to request.params.merge(type: type) do %>

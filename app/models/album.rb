@@ -5,4 +5,20 @@ class Album < ApplicationRecord
   has_many :pokemons, through: :album_pokemons
 
   validates :name, presence: true
+
+  def getPokemonImg(index)
+    if self.pokemons[index].present?
+      self.pokemons[index].image
+    else
+      "card-back.jpg"
+    end
+  end
+
+  def pokecardcount
+    if self.pokemons.size <= 1
+      "carte"
+    else
+      "cartes"
+    end
+  end
 end

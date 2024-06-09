@@ -1,0 +1,49 @@
+.card-album {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px 5px #aeaeae;
+  width: 180px;
+  height: auto;
+
+  button {
+    border: none;
+    border-radius: 12px;
+    padding-top: 4px;
+  }
+
+  .photos-container {
+    border-radius: 8px;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    gap: 3px;
+    overflow: hidden;
+
+    &-main {
+      width: 65%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50%;
+    }
+
+    &-secondary {
+      display: flex;
+      flex-direction: column;
+      width: 35%;
+      height: 100%;
+      gap: 3px;
+
+      img {
+        height: 50%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .card-album-name-album {
+    font-weight: bolder;
+    font-size: larger;
+  }
+}
