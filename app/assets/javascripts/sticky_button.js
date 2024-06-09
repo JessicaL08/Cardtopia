@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const subButtons = document.getElementById("subButtons");
 
     stickyButton.addEventListener("click", function(event) {
-        event.stopPropagation(); // Empêche la propagation du clic pour éviter la fermeture immédiate du sous-menu
+        event.stopPropagation(); //Pas de propagation du clic
         subButtons.style.display = subButtons.style.display === "none" ? "block" : "none";
     });
 

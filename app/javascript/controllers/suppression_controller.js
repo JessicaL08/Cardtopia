@@ -7,11 +7,6 @@ export default class extends Controller {
     console.log('Connecté à suppression');
   }
 
-  suppression(event) {
-    const card = event.currentTarget.closest('li');
-    card.remove();
-  }
-
   activer() {
     this.cardTargets.forEach((card) => {
       const checkbox = card.querySelector('[data-suppression-target="checkbox"]');
@@ -28,41 +23,41 @@ export default class extends Controller {
   }
 
   supprimerSelection() {
-  const selectedPokemonIds = this.cardTargets
-    .filter(card => card.querySelector('[data-suppression-target="checkbox"]').checked)
-    .map(card => card.querySelector('[data-suppression-target="checkbox"]').value);
+    const selectedPokemonIds = this.checkboxTargets
+      .filter(checkbox => checkbox.checked)
+      .map(checkbox => checkbox.value);
 
-  const url = '/album_pokemons';
+    const url = '/album_pokemons';
 
-  const token = document.querySelector('meta[name="csrf-token"]').content;
+    const token = document.querySelector('meta[name="csrf-token"]').content;
 
-  fetch(url, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRF-Token': token
-    },
-    body: JSON.stringify({ pokemon_ids: selectedPokemonIds })
-  }).then(response => {
-    if (response.ok) {
-      console.log('Cartes supprimées avec succès');
-      // Recharger la partie de la page contenant la liste des éléments
-      fetch(window.location.href)
-        .then(response => response.text())
-        .then(data => {
-          const parser = new DOMParser();
-          const htmlDocument = parser.parseFromString(data, 'text/html');
-          const updatedListeElements = htmlDocument.getElementById('liste-elements');
-          const listeElementsDiv = document.getElementById('liste-elements');
-          listeElementsDiv.innerHTML = updatedListeElements.innerHTML;
-        })
-        .catch(error => console.error('Erreur lors du chargement de la partie mise à jour de la page :', error));
-    } else {
-      console.error('Erreur lors de la suppression des cartes');
-    }
-  }).catch(error => {
-    console.error('Erreur lors de la suppression des cartes:', error);
-  });
+    fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': token
+      },
+      body: JSON.stringify({ pokemon_ids: selectedPokemonIds })
+    }).then(response => {
+      if (response.ok) {
+        console.log('Cartes supprimées avec succès');
+        // Recharger la partie de la page contenant la liste des éléments
+        fetch(window.location.href)
+          .then(response => response.text())
+          .then(data => {
+            const parser = new DOMParser();
+            const htmlDocument = parser.parseFromString(data, 'text/html');
+            const updatedListeElements = htmlDocument.getElementById('liste-elements');
+            const listeElementsDiv = document.getElementById('liste-elements');
+            listeElementsDiv.innerHTML = updatedListeElements.innerHTML;
+          })
+          .catch(error => console.error('Erreur lors du chargement de la partie mise à jour de la page :', error));
+      } else {
+        console.error('Erreur lors de la suppression des cartes');
+      }
+    }).catch(error => {
+      console.error('Erreur lors de la suppression des cartes:', error);
+    });
   }
 
   toggleSelection(event) {
@@ -75,7 +70,7 @@ export default class extends Controller {
     }
   }
 
-activerSelection() {
+  activerSelection() {
     const checkboxes = this.checkboxTargets;
     const areAllDisabled = checkboxes.every(checkbox => checkbox.disabled);
 

@@ -1,41 +1,54 @@
 
 <%= form_with(method: :get) do %>
-  <div class="form-group" >
-    <%= label_tag :pokemon_id, "Nom Pokemon ou son ID" %>
-    <div class="inline">
+  <div class="form-group d-flex align-items-center"> <!-- Utilisation de classes flexbox pour aligner les éléments -->
+    <div> <!-- Div pour le label -->
+      <%= label_tag :pokemon_id, "Nom Pokemon ou son ID :" %>
+    </div>
+    <div class="ml-3"> <!-- Div pour le champ de texte avec une marge à gauche -->
       <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Evoli / pop3-13" %>
     </div>
-  </div>
-  <div class="inline">
-    <%= submit_tag "Recherche", class: "btn btn-primary" %>
+    <div class="ml-3"> <!-- Div pour le bouton de recherche avec une marge à gauche -->
+      <%= submit_tag "Recherche", class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>
+
+<style>
+  #liste-elements ul {
+    list-style-type: none; /* Enlève les puces de liste */
+    padding-left: 0; /* Enlève le padding par défaut */
+  }
+
+  #liste-elements li {
+    margin-bottom: 10px; /* Optionnel : Ajuste l'espacement entre les éléments */
+  }
+</style>
 
 <%# Code to have button of season or extension to find pokemon to add at the album %>
 
 
   <div class="caroussel">
-    <div id="caroussel_season">
-       <% @seasons.each do |season| %>
-        <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87" %>
-      <% end %>
-    </div>
-  </div>
-  <div>
-    <% unless @extensions.nil? %>
-      <% @extensions.each do |extension| %>
-        <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil) %>
-      <% end %>
-    <%  end %>
-  </div>
-
-
-<div id="pokemon_type">
-  <div id="type">
-    <% Pokemon::TYPES.each do |type| %>
-      <%= link_to request.params.merge(type: type) do %>
-        <%= image_tag("energy/#{type}.png", class: "type-large-icon") %>
-      <% end %>
+  <div id="caroussel_season" class="button-container">
+    <span class="label">Extensions :</span>
+    <% @seasons.each do |season| %>
+      <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87" %>
     <% end %>
   </div>
+</div>
+
+<div class="button-container">
+  <% unless @extensions.nil? %>
+    <% @extensions.each do |extension| %>
+      <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87" %>
+    <% end %>
+  <% end %>
+</div>
+
+<div id="pokemon_type" class="button-container">
+  <span class="label">Types :</span>
+  <% Pokemon::TYPES.each do |type| %>
+    <%= link_to request.params.merge(type: type) do %>
+      <%= image_tag("energy/#{type}.png", class: "type-large-icon") %>
+    <% end %>
+  <% end %>
 </div>

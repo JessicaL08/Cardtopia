@@ -1,34 +1,60 @@
-
-/* CSS */
+/* CSS for buttons */
 .button-87 {
-  margin: 10px;
-  padding: 15px 15px;
+  margin: 3px;
+  padding: 8px 12px;
   text-align: center;
   text-transform: uppercase;
-  transition: 0.5s;
+  transition: 0.3s ease;
   background-size: 100% auto;
-  color: black !important;
-  border-radius: 10px;
-  display: block;
-  border: 0px;
-  font-weight: 700;
-  box-shadow: 0px 0px 14px -7px #f09819;
-  background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  color: white;
+  border-radius: 5px;
+  display: inline-block;
+  border: 0;
+  font-weight: 600;
+  box-shadow: 0px 4px 6px -4px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   text-decoration: none;
-
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: nowrap;
+  /* Prevent text from wrapping */
 }
 
 .button-87:hover {
   background-position: right center;
-  /* change the direction of the change here */
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
 }
 
 .button-87:active {
-  transform: scale(0.95);
+  transform: scale(0.97);
+}
+
+/* Container to align buttons */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  /* Align items vertically in the center */
+  justify-content: center;
+  /* Center the items horizontally */
+}
+
+/* CSS for labels */
+.label {
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 10px;
+  color: #333;
+}
+
+/* CSS for images (types) */
+.type-large-icon {
+  width: 24px;
+  height: 24px;
+  margin: 5px;
 }
