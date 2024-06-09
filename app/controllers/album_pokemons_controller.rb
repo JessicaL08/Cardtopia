@@ -1,5 +1,6 @@
 class AlbumPokemonsController < ApplicationController
   before_action :set_album
+    before_action :set_new_page_flag, only: [:new]
 
   def new
     load_collection_and_album
@@ -7,7 +8,6 @@ class AlbumPokemonsController < ApplicationController
     # find extension if user click on button season
     @extensions = Extension.where("season_id = ?", params[:season_id]) if params[:season_id].present?
     search_pokemon
-
   end
 
   def create
@@ -47,5 +47,9 @@ class AlbumPokemonsController < ApplicationController
 
   def set_album
     @album = Album.find_by(id: params[:album_id])
+  end
+
+  def set_new_page_flag
+    @is_new_page = true
   end
 end
