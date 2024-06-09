@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     const stickyButton = document.getElementById("stickyButton");
     const subButtons = document.getElementById("subButtons");
+            console.log("j'écoute la page");
 
     stickyButton.addEventListener("click", function(event) {
-        event.stopPropagation(); //Pas de propagation du clic
+        console.log("premier event");
+        // event.stopPropagation(); // Pas de propagation du clic
         subButtons.style.display = subButtons.style.display === "none" ? "block" : "none";
     });
 
