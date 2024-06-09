@@ -1,13 +1,43 @@
-<h1><%= @collection.name %></h1>
+<div class="d-flex flex-column align-items-center">
+  <h1><%= @collection.name %></h1>
 
-<%= button_to 'Delete Collection', collection_path(@collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <%= button_to 'Delete Collection', collection_path(@collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 
-<h2>Albums</h2>
-<% @collection.albums.each do |album| %>
-  <div class="album">
-    <h3>
-      <%= link_to album.name, album_path(album) %>
-      <%= button_to 'Delete', album_path(album), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-    </h3>
+  <h2>Albums</h2>
+</div>
+
+<div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+  <% @collection.albums.each do |album| %>
+  <!--  <div class="album">
+      <h3>
+        <%= link_to album.name, album_path(album) %>
+        <%= button_to 'Delete', album_path(album), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </h3>
+    </div>
+
+  <%= link_to 'Add New Album', new_collection_album_path(@collection), class: 'btn btn-success' %>
+  <%= link_to 'Back to Collections', collections_path, class: 'btn btn-secondary' %>
+  -->
+
+
+
+  <%# -------- TEST VISUEL ALBUM ----------- %>
+
+  <div class="card-album">
+    <%= button_to album_path(album[:id]), method: :get do %>
+      <div class="photos-container">
+        <%= image_tag(album.getPokemonImg(0), class: 'photos-container-main')%>
+        <div class="photos-container-secondary">
+          <%= image_tag(album.getPokemonImg(1))%>
+          <%= image_tag(album.getPokemonImg(2))%>
+        </div>
+      </div>
+      <div class="card-album-infos row">
+        <span class="card-album-name-album"><%= album.name %> </span>
+        <span class="card-album-nb-card-album"><%= album.pokemons.size %> <%= album.pokecardcount %></span>
+      </div>
+    <% end %>
   </div>
-<% end %>
+  <%# -------- TEST VISUEL ALBUM ----------- %>
+  <% end %>
+</div>

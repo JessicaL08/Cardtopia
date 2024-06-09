@@ -1,0 +1,17 @@
+@import "colors";
+
+.show-album-name-album {
+  display: flex;
+
+  .show-pokemon-edit-icon {
+    width: 16px;
+    height: auto;
+    margin-left: 8px;
+  }
+}
+
+.show-collection-edit-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
