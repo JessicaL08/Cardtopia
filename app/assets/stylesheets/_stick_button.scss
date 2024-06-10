@@ -3,7 +3,7 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  background-color: $orange;
+  background-color: blue;
   color: white;
   padding: 10px;
   cursor: pointer;
@@ -19,14 +19,14 @@
     position: absolute;
     top: calc(100% + 5px);
     right: 0;
-    background-color: $orange;
+    background-color: blue;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .sub-buttons button {
     // display: block;
-    background-color: white;
+    background-color: blue;
     color: $orange;
     margin-top: 5px;
     border-radius: 10px;
