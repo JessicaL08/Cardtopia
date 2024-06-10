@@ -47,6 +47,45 @@
   }
 }
 
+/**
+* ----------------------------------------
+* animation slide-in-top de l'image de la carte
+* ----------------------------------------
+*/
+.slide-in-top {
+  -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/**
+* ----------------------------------------
+* fin animation slide-in-top de l'image de la carte
+* ----------------------------------------
+*/
+
 .content {
   margin-right: 4px;
   margin-left: 4px;
@@ -58,6 +97,52 @@
   align-items: center;
   margin-bottom: 16px;
 }
+
+/**
+* ----------------------------------------
+* animation slide-in-bottom du bloc de texte
+* ----------------------------------------
+*/
+.slide-in-bottom {
+	-webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/**
+* ----------------------------------------
+* fin animation slide-in-bottom du bloc de texte
+* ----------------------------------------
+*/
+
+/**
+* ----------------------------------------
+*/
 
 /* Media Queries pour ajuster le layout sur les écrans plus petits */
 @media (max-width: 767px) {

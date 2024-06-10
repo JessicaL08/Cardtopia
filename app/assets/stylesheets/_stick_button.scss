@@ -1,3 +1,5 @@
+@import "colors";
+
 .sticky-button {
   position: fixed;
   top: 50%;
@@ -35,7 +37,6 @@
     color: white;
     margin-top: 5px;
     border-radius: 10px;
-
 }
 
 .sub-buttons button:hover {
@@ -47,8 +48,6 @@
   font-size: 24px;
   /* Ajustez la taille selon vos besoins */
 }
-
-
 
 .sticky-button.clicked {
   opacity: 1;

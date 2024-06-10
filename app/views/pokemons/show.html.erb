@@ -4,7 +4,7 @@
 
   <div class="all-infos">
 
-    <div class="poke-card">
+    <div class="poke-card slide-in-top">
         <% if @pokemon.image != "/high.webp" %>
         <%= image_tag(@pokemon.image, class: "pokemon-image-info") %>
         <% else %>
@@ -12,12 +12,12 @@
         <% end %>
     </div>
 
-    <div class="info-zone">
+    <div class="info-zone slide-in-bottom">
 
       <div class="zone fs-6 text">
-        <span class="title">Informations du Pokémon</span>
-        <div class="col"><span>Nom</span> : <%= @pokemon.pokemon_name%></div>
-        <div class="col"><span>Saison - Extension :</span> <%= @pokemon.pokemon_id%></div>
+        <span class="title">Informations</span><br>
+        <div class="col"><span>Nom: </span><%= @pokemon.pokemon_name%></div>
+        <div class="col"><span>Saison - Extension: </span> <%= @pokemon.pokemon_id%></div>
         <div class="col">
           <% @pokemon.metadata["types"].each do |type| %>
           <span>Type:
@@ -25,28 +25,26 @@
           </span>
           <%end%>
         </div>
+        <div class="col"><span>Rareté: </span><%= @pokemon.rarity%></div>
       </div>
 
       <div class="zone fs-6 text">
-        <span class="title">Rareté</span>
-        <div class="col"><%= @pokemon.rarity%></div>
-      </div>
-
-      <div class="zone fs-6 text">
-        <span>Attaques et effets</span>
+        <span class="title">Attaques et effets</span><br>
 
     <% @pokemon.metadata["attaques"].each do |attaque| %>
-      <span>Coût:
+      <div class="d-flex flex-column">
+          <div class="show-pokemon-attaque-name"><span>Nom: </span><%= attaque["name"] %></div>
+          <div class="show-pokemon-attaque-name"><span>Dégat: </span><%= attaque["damage"] %></div>
+          <div class="show-pokemon-attaque-name"><span>Effet: </span><%= attaque["effect"] %></div>
+        </div>
+        <span>Coût:
         <% attaque["cost"].each do |cost| %>
           <%= image_tag(@pokemon.icon_type_src(cost), class: 'icon text-start') %>
         <% end %>
       </span>
-
-          <span>Nom:</span> <%= attaque["name"] %>
-          <span>Dégat:</span> <%= attaque["damage"] %>
-          <span>Effet:</span> <%= attaque["effect"] %>
-
+          <br>
           <% end %>
+
       </div>
     </div>
   </div>
