@@ -7,6 +7,8 @@ class CollectionsController < ApplicationController
   end
 
   def show
+    @seasons = Season.includes(:extensions).all
+    @pokemon_ids = @collection.pokemons.ids
   end
 
   def new
@@ -34,7 +36,6 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
-    # raise
     @collection.destroy
     redirect_to collections_path, notice: 'Collection deleted successfully.'
   end
