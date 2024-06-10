@@ -1,6 +1,38 @@
 @import "colors";
 
-.container {
-  background-color: $bg;
-  color: $red;
+// .container {
+//   background-color: $bg;
+//   color: $red;
+// }
+
+.index-body {
+  color: $txt-color-info-zone;
+}
+
+.faq {
+  min-width: 40%;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .accordion {
+    max-width: 500px;
+
+    .accordion-item {
+      background-color: $bg-zone-info;
+      color: $txt-color-info-zone;
+    }
+  }
+
+  .accordion-button {
+    background-color: $bg-zone-info;
+    color: $txt-color-info-zone;
+  }
+}
+
+.dracau-img {
+  width: 300px;
+  height: auto;
 }
