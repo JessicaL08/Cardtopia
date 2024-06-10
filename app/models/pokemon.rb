@@ -1,6 +1,8 @@
 class Pokemon < ApplicationRecord
   has_many :album_pokemons
   has_many :albums, through: :album_pokemons
+  belongs_to :extension
+  has_one :season, through: :extension
 
   validates :pokemon_name, presence: true
 
