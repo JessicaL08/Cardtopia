@@ -5,7 +5,7 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  background-color: $red;
+  background-color: orange;
   color: white;
   padding: 10px;
   cursor: pointer;
@@ -16,22 +16,27 @@
   /* Transition de l'opacité */
 }
 
+.sticky-button:hover {
+  opacity: 1;
+}
+
 .sub-buttons {
-  // display: block;
-  position: absolute;
-  top: calc(100% + 5px);
-  right: 0;
-  background-color: $orange;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    // display: block;
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    background-color: orange;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    opacity: 0.4;
 }
 
 .sub-buttons button {
-  // display: block;
-  background-color: white;
-  color: $orange;
-  margin-top: 5px;
-  border-radius: 10px;
+    // display: block;
+    background-color: orange;
+    color: white;
+    margin-top: 5px;
+    border-radius: 10px;
 }
 
 .sub-buttons button:hover {
