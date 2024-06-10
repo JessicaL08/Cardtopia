@@ -6,6 +6,10 @@
   // align-items: right;
 }
 
+.selected-image {
+  border: 2px solid red;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
