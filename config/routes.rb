@@ -27,7 +27,7 @@ Rails.application.routes.draw do
       end
     end
 
-  get '/manifest.json', to: redirect('/assets/manifest.json')
+  # get '/manifest.json', to: redirect('/assets/manifest.json')
 
 
   end
