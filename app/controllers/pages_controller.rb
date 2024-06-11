@@ -6,6 +6,7 @@ class PagesController < ApplicationController
       redirect_to collection_path(@user_collections.first)
     else
       @collections = current_user.collections if user_signed_in?
+
     end
   end
 end
