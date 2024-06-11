@@ -8,5 +8,3 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 
 pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
-pin "@stimulus-components/carousel", to: "@stimulus-components--carousel.js" # @6.0.0
-pin "hammerjs" # @2.0.8

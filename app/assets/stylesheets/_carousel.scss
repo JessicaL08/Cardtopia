@@ -1,0 +1,43 @@
+// .caroussel {
+//   position: relative;
+//   overflow: hidden;
+//   width: 100%;
+// }
+
+// #caroussel_season {
+//   display: flex;
+//   flex-wrap: nowrap;
+//   justify-content: space-between;
+//   max-width: 100% !important;
+//   overflow-x: scroll;
+//   -ms-overflow-style: none; /* Internet Explorer 10+ */
+//   scrollbar-width: none; /* Firefox */
+// }
+
+// #caroussel_season::-webkit-scrollbar {
+//   display: none;  /* Safari and Chrome */
+// }
+
+.holster {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: column nowrap;
+  font-family: monospace;
+}
+
+#carousel {
+  display: flex;
+  overflow: auto;
+  outline: 1px dashed lightgray;
+  flex: none;
+
+  div {
+    scroll-snap-align: center;
+    flex: none;
+  }
+}
+
+.x.mandatory-scroll-snapping {
+  scroll-snap-type: x mandatory;
+}

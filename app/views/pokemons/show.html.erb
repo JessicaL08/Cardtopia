@@ -4,28 +4,18 @@
 
   <div class="all-infos">
 
-    <div class="poke-card" data-controller="carousel" data-carousel-target="board" data-carousel-pokemon-value="<%= @pokemon.id %>">
-      <% array = [] %>
-      <% pokemon_image = '' %>
-      <% @album.pokemons.each do |pokemon| %>
-          <% if pokemon.image != "/high.webp" %>
-            <% pokemon_image = image_tag(pokemon.image, class: "pokemon-image-info") if pokemon.id == @pokemon.id %>
-            <% array << image_tag(pokemon.image, class: "pokemon-image-info") %>
-          <% else %>
-            <% pokemon_image = image_tag("Pika-no-image", class: "pokemon-image-info") if pokemon.id == @pokemon.id %>
-            <% array << image_tag("Pika-no-image", class: "pokemon-image-info no-image") %>
-          <% end %>
-      <% end %>
-      <%# reorder the card to have in the first the choosen card %>
-      <% first_part = array.slice(0, array.index(pokemon_image)) %>
-      <% second_part = array.slice(array.index(pokemon_image), array.count) %>
-      <% array_final = second_part.concat(first_part) %>
-      <% array_final.each do |pokemon| %>
-        <div data-carousel-target="card">
-          <%= pokemon %>
-        </div>
-      <% end %>
-
+    <div class="poke-card holster">
+      <div class="x mandatory-scroll-snapping" id="carousel">
+        <% @reordered_pokemons.each do |pokemon| %>
+          <div>
+            <% if pokemon.image != "/high.webp" %>
+              <%= image_tag(pokemon.image, class: "pokemon-image-info") %>
+            <% else %>
+              <%= image_tag("Pika-no-image", class: "pokemon-image-info no-image") %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <div class="info-zone">
