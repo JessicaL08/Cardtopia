@@ -33,7 +33,7 @@
   <div class="container">
     <div class="row">
       <% @seasons.each do |season| %>
-        <div class="col-12 col-sm-4 col-md-3 col-lg-2 mb-1 mt-1">
+        <div class="col-12 col-sm-6 col-md-3 col-lg-2 mb-1 mt-1">
           <div class="extension-stat d-flex flex-column justify-content-between" data-controller="toggle" data-action="click->toggle#fire">
             <div class="text-center">
               <h3><%= season.season_name %></h3>
@@ -62,64 +62,3 @@
   </div>
 
 <%= javascript_include_tag 'side_bar_button_show_collection' %>
-
-
-<style>
-  .extension-stat {
-      cursor: pointer;
-      margin-bottom: 4px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100px;
-      max-width: 97%;
-      background-color: #444444;
-    }
-
-    .extension-stat h3,
-    .extension-stat .stats {
-      background-color: #1e3d59;
-      margin: 0;
-      padding: 4px;
-      font-size: 13px;
-    }
-
-    .extension-stat h3 {
-      font-size: 13px;
-    }
-
-    .stats {
-      font-size: 16px;
-    }
-
-    .progress {
-      height: 10px;
-      border-radius: 5px;
-      overflow: hidden;
-      background-color: #e9ecef;
-      margin-bottom: 10px;
-    }
-
-    .progress-bar {
-      background-color: #74c365;
-      transition: width 0.6s ease;
-    }
-
-    .card-body {
-      padding: 15px;
-      background-color: #ffffff;
-    }
-
-    .extension-details p {
-      margin: 0;
-      padding: 5px 0;
-    }
-
-    .extension-details {
-      padding: 10px 15px;
-      background-color: #f8f9fa;
-    }
-</style>
