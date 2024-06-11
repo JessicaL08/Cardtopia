@@ -8,20 +8,7 @@
 
 <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
   <% @collection.albums.each do |album| %>
-  <!--  <div class="album">
-      <h3>
-        <%= link_to album.name, album_path(album) %>
-        <%= button_to 'Delete', album_path(album), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-      </h3>
-    </div>
 
-  <%= link_to 'Add New Album', new_collection_album_path(@collection), class: 'btn btn-success' %>
-  <%= link_to 'Back to Collections', collections_path, class: 'btn btn-secondary' %>
-  -->
-
-
-
-  <%# -------- TEST VISUEL ALBUM ----------- %>
 
     <div class="card-album">
       <%= button_to album_path(album[:id]), method: :get do %>
@@ -40,24 +27,99 @@
     </div>
   <%# -------- TEST VISUEL ALBUM ----------- %>
   <% end %>
-
-  <% @seasons.each do |season| %>
-    <div class="extension-stat" data-controller="toggle" data-action="click->toggle#fire">
-      <h3 class="text-center"><%= season.season_name %> : <%= season.pokemons.where(id: @pokemon_ids).count %>/<%= season.extensions.sum(&:total) %></h3>
-      <div class="progres">
-        <span style="width: <%= season.pokemons.where(id: @pokemon_ids).count.fdiv(season.extensions.sum(&:total))*100 %>%"></span>
-      </div>
-      <div data-toggle-target="extension" class="d-none">
-        <% season.extensions.each do |extension| %>
-          <p><b><%= extension.extension_name %></b> : <%= @collection.pokemons.where(extension_id: extension.id).uniq.count %>/<%= extension.total %></p>
-          <div class="progres">
-            <span style="width: <%= @collection.pokemons.where(extension_id: extension.id).uniq.count.fdiv(extension.total)*100 %>%"></span>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
-  <% end %>
 </div>
 
+<div class="statistic">
+  <div class="container">
+    <div class="row">
+      <% @seasons.each do |season| %>
+        <div class="col-12 col-sm-4 col-md-3 col-lg-2 mb-1 mt-1">
+          <div class="extension-stat d-flex flex-column justify-content-between" data-controller="toggle" data-action="click->toggle#fire">
+            <div class="text-center">
+              <h3><%= season.season_name %></h3>
+              <p class="stats"><%= season.pokemons.where(id: @pokemon_ids).count %>/<%= season.extensions.sum(&:total) %></p>
+            </div>
+            <div class="card-body">
+              <div class="progress mb-1">
+                <div class="progress-bar" role="progressbar" style="width: <%= season.pokemons.where(id: @pokemon_ids).count.fdiv(season.extensions.sum(&:total))*100 %>%;" aria-valuenow="<%= season.pokemons.where(id: @pokemon_ids).count.fdiv(season.extensions.sum(&:total))*100 %>" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="extension-details d-none" data-toggle-target="extension">
+                <% season.extensions.each do |extension| %>
+                  <div class="mb-1">
+                    <p><b><%= extension.extension_name %></b> : <%= @collection.pokemons.where(extension_id: extension.id).uniq.count %>/<%= extension.total %></p>
+                    <div class="progress">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: <%= @collection.pokemons.where(extension_id: extension.id).uniq.count.fdiv(extension.total)*100 %>%;" aria-valuenow="<%= @collection.pokemons.where(extension_id: extension.id).uniq.count.fdiv(extension.total)*100 %>" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
 <%= javascript_include_tag 'side_bar_button_show_collection' %>
+
+
+<style>
+  .extension-stat {
+      cursor: pointer;
+      margin-bottom: 4px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100px;
+      max-width: 97%;
+      background-color: #444444;
+    }
+
+    .extension-stat h3,
+    .extension-stat .stats {
+      background-color: #1e3d59;
+      margin: 0;
+      padding: 4px;
+      font-size: 13px;
+    }
+
+    .extension-stat h3 {
+      font-size: 13px;
+    }
+
+    .stats {
+      font-size: 16px;
+    }
+
+    .progress {
+      height: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      background-color: #e9ecef;
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      background-color: #74c365;
+      transition: width 0.6s ease;
+    }
+
+    .card-body {
+      padding: 15px;
+      background-color: #ffffff;
+    }
+
+    .extension-details p {
+      margin: 0;
+      padding: 5px 0;
+    }
+
+    .extension-details {
+      padding: 10px 15px;
+      background-color: #f8f9fa;
+    }
+</style>
