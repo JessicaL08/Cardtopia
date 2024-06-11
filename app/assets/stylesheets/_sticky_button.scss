@@ -2,53 +2,55 @@
 
 .sticky-button {
   position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  background-color: #1e3d59;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 9999;
-  opacity: 0.75;
-  /* Opacité initiale du bouton principal */
-  transition: opacity 0.3s ease;
-  /* Transition de l'opacité */
-}
 
-.sticky-button:hover {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+
+  bottom: 50px;
+  right: 35px;
+
+  transform: translateY(-50%);
+  background-color: $bleu-canard;
+  color: $blanc-creme;
+  border: 1px solid $light-bleu-canard;
+
+  z-index: 9999;
   opacity: 1;
+
+  i {
+    align-self: center;
+  }
 }
 
 .sub-buttons {
-  // display: block;
   position: absolute;
-  top: calc(100% + 5px);
-  right: 0;
-  background-color: #1e3d59;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  bottom: calc(56px + 8px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 8px;
 }
 
 .sub-buttons button {
-  // display: block;
-  background-color: #1e3d59;
-  color: white;
-  margin-top: 5px;
-  border-radius: 10px;
-}
+  background-color: $bleu-canard;
+  color: $blanc-creme;
+  // background-color: $blanc-creme;
+  // color: $bleu-canard;
 
-.sub-buttons button:hover {
-  color: black;
-  /* Changez la couleur selon votre préférence */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  border: 1px solid $light-bleu-canard;
+  // border: 1px solid $bleu-canard;
 }
 
 .sub-buttons button i {
   font-size: 24px;
-  /* Ajustez la taille selon vos besoins */
-}
-
-.sticky-button.clicked {
-  opacity: 1;
-  /* Opacité maximale lorsqu'on clique */
 }
