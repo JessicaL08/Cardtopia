@@ -10,7 +10,7 @@
   padding: 10px;
   cursor: pointer;
   z-index: 9999;
-  opacity: 0.4;
+  opacity: 0.75;
   /* Opacité initiale du bouton principal */
   transition: opacity 0.3s ease;
   /* Transition de l'opacité */
@@ -21,22 +21,21 @@
 }
 
 .sub-buttons {
-    // display: block;
-    position: absolute;
-    top: calc(100% + 5px);
-    right: 0;
-    background-color: #1e3d59;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    opacity: 0.4;
+  // display: block;
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  background-color: #1e3d59;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .sub-buttons button {
-    // display: block;
-    background-color: #1e3d59;
-    color: white;
-    margin-top: 5px;
-    border-radius: 10px;
+  // display: block;
+  background-color: #1e3d59;
+  color: white;
+  margin-top: 5px;
+  border-radius: 10px;
 }
 
 .sub-buttons button:hover {
