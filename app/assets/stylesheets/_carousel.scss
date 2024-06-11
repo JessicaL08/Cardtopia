@@ -18,26 +18,55 @@
 //   display: none;  /* Safari and Chrome */
 // }
 
-.holster {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-flow: column nowrap;
-  font-family: monospace;
-}
+// .holster {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   flex-flow: column nowrap;
+//   font-family: monospace;
+// }
 
-#carousel {
+// #carousel {
+//   display: flex;
+//   overflow: auto;
+//   outline: 1px dashed lightgray;
+//   flex: none;
+
+//   div {
+//     scroll-snap-align: center;
+//     flex: none;
+//   }
+// }
+
+// .x.mandatory-scroll-snapping {
+//   scroll-snap-type: x mandatory;
+// }
+
+.contain {
   display: flex;
-  overflow: auto;
+  margin: 1em auto;
   outline: 1px dashed lightgray;
   flex: none;
-
-  div {
-    scroll-snap-align: center;
-    flex: none;
-  }
+  overflow: auto;
 }
 
+.contain.x {
+  width: 300px;
+  flex-flow: row nowrap;
+  overflow-y: hidden;
+}
+
+.x.contain > img {
+  width: 100%;
+  height: 100%;
+}
 .x.mandatory-scroll-snapping {
   scroll-snap-type: x mandatory;
+}
+
+.mandatory-card {
+  text-align: center;
+  scroll-snap-align: center;
+  flex: none;
+  width: 300px;
 }

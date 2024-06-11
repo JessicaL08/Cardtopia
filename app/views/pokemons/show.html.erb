@@ -1,59 +1,42 @@
-<div class="container">
-
+<div class="container" data-controller="carousel">
   <h1 class="poke-name-title"><%= @pokemon.pokemon_name%></h1>
-
   <div class="all-infos">
-
-
-    <div class="poke-card holster">
-      <div class="x mandatory-scroll-snapping" id="carousel">
-        <% @reordered_pokemons.each do |pokemon| %>
-          <div>
-            <% if pokemon.image != "/high.webp" %>
-              <%= image_tag(pokemon.image, class: "pokemon-image-info") %>
-            <% else %>
-              <%= image_tag("Pika-no-image", class: "pokemon-image-info no-image") %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+    <div class="contain x mandatory-scroll-snapping" data-action="scroll->carousel#scroll scrollend->carousel#end">
+      <% @reordered_pokemons.each do |pokemon| %>
+        <%= pokemon_image_tag(pokemon) %>
+      <% end %>
     </div>
-
     <div class="info-zone slide-in-bottom">
-
       <div class="zone fs-6 text">
         <span class="title">Informations</span><br>
         <div class="col"><span>Nom: </span><%= @pokemon.pokemon_name%></div>
         <div class="col"><span>Saison - Extension: </span> <%= @pokemon.pokemon_id%></div>
         <div class="col">
           <% @pokemon.metadata["types"].each do |type| %>
-          <span>Type:
-            <%= image_tag(@pokemon.icon_type_src(type), class: 'icon') %>
-          </span>
+            <span>Type:
+              <%= image_tag(@pokemon.icon_type_src(type), class: 'icon') %>
+            </span>
           <%end%>
         </div>
         <div class="col"><span>Rareté: </span><%= @pokemon.rarity%></div>
       </div>
-
       <div class="zone fs-6 text">
         <span class="title">Attaques et effets</span><br>
-
-    <% @pokemon.metadata["attaques"].each do |attaque| %>
-      <div class="d-flex flex-column">
-          <div class="show-pokemon-attaque-name"><span>Nom: </span><%= attaque["name"] %></div>
-          <div class="show-pokemon-attaque-name"><span>Dégat: </span><%= attaque["damage"] %></div>
-          <div class="show-pokemon-attaque-name"><span>Effet: </span><%= attaque["effect"] %></div>
-        </div>
-        <span>Coût:
-        <% attaque["cost"].each do |cost| %>
-          <%= image_tag(@pokemon.icon_type_src(cost), class: 'icon text-start') %>
-        <% end %>
-      </span>
+        <% @pokemon.metadata["attaques"].each do |attaque| %>
+          <div class="d-flex flex-column">
+            <div class="show-pokemon-attaque-name"><span>Nom: </span><%= attaque["name"] %></div>
+            <div class="show-pokemon-attaque-name"><span>Dégat: </span><%= attaque["damage"] %></div>
+            <div class="show-pokemon-attaque-name"><span>Effet: </span><%= attaque["effect"] %></div>
+          </div>
+          <span>Coût:
+            <% attaque["cost"].each do |cost| %>
+              <%= image_tag(@pokemon.icon_type_src(cost), class: 'icon text-start') %>
+            <% end %>
+          </span>
           <br>
-          <% end %>
-
+        <% end %>
       </div>
     </div>
   </div>
-<%= link_to 'Retour à mon album', album_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Retour à mon album', album_path, class: 'btn btn-secondary' %>
 </div>
