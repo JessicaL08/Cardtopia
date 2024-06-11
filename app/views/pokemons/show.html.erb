@@ -4,12 +4,16 @@
 
   <div class="all-infos">
 
-    <div class="poke-card">
-        <% if @pokemon.image != "/high.webp" %>
-        <%= image_tag(@pokemon.image, class: "pokemon-image-info") %>
-        <% else %>
-        <%= image_tag("Pika-no-image", class: "pokemon-image-info no-image") %>
-        <% end %>
+    <div class="poke-card" data-controller="carousel" data-carousel-target="board">
+      <% @album.pokemons.each do |pokemon| %>
+        <div data-carousel-target="card">
+          <% if pokemon.image != "/high.webp" %>
+              <%= image_tag(pokemon.image, class: "pokemon-image-info") %>
+          <% else %>
+              <%= image_tag("Pika-no-image", class: "pokemon-image-info no-image") %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
 
     <div class="info-zone">
