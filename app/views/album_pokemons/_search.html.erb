@@ -26,29 +26,82 @@
 
 <%# Code to have button of season or extension to find pokemon to add at the album %>
 
-
-  <div class="caroussel">
+<div class="caroussel">
   <div id="caroussel_season" class="button-container">
     <span class="label">Extensions :</span>
     <% @seasons.each do |season| %>
-      <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87" %>
+      <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87", data: { season_id: season.id } %>
     <% end %>
   </div>
 </div>
 
-<div class="button-container">
-  <% unless @extensions.nil? %>
-    <% @extensions.each do |extension| %>
-      <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87" %>
+<% @seasons.each do |season| %>
+  <div class="extension-bubble" data-season-id="<%= season.id %>">
+    <% unless @extensions.nil? %>
+      <% @extensions.each do |extension| %>
+        <% if extension.season_id == season.id %>
+          <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87" %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <div id="pokemon_type" class="button-container d-flex flex-wrap justify-content-center">
   <span class="label">Types :</span>
   <% Pokemon::TYPES.each do |type| %>
     <%= link_to request.params.merge(type: type) do %>
+    <div>
       <%= image_tag("energy/#{type}.png", class: "type-large-icon") %>
+    </div>
     <% end %>
   <% end %>
 </div>
+
+<style>
+  .extension-bubble {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const seasonButtons = document.querySelectorAll('#caroussel_season .button-87');
+  let currentBubble = null;
+
+  seasonButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+
+      // Masquer la bulle actuelle si une autre est ouverte
+      if (currentBubble) {
+        currentBubble.style.display = 'none';
+      }
+
+      // Trouver la bulle d'extensions correspondante
+      const seasonId = this.getAttribute('data-season-id');
+      const bubble = document.querySelector(`.extension-bubble[data-season-id="${seasonId}"]`);
+
+      if (bubble) {
+        bubble.style.display = 'block';
+        currentBubble = bubble;
+      }
+    });
+  });
+
+  // Masquer la bulle si on clique n'importe où ailleurs
+  document.addEventListener('click', function(event) {
+    if (currentBubble && !event.target.closest('.extension-bubble') && !event.target.closest('#caroussel_season .button-87')) {
+      currentBubble.style.display = 'none';
+      currentBubble = null;
+    }
+  });
+});
+
+</script>
