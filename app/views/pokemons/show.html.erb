@@ -4,12 +4,19 @@
 
   <div class="all-infos">
 
-    <div class="poke-card slide-in-top">
-        <% if @pokemon.image != "/high.webp" %>
-        <%= image_tag(@pokemon.image, class: "pokemon-image-info") %>
-        <% else %>
-        <%= image_tag("Pika-no-image", class: "pokemon-image-info no-image") %>
+
+    <div class="poke-card holster">
+      <div class="x mandatory-scroll-snapping" id="carousel">
+        <% @reordered_pokemons.each do |pokemon| %>
+          <div>
+            <% if pokemon.image != "/high.webp" %>
+              <%= image_tag(pokemon.image, class: "pokemon-image-info") %>
+            <% else %>
+              <%= image_tag("Pika-no-image", class: "pokemon-image-info no-image") %>
+            <% end %>
+          </div>
         <% end %>
+      </div>
     </div>
 
     <div class="info-zone slide-in-bottom">
