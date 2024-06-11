@@ -1,42 +1,12 @@
 <div class="container" data-controller="carousel">
   <h1 class="poke-name-title"><%= @pokemon.pokemon_name%></h1>
   <div class="all-infos">
-    <div class="contain x mandatory-scroll-snapping" data-action="scroll->carousel#scroll scrollend->carousel#end">
-      <% @reordered_pokemons.each do |pokemon| %>
-        <%= pokemon_image_tag(pokemon) %>
+    <div class="contain x mandatory-scroll-snapping" data-action="scrollend->carousel#end">
+      <% @reordered_pokemons.each_with_index do |pokemon, index| %>
+        <%= pokemon_image_tag(pokemon, index) %>
       <% end %>
     </div>
-    <div class="info-zone slide-in-bottom">
-      <div class="zone fs-6 text">
-        <span class="title">Informations</span><br>
-        <div class="col"><span>Nom: </span><%= @pokemon.pokemon_name%></div>
-        <div class="col"><span>Saison - Extension: </span> <%= @pokemon.pokemon_id%></div>
-        <div class="col">
-          <% @pokemon.metadata["types"].each do |type| %>
-            <span>Type:
-              <%= image_tag(@pokemon.icon_type_src(type), class: 'icon') %>
-            </span>
-          <%end%>
-        </div>
-        <div class="col"><span>Rareté: </span><%= @pokemon.rarity%></div>
-      </div>
-      <div class="zone fs-6 text">
-        <span class="title">Attaques et effets</span><br>
-        <% @pokemon.metadata["attaques"].each do |attaque| %>
-          <div class="d-flex flex-column">
-            <div class="show-pokemon-attaque-name"><span>Nom: </span><%= attaque["name"] %></div>
-            <div class="show-pokemon-attaque-name"><span>Dégat: </span><%= attaque["damage"] %></div>
-            <div class="show-pokemon-attaque-name"><span>Effet: </span><%= attaque["effect"] %></div>
-          </div>
-          <span>Coût:
-            <% attaque["cost"].each do |cost| %>
-              <%= image_tag(@pokemon.icon_type_src(cost), class: 'icon text-start') %>
-            <% end %>
-          </span>
-          <br>
-        <% end %>
-      </div>
-    </div>
+    <%= render "pokemon_content", pokemon: @pokemon %>
   </div>
   <%= link_to 'Retour à mon album', album_path, class: 'btn btn-secondary' %>
 </div>
