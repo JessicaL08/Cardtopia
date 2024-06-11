@@ -18,30 +18,9 @@
       height: 40px;
       border-radius: 50%;
     }
+
+    .inactif {
+      opacity: 0.4;
+    }
   }
 }
-
-// #pokemon_type {
-//   position: relative;
-//   width: 100%;
-//   display: flex;
-//   gap: 10px;
-// }
-
-// #type {
-//   display: flex;
-//   flex-wrap: nowrap;
-//   justify-content: space-between;
-//   max-width: 100% !important;
-//   overflow-x: scroll;
-//   gap: 30px;
-//   -ms-overflow-style: none; /* Internet Explorer 10+ */
-//   scrollbar-width: none; /* Firefox */
-// }
-
-// #scroll {
-//   position: absolute;
-//   right: 20px;
-//   top: 0;
-//   bottom: 0;
-// }
