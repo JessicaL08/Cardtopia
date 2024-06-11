@@ -1,0 +1,25 @@
+
+<style>
+  #liste-elements ul {
+    list-style-type: none; /* Enlève les puces de liste */
+    padding-left: 0; /* Enlève le padding par défaut */
+  }
+
+  #liste-elements li {
+    margin-bottom: 10px; /* Optionnel : Ajuste l'espacement entre les éléments */
+  }
+</style>
+
+<%# Code to have button of season or extension to find pokemon to add at the album %>
+
+
+
+<div class="type-list-scrollable my-3">
+  <div class="type-list-content">
+    <% Pokemon::TYPES.each do |type| %>
+      <%= link_to request.params.merge(type: type) do %>
+        <%= image_tag("energy/#{type}.png", class: "icon-type-search-bar") %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
