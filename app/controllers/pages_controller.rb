@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     else
       @user_collections = []
       @collections = []
+
     end
   end
 end
