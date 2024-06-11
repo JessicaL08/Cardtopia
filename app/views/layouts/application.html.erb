@@ -8,49 +8,47 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+      <link rel="manifest" href="<%=  'manifest.json' %>">
+
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light .navbar-custom">
-      <div class="container">
-      <%= link_to image_tag("Cardtopia.png", alt: "Cardtopia Logo", class: "rounded responsive"), root_path %>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <body class="index-body">
+      <nav class="navbar navbar-light navbar-custom d-flex align-items-center">
+        <div class="d-flex align-items-center justify-content-between">
+          <%= link_to image_tag("Cardtopia.png", alt: "Cardtopia Logo", class: "rounded responsive"), root_path %>
           <ul class="navbar-nav ml-auto">
-          <div class="actions">
-            <% if user_signed_in? %>
-              <%= button_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% else %>
-              <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary' %>
-              <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-secondary' %>
-            <% end %>
-          </div>
+            <div class="actions">
+              <% if user_signed_in? %>
+                <%= button_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"d-flex align-items-right" %>
+              <% else %>
+                <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary' %>
+                <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-secondary' %>
+              <% end %>
+            </div>
           </ul>
         </div>
-      </div>
-    </nav>
-    <%= yield %>
+      </nav>
+      <%= yield %>
 
-    <%= render "layouts/bottom_navbar" %>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      <%= render "layouts/bottom_navbar" %>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <div class="sticky-button" id="stickyButton">
-    <i class="fa-solid fa-bars"></i>
-      <div class="sub-buttons" id="subButtons" style="display: none; ">
-        <button id="home-button" onclick="window.location.href='/';"><i class="fa-solid fa-house"></i></button>
-        <button id="delete-item" onclick="deleteItem();"><i class="fa-solid fa-trash"></i></button>
-        <button id="edit-item" onclick="editItem();"><i class="fa-solid fa-pen-to-square"></i></button>
-        <button id="add-item" onclick="addItem();"><i class="fa-solid fa-plus"></i></button>
-        <button id="go-back" onclick="goBack();"><i class="fa-solid fa-arrow-left"></i></button>
-        <button id="info-popup" onclick="showInfoPopup();"><i class="fa-solid fa-info-circle"></i></button>
-        <% if controller_name == 'album_pokemons' && action_name == 'new' %>
-          <button id="albums-button" onclick="window.location.href='<%= album_path(@album) %>';"><i class="fa-solid fa-images"></i></button>
-        <% end %>
+        <div class="sticky-button" id="stickyButton">
+        <i class="fa-solid fa-bars"></i>
+        <div class="sub-buttons" id="subButtons" style="display: none; ">
+          <button id="home-button" onclick="window.location.href='/';"><i class="fa-solid fa-house"></i></button>
+          <button id="delete-item" onclick="deleteItem();"><i class="fa-solid fa-trash"></i></button>
+          <button id="edit-item" onclick="editItem();"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button id="add-item" onclick="addItem();"><i class="fa-solid fa-plus"></i></button>
+          <button id="go-back" onclick="goBack();"><i class="fa-solid fa-arrow-left"></i></button>
+          <button id="info-popup" onclick="showInfoPopup();"><i class="fa-solid fa-info-circle"></i></button>
+          <% if controller_name == 'album_pokemons' && action_name == 'new' %>
+            <button id="albums-button" onclick="window.location.href='<%= album_path(@album) %>';"><i class="fa-solid fa-images"></i></button>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-<%= javascript_include_tag 'sticky_button' %>
-<%= javascript_include_tag 'side_bar_actions' %>
-
+    <%= javascript_include_tag 'sticky_button' %>
+    <%= javascript_include_tag 'side_bar_actions' %>
   </body>
 </html>

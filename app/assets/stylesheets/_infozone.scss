@@ -1,12 +1,13 @@
 @import "colors";
 
 .poke-name-title {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   font-weight: bold;
+  color: #f4f4f4;
 }
 
 .title {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -34,7 +35,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 12px;
-
     width: calc(60% - 12px);
     min-width: 300px;
     max-width: 600px;
@@ -42,14 +42,21 @@
     .zone {
       display: flex;
       flex-direction: column;
-      background-color: $orange;
+      background: $bg-zone-info;
       border: solid;
-      border-color: $red;
+      border-color: $txt-color-info-zone;
       border-radius: 12px;
+      // box-shadow: 10px 10px 10px 0px rgba(106,101,101,0.75);
       padding: 12px;
+      color: $txt-color-info-zone;
 
       span {
         font-weight: bold;
+      }
+
+      .show-pokemon-attaque-name {
+        display: flex;
+        display: inline-block;
       }
     }
   }

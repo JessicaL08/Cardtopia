@@ -26,6 +26,12 @@ function enableCheckboxes() {
     const checkboxes = document.querySelectorAll('[data-suppression-target="checkbox"]');
     checkboxes.forEach(checkbox => {
         checkbox.disabled = false;
+
+    const deleteButton = document.getElementById('deleteSelectedButton');
+    deleteButton.style.display = 'block';
+
+    const cancelButton = document.getElementById('cancelSelectedButton');
+    cancelButton.style.display = 'block';
     });
 }
 
@@ -83,3 +89,49 @@ function showInfoPopup() {
 
     alert(infoMessage);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const pokemonImages = document.querySelectorAll('.pokemon-image');
+    const checkboxes = document.querySelectorAll('[data-suppression-target="checkbox"]');
+    const deleteButton = document.getElementById('deleteSelectedButton');
+
+    function updateLinks() {
+        let anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+        pokemonImages.forEach(function(image) {
+            if (anyChecked) {
+                image.classList.add('disabled-link');
+            } else {
+                image.classList.remove('disabled-link');
+            }
+        });
+    }
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            updateLinks();
+            const image = checkbox.closest('.card-container').querySelector('.pokemon-image');
+            if (checkbox.checked) {
+                image.classList.add('selected-image');
+            } else {
+                image.classList.remove('selected-image');
+            }
+        });
+    });
+
+    pokemonImages.forEach(function(image) {
+        image.addEventListener('click', function(event) {
+            const checkbox = image.closest('.card-container').querySelector('input[type="checkbox"]');
+            if (!checkbox.disabled) {
+                checkbox.checked = !checkbox.checked;
+                updateLinks();
+                const image = checkbox.closest('.card-container').querySelector('.pokemon-image');
+                if (checkbox.checked) {
+                    image.classList.add('selected-image');
+                } else {
+                    image.classList.remove('selected-image');
+                }
+                event.preventDefault();
+            }
+        });
+    });
+});

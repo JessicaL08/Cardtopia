@@ -13,26 +13,27 @@
 
   <h2 class="titlePoke">Mes cartes Pokemons</h2>
 
-  <div class="w-100" data-controller="suppression" id="liste-elements">
+<div class="w-100" data-controller="suppression" id="liste-elements" data-suppression-target="listeElements">
     <ul class="d-flex flex-wrap justify-content-center m-0 p-0 row p-0">
       <% @pokemons.each do |pokemon| %>
         <li class="col-lg-3 col-md-4 col-sm-6 col-6">
           <div class="card-container">
             <div class="img-size">
               <% if pokemon.image != "/high.webp" %>
-                <%= link_to image_tag(pokemon.image, class: "pokemon-image"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
+                <%= link_to image_tag(pokemon.image, class: "pokemon-image", id: "nolink"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
               <% else %>
-                <%= link_to image_tag("Pika-no-image", class: "pokemon-image no-image"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
+                <%= link_to image_tag("Pika-no-image", class: "pokemon-image no-image", id: "nolink"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
               <% end %>
             </div>
             <div class="text-center mt-2">
-              <%= check_box_tag "selected_pokemons[]", pokemon.id, false, { disabled: true, data: { suppression_target: "checkbox" } } %>
+              <%= check_box_tag "selected_pokemons[]", pokemon.id, false, { disabled: true, data: { suppression_target: "checkbox" }, style: "display: none;" } %>
             </div>
           </div>
         </li>
       <% end %>
     </ul>
 
-    <button id="deleteSelectedButton" data-action="suppression#supprimerSelection">Supprimer les cartes sélectionnées</button>
+    <button id="deleteSelectedButton" data-action="suppression#supprimerSelection" style="display: none;">Supprimer les cartes sélectionnées</button>
+    <button id="cancelSelectedButton" onclick="location.reload();" style="display: none;">Annuler la sélection</button>
   </div>
 </div>

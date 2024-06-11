@@ -26,4 +26,8 @@ Rails.application.routes.draw do
       resources :pokemons, only: [:show]
       end
     end
+
+  # get '/manifest.json', to: redirect('/assets/manifest.json')
+
+
   end
