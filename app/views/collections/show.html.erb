@@ -31,10 +31,10 @@
 
 <div class="statistic">
   <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-center align-items-center">
       <% @seasons.each do |season| %>
-        <div class="col-12 col-sm-6 col-md-3 col-lg-2 mb-1 mt-1">
-          <div class="extension-stat d-flex flex-column justify-content-between" data-controller="toggle" data-action="click->toggle#fire">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-1 mt-1 g-2">
+          <div class="extension-stat" data-controller="toggle" data-action="click->toggle#fire">
             <div class="text-center">
               <h3><%= season.season_name %></h3>
               <p class="stats"><%= season.pokemons.where(id: @pokemon_ids).count %>/<%= season.extensions.sum(&:total) %></p>
@@ -59,6 +59,6 @@
       <% end %>
       </div>
     </div>
-  </div>
+</div>
 
 <%= javascript_include_tag 'side_bar_button_show_collection' %>

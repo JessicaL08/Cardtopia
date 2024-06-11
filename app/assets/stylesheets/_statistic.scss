@@ -9,7 +9,6 @@
       flex-direction: column;
       justify-content: space-between;
       min-height: 100px;
-      max-width: 97%;
       background-color: #444444;
     }
 
@@ -44,16 +43,17 @@
 
     .card-body {
       padding: 15px;
-      background-color: #ffffff;
+      background-color: #fbfcfa;
     }
 
     .extension-details p {
       margin: 0;
       padding: 5px 0;
+      color: #1e3d59;
     }
 
     .extension-details {
       padding: 10px 15px;
-      background-color: #f8f9fa;
+      background-color: #fbfcfa;
     }
 }
