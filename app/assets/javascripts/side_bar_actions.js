@@ -1,12 +1,12 @@
 // Fonction pour supprimer l'élément en fonction de la page actuelle
 function deleteItem() {
     // Récupére l'URL
-    let currentUrl = window.location.pathname;
+    const currentUrl = window.location.pathname;
 
     // Action de suppression en fonction de l'URL actuelle
     if (currentUrl.includes("/albums")) {
         // Si page albums,
-        let albumId = currentUrl.match(/\d+/)[0]; // Obtenir l'ID de l'album
+        const albumId = currentUrl.match(/\d+/)[0]; // Obtenir l'ID de l'album
 
         // si détail de l'album
         if (currentUrl.includes(`/albums/${albumId}`)) {
@@ -32,17 +32,19 @@ function enableCheckboxes() {
 
     const cancelButton = document.getElementById('cancelSelectedButton');
     cancelButton.style.display = 'block';
+
+
     });
 }
 
 function editItem() {
-    let currentUrl = window.location.pathname;
+    const currentUrl = window.location.pathname;
 
     if (currentUrl.includes("/collections")) {
-        let collectionId = currentUrl.match(/\d+/)[0];
+        const collectionId = currentUrl.match(/\d+/)[0];
         window.location.href = `/collections/${collectionId}/edit`;
     } else if (currentUrl.includes("/albums")) {
-        let albumId = currentUrl.match(/\d+/)[0];
+        const albumId = currentUrl.match(/\d+/)[0];
         window.location.href = `/albums/${albumId}/edit`;
     } else {
         console.log("Page non prise en charge pour l'édition.");
@@ -50,15 +52,15 @@ function editItem() {
 }
 
 function addItem() {
-    let currentUrl = window.location.pathname;
+    const currentUrl = window.location.pathname;
 
     if (currentUrl === "/collections") {
         window.location.href = "/collections/new";
     } else if (currentUrl.includes("/collections/")) {
-        let collectionId = currentUrl.match(/\d+/)[0];
+        const collectionId = currentUrl.match(/\d+/)[0];
         window.location.href = `/collections/${collectionId}/albums/new`;
     } else if (currentUrl.includes("/albums/")) {
-        let albumId = currentUrl.match(/\d+/)[0];
+        const albumId = currentUrl.match(/\d+/)[0];
         window.location.href = `/albums/${albumId}/album_pokemons/new`;
     } else {
         console.log("Page non prise en charge pour l'ajout.");
@@ -70,8 +72,8 @@ function goBack() {
 }
 
 function showInfoPopup() {
-    let currentUrl = window.location.pathname;
-    let infoMessage = "";
+    const currentUrl = window.location.pathname;
+    const infoMessage = "";
 
     if (currentUrl === "/") {
         infoMessage = "Explorez notre site creez des albums dans vos collections de cartes préférées!";
@@ -96,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const deleteButton = document.getElementById('deleteSelectedButton');
 
     function updateLinks() {
-        let anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+        const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
         pokemonImages.forEach(function(image) {
             if (anyChecked) {
                 image.classList.add('disabled-link');
