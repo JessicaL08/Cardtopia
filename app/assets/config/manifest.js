@@ -10,3 +10,4 @@
  //= link search_script.js
 //= link side_bar_button_show_collection.js
 //= link faq_animation.js
+//= link side_bar_button_new.js
