@@ -1,5 +1,4 @@
 class CollectionsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_collection, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -18,7 +17,7 @@ class CollectionsController < ApplicationController
   def create
     @collection = current_user.collections.build(collection_params)
     if @collection.save
-      redirect_to collection_path(@collection), notice: 'Collection created successfully.'
+      redirect_to collection_path(@collection), notice: "Collection created successfully."
     else
       render :new
     end
@@ -29,7 +28,7 @@ class CollectionsController < ApplicationController
 
   def update
     if @collection.update(collection_params)
-      redirect_to collection_path(@collection), notice: 'Collection updated successfully.'
+      redirect_to collection_path(@collection), notice: "Collection updated successfully."
     else
       render :edit
     end
@@ -37,7 +36,7 @@ class CollectionsController < ApplicationController
 
   def destroy
     @collection.destroy
-    redirect_to collections_path, notice: 'Collection deleted successfully.'
+    redirect_to collections_path, notice: "Collection deleted successfully."
   end
 
   private

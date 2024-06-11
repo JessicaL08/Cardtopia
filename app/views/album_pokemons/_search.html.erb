@@ -28,24 +28,28 @@
 
 <div class="caroussel">
   <div id="caroussel_season" class="button-container">
-    <span class="label">Extensions :</span>
+    <span class="label">Seasons :</span>
     <% @seasons.each do |season| %>
       <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87", data: { season_id: season.id } %>
     <% end %>
   </div>
 </div>
 
-<% @seasons.each do |season| %>
-  <div class="extension-bubble" data-season-id="<%= season.id %>">
-    <% unless @extensions.nil? %>
-      <% @extensions.each do |extension| %>
-        <% if extension.season_id == season.id %>
-          <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87" %>
-        <% end %>
-      <% end %>
+<div class="caroussel">
+  <div id="caroussel_season" class="button-container">
+    <span class="label">Extensions :</span>
+    <% @seasons.each do |season| %>
+      <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87" %>
     <% end %>
   </div>
-<% end %>
+</div>
+<div class="button-container">
+  <% unless @extensions.nil? %>
+    <% @extensions.each do |extension| %>
+      <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87" %>
+    <% end %>
+  <% end %>
+</div>
 
 <div id="pokemon_type" class="button-container d-flex flex-wrap justify-content-center">
   <span class="label">Types :</span>
