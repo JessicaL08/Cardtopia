@@ -2,8 +2,11 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   static targets = ["content"];
+  static values = {
+    pokemonCount: Number
+  }
   connect() {
-    this.cardCount = 4;
+    this.cardCount = this.pokemonCountValue;
   }
 
   end(event) {
@@ -12,10 +15,8 @@ export default class extends Controller {
 
     const index = scroll / (width / this.cardCount);
     const currentCard = document.querySelector([`[data-index="${index}"]`]);
-    console.log(currentCard.id);
 
     const url = `/pokemons/${currentCard.id}/render_content`;
-    console.log(url);
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
