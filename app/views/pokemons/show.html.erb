@@ -1,5 +1,4 @@
 <div class="container" data-controller="carousel" data-carousel-pokemon-count-value="<%= @album.pokemons.count %>">
-  <h1 class="poke-name-title"><%= @pokemon.pokemon_name%></h1>
   <div class="all-infos">
     <div class="contain x mandatory-scroll-snapping" data-action="scrollend->carousel#end" >
       <% @reordered_pokemons.each_with_index do |pokemon, index| %>

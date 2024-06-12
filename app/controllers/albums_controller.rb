@@ -37,7 +37,7 @@ class AlbumsController < ApplicationController
 
   def update
     if @album.update(album_params)
-      redirect_to album_path(@album), notice: 'Album updated successfully.' # Redirige vers la page de l'album mis à jour
+      redirect_to album_path(@album), notice: 'Album mise à jour avec succès.' # Redirige vers la page de l'album mis à jour
     else
       render :edit # Affiche à nouveau le formulaire d'édition de l'album en cas d'échec
     end
@@ -45,7 +45,7 @@ class AlbumsController < ApplicationController
 
 def destroy
   @album.destroy
-  redirect_to collection_path(@album.collection), notice: 'Album deleted successfully.'
+  redirect_to collection_path(@album.collection), notice: 'Album supprimé avec succès.'
 end
 
   private
@@ -66,8 +66,10 @@ end
     if params[:type].present? && params[:extension_id].present?
       @pokemons = @pokemons.where("extension_id = ?", params[:extension_id])
       @pokemons = @pokemons.where("metadata @> ?", { types: [I18n.t("pokemon_types.#{params[:type]}")] }.to_json)
-      elsif
-      params[:extension_id].present?
+    elsif params[:name].present? && params[:extension_id].present?
+      @pokemons = Pokemon.where("unaccent(pokemons.pokemon_name) ILIKE ? OR unaccent(pokemons.pokemon_id) ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
+      @pokemons = @pokemons.where("extension_id = ?", params[:extension_id])
+    elsif params[:extension_id].present?
       # find pokemon where user click on button extension
       @pokemons = @pokemons.where("pokemons.extension_id = ?", params[:extension_id])
     elsif params[:name].present?
