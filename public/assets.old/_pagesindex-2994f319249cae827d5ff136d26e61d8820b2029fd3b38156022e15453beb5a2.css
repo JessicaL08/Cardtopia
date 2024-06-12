@@ -1,0 +1,38 @@
+/* line 8, app/assets/stylesheets/_pagesindex.scss */
+.index-body {
+  color: #f4f4f4;
+}
+
+/* line 12, app/assets/stylesheets/_pagesindex.scss */
+.faq {
+  min-width: 40%;
+}
+
+/* line 15, app/assets/stylesheets/_pagesindex.scss */
+.faq h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* line 20, app/assets/stylesheets/_pagesindex.scss */
+.faq .accordion {
+  max-width: 500px;
+}
+
+/* line 23, app/assets/stylesheets/_pagesindex.scss */
+.faq .accordion .accordion-item {
+  background-color: #656363;
+  color: #f4f4f4;
+}
+
+/* line 29, app/assets/stylesheets/_pagesindex.scss */
+.faq .accordion-button {
+  background-color: #656363;
+  color: #f4f4f4;
+}
+
+/* line 35, app/assets/stylesheets/_pagesindex.scss */
+.dracau-img {
+  width: 300px;
+  height: auto;
+}

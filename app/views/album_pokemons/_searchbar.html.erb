@@ -24,34 +24,61 @@
   }
 </style>
 
+<div class="menu">
+  <div class="dropdown">
+    <input type="checkbox" id="dropdown">
+    <label class="dropdown__face" for="dropdown">
+      <div class="dropdown__text">Saisons</div>
+      <div class="dropdown__arrow"></div>
+    </label>
+    <ul class="dropdown__items">
+      <% @seasons.each do |season| %>
+      <li>| <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87", data: { season_id: season.id } %> |</li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 <%# Code to have button of season or extension to find pokemon to add at the album %>
 
-<div class="caroussel">
+<!-- <div class="caroussel">
   <div id="caroussel_season" class="button-container">
     <span class="label">Saisons :</span>
     <% @seasons.each do |season| %>
       <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87", data: { season_id: season.id } %>
     <% end %>
   </div>
+</div>-->
+
+<div>
+  <div class="button-container">
+    <% unless @extensions.nil? %>
+    <strong>Extensions : </strong>
+    <br>
+      <% @extensions.each do |extension| %>
+  <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87", style: "color: white; text-decoration: none;" %><%= " || " unless extension == @extensions.last %>
+      <% end %>
+  </div>
 </div>
 
-<div class="button-container">
-  <% unless @extensions.nil? %>
-    <span class="label">Extensions :</span>
-    <% @extensions.each do |extension| %>
-      <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87" %>
-    <% end %>
-  <% end %>
-</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownItems = document.querySelectorAll('.dropdown__items li');
+  const dropdownText = document.querySelector('.dropdown__text');
+  const extensions = <%= @extensions.to_json %>; // Supposant que vous avez une représentation JSON des extensions
 
-<style>
-  .extension-bubble {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-</style>
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const seasonId = this.getAttribute('data-season-id');
+      const associatedExtensions = extensions.filter(extension => extension.season_id == seasonId);
+
+      // Générer les liens vers les extensions filtrées
+      const extensionLinks = associatedExtensions.map(extension => {
+        return `<a href="/votre-lien/${extension.id}" class="button-87">${extension.extension_name}</a>`;
+      });
+
+      // Mettre à jour le contenu de dropdown__text avec les liens générés
+      dropdownText.innerHTML = extensionLinks.join('');
+    });
+  });
+});
+</script>

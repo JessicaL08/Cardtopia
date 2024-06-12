@@ -1,0 +1,34 @@
+/* line 1, app/assets/stylesheets/_pokemon_type.scss */
+#pokemon_type {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* line 8, app/assets/stylesheets/_pokemon_type.scss */
+#type {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  max-width: 100% !important;
+  overflow-x: scroll;
+  gap: 30px;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* line 19, app/assets/stylesheets/_pokemon_type.scss */
+#type::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+/* line 23, app/assets/stylesheets/_pokemon_type.scss */
+#scroll {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  bottom: 0;
+}

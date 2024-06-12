@@ -1,0 +1,34 @@
+/* line 45, app/assets/stylesheets/_carousel.scss */
+.contain {
+  display: flex;
+  margin: 1em auto;
+  outline: 1px dashed lightgray;
+  flex: none;
+  overflow: auto;
+}
+
+/* line 53, app/assets/stylesheets/_carousel.scss */
+.contain.x {
+  width: 300px;
+  flex-flow: row nowrap;
+  overflow-y: hidden;
+}
+
+/* line 59, app/assets/stylesheets/_carousel.scss */
+.x.contain > img {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 63, app/assets/stylesheets/_carousel.scss */
+.x.mandatory-scroll-snapping {
+  scroll-snap-type: x mandatory;
+}
+
+/* line 67, app/assets/stylesheets/_carousel.scss */
+.mandatory-card {
+  text-align: center;
+  scroll-snap-align: center;
+  flex: none;
+  width: 300px;
+}

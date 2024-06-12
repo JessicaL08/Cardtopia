@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/* line 3, app/assets/stylesheets/_stick_button.scss */
+.sticky-button {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: orange;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0.4;
+  /* Opacité initiale du bouton principal */
+  transition: opacity 0.3s ease;
+  /* Transition de l'opacité */
+}
+
+/* line 19, app/assets/stylesheets/_stick_button.scss */
+.sticky-button:hover {
+  opacity: 1;
+}
+
+/* line 23, app/assets/stylesheets/_stick_button.scss */
+.sub-buttons {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  background-color: orange;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  opacity: 0.4;
+}
+
+/* line 34, app/assets/stylesheets/_stick_button.scss */
+.sub-buttons button {
+  background-color: orange;
+  color: white;
+  margin-top: 5px;
+  border-radius: 10px;
+}
+
+/* line 42, app/assets/stylesheets/_stick_button.scss */
+.sub-buttons button:hover {
+  color: black;
+  /* Changez la couleur selon votre préférence */
+}
+
+/* line 47, app/assets/stylesheets/_stick_button.scss */
+.sub-buttons button i {
+  font-size: 24px;
+  /* Ajustez la taille selon vos besoins */
+}
+
+/* line 52, app/assets/stylesheets/_stick_button.scss */
+.sticky-button.clicked {
+  opacity: 1;
+  /* Opacité maximale lorsqu'on clique */
+}

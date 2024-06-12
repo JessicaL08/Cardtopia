@@ -1,0 +1,25 @@
+/* line 1, app/assets/stylesheets/_caroussel.scss */
+.caroussel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* line 7, app/assets/stylesheets/_caroussel.scss */
+#caroussel_season {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  max-width: 100% !important;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* line 17, app/assets/stylesheets/_caroussel.scss */
+#caroussel_season::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
