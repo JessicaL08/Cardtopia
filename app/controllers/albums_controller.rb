@@ -37,7 +37,7 @@ class AlbumsController < ApplicationController
 
   def update
     if @album.update(album_params)
-      redirect_to album_path(@album), notice: 'Album updated successfully.' # Redirige vers la page de l'album mis à jour
+      redirect_to album_path(@album), notice: 'Album mise à jour avec succès.' # Redirige vers la page de l'album mis à jour
     else
       render :edit # Affiche à nouveau le formulaire d'édition de l'album en cas d'échec
     end
@@ -45,7 +45,7 @@ class AlbumsController < ApplicationController
 
 def destroy
   @album.destroy
-  redirect_to collection_path(@album.collection), notice: 'Album deleted successfully.'
+  redirect_to collection_path(@album.collection), notice: 'Album supprimé avec succès.'
 end
 
   private

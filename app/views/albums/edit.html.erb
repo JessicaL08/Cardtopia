@@ -1,9 +1,9 @@
-<h1>Edit Album</h1>
+<h1>Editer Album</h1>
 
 <%= form_with(model: @album, url: album_path(@album), method: :patch) do |form| %>
-  <%= form.label :name %>
+  <%= form.label :nom %>
   <%= form.text_field :name %>
 
-  <%= form.submit "Update Album", class: 'btn btn-primary' %>
+  <%= form.submit "Mettre à jour l'album", class: 'btn btn-primary' %>
 <% end %>
-<%= link_to 'Back to Album', collections_path, class: 'btn btn-secondary' %>
+<%= link_to 'Revenir à l\'album', album_path(@album), class: 'btn btn-secondary' %>

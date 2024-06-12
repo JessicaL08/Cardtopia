@@ -18,10 +18,10 @@
         <ul class="navbar-nav ml-auto">
           <div class="actions">
             <% if user_signed_in? %>
-              <%= button_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"d-flex align-items-right" %>
+              <%= button_to 'Déconnexion', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"d-flex align-items-right" %>
             <% else %>
-              <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary' %>
-              <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-secondary' %>
+              <%= link_to 'Connexion', new_user_session_path, class: 'btn btn-primary' %>
+              <%= link_to 'Inscription', new_user_registration_path, class: 'btn btn-secondary' %>
             <% end %>
           </div>
         </ul>

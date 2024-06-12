@@ -11,7 +11,7 @@ class CardsController < ApplicationController
   def create
     @card = @album.cards.build(card_params)
     if @card.save
-      redirect_to collection_album_path(@collection, @album), notice: 'Card created successfully.'
+      redirect_to collection_album_path(@collection, @album), notice: 'Cartes créés avec succès.'
     else
       render :new
     end
@@ -22,7 +22,7 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      redirect_to collection_album_path(@collection, @album), notice: 'Card updated successfully.'
+      redirect_to collection_album_path(@collection, @album), notice: 'Cartes mises à jour avec succès.'
     else
       render :edit
     end
@@ -30,7 +30,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to collection_album_path(@collection, @album), notice: 'Card deleted successfully.'
+    redirect_to collection_album_path(@collection, @album), notice: 'Cartes supprimés avec succès.'
   end
 
   private

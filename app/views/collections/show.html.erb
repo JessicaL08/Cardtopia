@@ -1,7 +1,7 @@
 <div class="d-flex flex-column align-items-center">
   <h1><%= @collection.name %></h1>
 
-  <%= button_to 'Delete Collection', collection_path(@collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <%= button_to 'Supprimer Collection', collection_path(@collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 
   <h2>Albums</h2>
 </div>
