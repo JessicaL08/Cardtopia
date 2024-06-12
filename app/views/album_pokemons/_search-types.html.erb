@@ -1,13 +1,18 @@
 <div class="type-list-scrollable my-3">
   <div class="type-list-content">
     <% Pokemon::TYPES.each do |type| %>
-      <%= link_to request.params.merge(type: type), class:"type-link #{type}" do %>
-        <%= image_tag("energy/#{type}.png", class: "icon-type-search-bar") %>
+      <% if params[:type] == type.to_s %>
+        <%= link_to request.params.except(:type), class:"type-link #{type}" do %>
+          <%= image_tag("energy/#{type}.png", class: "icon-type-search-bar") %>
+        <% end %>
+        <% else %>
+          <%= link_to request.params.merge(type: type), class:"type-link #{type}" do %>
+          <%= image_tag("energy/#{type}.png", class: "icon-type-search-bar") %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
 </div>
-
 
 <script>
   const urlSearchParams = new URLSearchParams(window.location.search);
