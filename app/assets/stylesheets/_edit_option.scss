@@ -1,0 +1,12 @@
+.edit-album-container {
+  justify-content: center;
+  .edit-album-bloc {
+    padding-top: 20px;
+  }
+
+  .edit-button {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+  }
+}
