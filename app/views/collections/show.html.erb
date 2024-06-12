@@ -1,9 +1,15 @@
 <div class="d-flex flex-column align-items-center">
-  <h1><%= @collection.name %></h1>
+  <div class="show-collection-name-collection">
+    <h1 class="show-collection-h1"><%= @collection.name %></h1>
+    <%= link_to edit_collection_path(@collection) do %>
+      <%= image_tag("icons-nav/pencil_icon_white1.svg", class: 'show-collection-edit-icon') %>
+    <% end %>
+  </div>
+</div>
 
-  <%= button_to 'Supprimer Collection', collection_path(@collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-
-  <h2>Albums</h2>
+<!-- <%= button_to 'Supprimer Collection', collection_path(@collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %> -->
+<div class="d-flex flex-column align-items-left show-collection-title">
+  <h2 class="show-collection-h2">Albums</h2>
 </div>
 
 <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
@@ -30,8 +36,8 @@
 </div>
 
 <div class="statistic">
-  <div class="d-flex justify-content-center">
-    <h2>Mon avancée</h2>
+  <div class="d-flex flex-column align-items-left show-collection-avancee">
+    <h2 class="show-collection-h2">Mon avancée</h2>
   </div>
   <div class="container pt-0">
     <div class="row d-flex justify-content-center align-items-center">
@@ -39,7 +45,7 @@
         <div class="col-6 col-sm-6 col-md-4 col-lg-3 my-1">
           <div class="extension-stat" data-controller="toggle" data-action="click->toggle#fire">
             <div class="text-center">
-              <h3><%= season.season_name %></h3>
+              <h3 class="show-collection-h3"><%= season.season_name %></h3>
               <p class="stats"><%= season.pokemons.where(id: @pokemon_ids).count %>/<%= season.extensions.sum(&:total) %></p>
             </div>
             <div class="card-body">
