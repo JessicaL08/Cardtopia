@@ -23,8 +23,8 @@ class PokemonsController < ApplicationController
   end
 
   def search
-    @pokemons_name = Pokemon.where("pokemon_name ILIKE ?", "%#{params[:name]}%").map(&:pokemon_name).uniq
-    @pokemon_names = @pokemons_name.map { |name| name.split(" ").first }.uniq
+    @pokemon_names = Pokemon.where("pokemon_name ILIKE ?", "%#{params[:name]}%").map(&:pokemon_name).uniq
+
     render json: {
       partial: render_to_string(
         partial: "shared/pokemon_names",
