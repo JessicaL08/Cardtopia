@@ -10,8 +10,34 @@
   }
 }
 
-.show-collection-edit-icon {
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
+.show-collection-name-collection {
+  display: flex;
+
+  .show-collection-edit-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+  }
+
+  img {
+    color: white;
+  }
+}
+
+.show-collection-title {
+  padding-left: 8px;
+}
+
+.show-collection-avancee {
+  padding-left: 8px;
+}
+
+.show-collection-h1 {
+  font-size: 40px;
+  margin-top: 8px;
+}
+
+.show-collection-h2 {
+  font-size: 24px;
+  margin-top: 8px;
 }
