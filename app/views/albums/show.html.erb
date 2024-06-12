@@ -19,9 +19,9 @@
           <div class="card-container">
             <div class="img-size">
               <% if pokemon.image != "/high.webp" %>
-                <%= link_to image_tag(pokemon.image, class: "pokemon-image", id: "nolink"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
+                <%= link_to image_tag(pokemon.image, class: "pokemon-image clicked", id: "nolink"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
               <% else %>
-                <%= link_to image_tag("Pika-no-image", class: "pokemon-image no-image", id: "nolink"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
+                <%= link_to image_tag("Pika-no-image", class: "pokemon-image no-image clicked", id: "nolink"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
               <% end %>
             </div>
             <div class="text-center mt-2">

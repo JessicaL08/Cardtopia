@@ -16,7 +16,7 @@
   <% @collection.albums.each do |album| %>
 
 
-    <div class="card-album">
+    <div class="card-album clicked">
       <%= button_to album_path(album[:id]), method: :get do %>
         <div class="photos-container">
           <%= image_tag(album.getPokemonImg(0), class: 'photos-container-main')%>
@@ -43,7 +43,7 @@
     <div class="row d-flex justify-content-center align-items-center">
       <% @seasons.each do |season| %>
         <div class="col-6 col-sm-6 col-md-4 col-lg-3 my-1">
-          <div class="extension-stat" data-controller="toggle" data-action="click->toggle#fire">
+          <div class="extension-stat clicked" data-controller="toggle" data-action="click->toggle#fire">
             <div class="text-center">
               <h3 class="show-collection-h3"><%= season.season_name %></h3>
               <p class="stats"><%= season.pokemons.where(id: @pokemon_ids).count %>/<%= season.extensions.sum(&:total) %></p>
