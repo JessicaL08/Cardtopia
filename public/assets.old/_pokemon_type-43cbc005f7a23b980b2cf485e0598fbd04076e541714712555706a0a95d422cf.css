@@ -1,0 +1,33 @@
+/* line 1, app/assets/stylesheets/_pokemon_type.scss */
+.type-list-scrollable {
+  overflow-x: auto;
+  width: 100%;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* line 8, app/assets/stylesheets/_pokemon_type.scss */
+.type-list-scrollable::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+/* line 12, app/assets/stylesheets/_pokemon_type.scss */
+.type-list-scrollable .type-list-content {
+  display: flex;
+  gap: 10px;
+}
+
+/* line 16, app/assets/stylesheets/_pokemon_type.scss */
+.type-list-scrollable .type-list-content .icon-type-search-bar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* line 22, app/assets/stylesheets/_pokemon_type.scss */
+.type-list-scrollable .type-list-content .inactif {
+  opacity: 0.4;
+}

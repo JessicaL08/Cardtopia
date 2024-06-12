@@ -1,0 +1,22 @@
+/* line 1, app/assets/stylesheets/_delete-cancel-buttons.scss */
+#deleteSelectedButton,
+#cancelSelectedButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+}
+
+/* line 12, app/assets/stylesheets/_delete-cancel-buttons.scss */
+#deleteSelectedButton {
+  right: 60px;
+  /* Adjust the distance between buttons */
+}
+
+/* line 17, app/assets/stylesheets/_delete-cancel-buttons.scss */
+#cancelSelectedButton {
+  right: 20px;
+}
