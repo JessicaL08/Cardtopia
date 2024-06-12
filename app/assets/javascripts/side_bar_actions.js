@@ -32,8 +32,6 @@ function enableCheckboxes() {
 
     const cancelButton = document.getElementById('cancelSelectedButton');
     cancelButton.style.display = 'block';
-
-
     });
 }
 
