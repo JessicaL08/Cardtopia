@@ -4,6 +4,9 @@
   <%= render 'searchbar' %>
   <%= render 'search-types' %>
 
+  <%= link_to "Rénitialise recherche", request.params.except(:type, :season_id, :name, :extension_id), class: 'btn btn-primary' %>
+
+
   <% if @pokemons&.any? %>
     <h2>Search Results:</h2>
     <div class="display-search">
@@ -16,7 +19,11 @@
       </div>
     </div>
   <% else %>
-    <p>Pas de Pokémon trouvé avec ce nom.</p>
+    <% if params[:name].present? && params[:extension_id].present? %>
+      <p>Pas de Pokémon trouvé avec ce nom dans cette extension.</p>
+    <% else %>
+      <p>Pas de Pokémon trouvé avec ce nom.</p>
+    <% end %>
   <% end %>
 
   <%= javascript_include_tag 'search_script' %>
