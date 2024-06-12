@@ -35,14 +35,6 @@
   </div>
 </div>
 
-<div class="caroussel">
-  <div id="caroussel_season" class="button-container">
-    <span class="label">Extensions :</span>
-    <% @seasons.each do |season| %>
-      <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87" %>
-    <% end %>
-  </div>
-</div>
 <div class="button-container">
   <% unless @extensions.nil? %>
     <% @extensions.each do |extension| %>
@@ -62,39 +54,3 @@
     z-index: 1000;
   }
 </style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const seasonButtons = document.querySelectorAll('#caroussel_season .button-87');
-  let currentBubble = null;
-
-  seasonButtons.forEach(button => {
-    button.addEventListener('click', function(event) {
-      event.preventDefault();
-
-      // Masquer la bulle actuelle si une autre est ouverte
-      if (currentBubble) {
-        currentBubble.style.display = 'none';
-      }
-
-      // Trouver la bulle d'extensions correspondante
-      const seasonId = this.getAttribute('data-season-id');
-      const bubble = document.querySelector(`.extension-bubble[data-season-id="${seasonId}"]`);
-
-      if (bubble) {
-        bubble.style.display = 'block';
-        currentBubble = bubble;
-      }
-    });
-  });
-
-  // Masquer la bulle si on clique n'importe où ailleurs
-  document.addEventListener('click', function(event) {
-    if (currentBubble && !event.target.closest('.extension-bubble') && !event.target.closest('#caroussel_season .button-87')) {
-      currentBubble.style.display = 'none';
-      currentBubble = null;
-    }
-  });
-});
-
-</script>

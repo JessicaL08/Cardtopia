@@ -1,6 +1,6 @@
 class AlbumPokemonsController < ApplicationController
   before_action :set_album
-    before_action :set_new_page_flag, only: [:new]
+  before_action :set_new_page_flag, only: [:new]
 
   def new
     load_collection_and_album
