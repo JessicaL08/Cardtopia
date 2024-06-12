@@ -1,0 +1,110 @@
+/* line 2, app/assets/stylesheets/_menu.scss */
+.menu .dropdown {
+  width: 120px;
+  filter: url(#goo);
+}
+
+/* line 6, app/assets/stylesheets/_menu.scss */
+.menu .dropdown__face, .menu .dropdown__items {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+/* line 13, app/assets/stylesheets/_menu.scss */
+.menu .dropdown__face {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  /* Optional: makes it clear that this is clickable */
+}
+
+/* line 20, app/assets/stylesheets/_menu.scss */
+.menu .dropdown__items {
+  margin: 0;
+  position: relative;
+  /* Change to relative */
+  left: 50%;
+  top: 10px;
+  /* Adjust this value to control spacing */
+  width: 300%;
+  max-width: calc(100vw - 40px);
+  transform: translateX(-50%);
+  list-style: none;
+  list-style-type: none;
+  /* Change to column to stack items vertically */
+  visibility: hidden;
+  z-index: -1;
+  opacity: 0;
+  height: 0;
+  /* Initially set height to 0 */
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.93, 0.88, 0.1, 0.8);
+}
+
+/* line 43, app/assets/stylesheets/_menu.scss */
+.menu .dropdown__items::before {
+  content: "";
+  background-color: #fff;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40px;
+  width: 20px;
+}
+
+/* line 55, app/assets/stylesheets/_menu.scss */
+.menu .dropdown__arrow {
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) translateY(-50%);
+  transform-origin: left;
+}
+
+/* line 67, app/assets/stylesheets/_menu.scss */
+.menu .dropdown input {
+  display: none;
+}
+
+/* line 70, app/assets/stylesheets/_menu.scss */
+.menu .dropdown input:checked ~ .dropdown__items {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  width: 500px;
+  /* Allow height to adjust based on content */
+  padding-top: 10px;
+  /* Adjust padding as needed */
+  z-index: 1;
+}
+
+/* line 83, app/assets/stylesheets/_menu.scss */
+.menu body {
+  background-image: linear-gradient(140deg, #e2e2e2, #cdcdcd);
+  display: grid;
+  place-items: center;
+  font-family: "Lato", Arial, sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+/* line 92, app/assets/stylesheets/_menu.scss */
+.menu * {
+  box-sizing: border-box;
+}
+
+/* line 96, app/assets/stylesheets/_menu.scss */
+.menu svg {
+  display: none;
+}
+
+/* line 100, app/assets/stylesheets/_menu.scss */
+.menu .dropdown__text {
+  color: black;
+}

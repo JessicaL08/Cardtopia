@@ -1,4 +1,5 @@
 
+
 <%= form_with(method: :get) do %>
   <div class="form-group d-flex align-items-center"> <!-- Utilisation de classes flexbox pour aligner les éléments -->
     <div> <!-- Div pour le label -->
@@ -24,18 +25,23 @@
   }
 </style>
 
-<div class="menu">
-  <div class="dropdown">
-    <input type="checkbox" id="dropdown">
-    <label class="dropdown__face" for="dropdown">
-      <div class="dropdown__text">Saisons</div>
-      <div class="dropdown__arrow"></div>
-    </label>
-    <ul class="dropdown__items">
+
+  <%# <div class="season-background"> %>
+  <div class="season-list-scrollable my-3">
+    <div class="season-list-content" style="white-space: nowrap; overflow-x: auto;">
       <% @seasons.each do |season| %>
-      <li>| <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87", data: { season_id: season.id } %> |</li>
+        <div class="season-and-extensions" id="season-<%= season.id %>" style="display: inline-block; margin-right: 20px;">
+          <span class="season-name"><%= season.season_name %></span>
+          <% unless season.extensions.nil? %>
+            <div class="button-container" style="display: none;">
+              <% season.extensions.each do |extension| %>
+                <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87", style: "color: white; text-decoration: none;" %><%= " || " unless extension == season.extensions.last %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
-    </ul>
+    </div>
   </div>
 </div>
 <%# Code to have button of season or extension to find pokemon to add at the album %>
@@ -49,7 +55,7 @@
   </div>
 </div>-->
 
-<div>
+<!-- <div>
   <div class="button-container">
     <% unless @extensions.nil? %>
     <strong>Extensions : </strong>
@@ -59,4 +65,30 @@
       <% end %>
     <% end %>
   </div>
-</div>
+</div> -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll(".season-name").forEach(function(seasonName) {
+    seasonName.addEventListener("click", function(event) {
+      event.preventDefault();
+      const seasonAndExtensions = seasonName.parentElement;
+      const seasonId = seasonAndExtensions.id.split("-")[1];
+
+      // Afficher les extensions de la saison et masquer les autres
+      document.querySelectorAll(".season-and-extensions").forEach(function(seasonDiv) {
+        if (seasonDiv.id === seasonAndExtensions.id) {
+          seasonDiv.querySelector(".button-container").style.display = "block";
+        } else {
+          seasonDiv.querySelector(".button-container").style.display = "none";
+          seasonDiv.style.display = "none"; // Masquer la saison
+        }
+      });
+
+      document.querySelectorAll(".season-name").forEach(el => el.style.fontWeight = "normal");
+      seasonName.style.fontWeight = "bold";
+    });
+  });
+});
+</script>

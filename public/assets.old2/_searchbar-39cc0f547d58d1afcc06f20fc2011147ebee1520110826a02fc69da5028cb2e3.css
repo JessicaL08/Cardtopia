@@ -1,0 +1,7 @@
+/* line 1, app/assets/stylesheets/_searchbar.scss */
+.type-large-icon {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  border-radius: 50%;
+}

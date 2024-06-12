@@ -1,0 +1,47 @@
+/* line 3, app/assets/stylesheets/_sticky_button.scss */
+.sticky-button {
+  position: fixed;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  bottom: 50px;
+  right: 35px;
+  transform: translateY(-50%);
+  background-color: #1e3d59;
+  color: #fbfcfa;
+  border: 1px solid #bbc4cd;
+  z-index: 9999;
+  opacity: 1;
+}
+
+/* line 24, app/assets/stylesheets/_sticky_button.scss */
+.sticky-button i {
+  align-self: center;
+}
+
+/* line 29, app/assets/stylesheets/_sticky_button.scss */
+.sub-buttons {
+  position: absolute;
+  bottom: calc(56px + 8px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* line 40, app/assets/stylesheets/_sticky_button.scss */
+.sub-buttons button {
+  background-color: #1e3d59;
+  color: #fbfcfa;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #bbc4cd;
+}
+
+/* line 54, app/assets/stylesheets/_sticky_button.scss */
+.sub-buttons button i {
+  font-size: 24px;
+}

@@ -1,0 +1,60 @@
+.season-list-scrollable {
+  overflow-x: auto;
+  width: 100%;
+  white-space: nowrap;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.season-list-scrollable::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+.season-list-content {
+  display: inline-flex;
+}
+
+.season-link {
+  text-decoration: none;
+}
+
+.season-name {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: grey;
+  border-radius: 10px;
+  color: black;
+  margin-right: 4px;
+}
+
+.season-link .season-name {
+  font-weight: normal;
+}
+
+.season-link .season-name.bold {
+  font-weight: bold;
+}
+
+.season-background {
+  background-color: grey;
+  border: solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  overflow: hidden;
+}
+
+.extensions-container {
+  margin-top: 10px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.extension-list {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}

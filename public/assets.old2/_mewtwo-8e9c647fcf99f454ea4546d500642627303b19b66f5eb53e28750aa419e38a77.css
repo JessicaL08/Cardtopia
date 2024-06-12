@@ -1,0 +1,121 @@
+/* line 3, app/assets/stylesheets/_mewtwo.scss */
+:root {
+  --card-height: 300px;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+/* line 8, app/assets/stylesheets/_mewtwo.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 22, app/assets/stylesheets/_mewtwo.scss */
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 36px;
+  perspective: 2500px;
+  margin: 50px 0;
+  background-color: #444444;
+  border: none;
+}
+
+/* line 36, app/assets/stylesheets/_mewtwo.scss */
+.cover-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* line 42, app/assets/stylesheets/_mewtwo.scss */
+.wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  justify-content: center;
+}
+
+/* line 50, app/assets/stylesheets/_mewtwo.scss */
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+/* line 57, app/assets/stylesheets/_mewtwo.scss */
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+
+/* line 68, app/assets/stylesheets/_mewtwo.scss */
+.wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(to top, transparent 46%, rgba(12, 13, 19, 0.5) 68%, #0c0d13 97%);
+}
+
+/* line 77, app/assets/stylesheets/_mewtwo.scss */
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(to bottom, transparent 46%, rgba(12, 13, 19, 0.5) 68%, #0c0d13 97%);
+}
+
+/* line 86, app/assets/stylesheets/_mewtwo.scss */
+.card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1;
+}
+
+/* line 91, app/assets/stylesheets/_mewtwo.scss */
+.card:hover .wrapper::after {
+  height: 120px;
+}
+
+/* line 95, app/assets/stylesheets/_mewtwo.scss */
+.title {
+  width: 100%;
+  transition: transform 0.5s;
+}
+
+/* line 100, app/assets/stylesheets/_mewtwo.scss */
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px);
+}
+
+/* line 104, app/assets/stylesheets/_mewtwo.scss */
+.character {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+/* line 112, app/assets/stylesheets/_mewtwo.scss */
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -15%, 100px);
+}
+
+/* line 117, app/assets/stylesheets/_mewtwo.scss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}

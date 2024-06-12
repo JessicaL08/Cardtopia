@@ -1,0 +1,82 @@
+/* line 3, app/assets/stylesheets/_infozone.scss */
+.poke-name-title {
+  margin-bottom: 32px;
+  font-weight: bold;
+  color: #f4f4f4;
+}
+
+/* line 9, app/assets/stylesheets/_infozone.scss */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* line 14, app/assets/stylesheets/_infozone.scss */
+.all-infos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* line 22, app/assets/stylesheets/_infozone.scss */
+.all-infos .poke-card {
+  width: calc(40% - 12px);
+  min-width: 250px;
+  max-width: 450px;
+}
+
+/* line 27, app/assets/stylesheets/_infozone.scss */
+.all-infos .poke-card .pokemon-image-info {
+  width: 100%;
+  height: auto;
+}
+
+/* line 33, app/assets/stylesheets/_infozone.scss */
+.all-infos .info-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  width: calc(60% - 12px);
+  min-width: 300px;
+  max-width: 600px;
+}
+
+/* line 42, app/assets/stylesheets/_infozone.scss */
+.all-infos .info-zone .zone {
+  display: flex;
+  flex-direction: column;
+  background: #656363;
+  border: solid;
+  border-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 12px;
+  color: #f4f4f4;
+}
+
+/* line 53, app/assets/stylesheets/_infozone.scss */
+.all-infos .info-zone .zone span {
+  font-weight: bold;
+}
+
+/* line 57, app/assets/stylesheets/_infozone.scss */
+.all-infos .info-zone .zone .show-pokemon-attaque-name {
+  display: flex;
+  display: inline-block;
+}
+
+/* line 65, app/assets/stylesheets/_infozone.scss */
+.icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/* line 72, app/assets/stylesheets/_infozone.scss */
+.show-pokemon-add-icon {
+  width: 50px;
+  height: 50px;
+}

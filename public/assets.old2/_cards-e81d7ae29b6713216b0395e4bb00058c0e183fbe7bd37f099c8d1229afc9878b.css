@@ -1,0 +1,153 @@
+@charset "UTF-8";
+/* line 3, app/assets/stylesheets/_cards.scss */
+.navbar-album {
+  display: flex;
+  justify-content: end;
+}
+
+/* line 9, app/assets/stylesheets/_cards.scss */
+.selected-image {
+  border: 2px solid red;
+}
+
+/* line 13, app/assets/stylesheets/_cards.scss */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* line 19, app/assets/stylesheets/_cards.scss */
+.card-size {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #fcbf49;
+  box-sizing: border-box;
+  margin-inline: 8px;
+  border-radius: 12px;
+}
+
+/* line 30, app/assets/stylesheets/_cards.scss */
+.name-style {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+  padding: 8px 0 8px 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* line 39, app/assets/stylesheets/_cards.scss */
+.img-size {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* line 46, app/assets/stylesheets/_cards.scss */
+.img-size .pokemon-image {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 8px;
+}
+
+/**
+* ----------------------------------------
+* animation slide-in-top de l'image de la carte
+* ----------------------------------------
+*/
+/* line 59, app/assets/stylesheets/_cards.scss */
+.slide-in-top {
+  animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/**
+* ----------------------------------------
+* fin animation slide-in-top de l'image de la carte
+* ----------------------------------------
+*/
+/* line 93, app/assets/stylesheets/_cards.scss */
+.content {
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+/* line 98, app/assets/stylesheets/_cards.scss */
+.titlePoke {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/**
+* ----------------------------------------
+* animation slide-in-bottom du bloc de texte
+* ----------------------------------------
+*/
+/* line 110, app/assets/stylesheets/_cards.scss */
+.slide-in-bottom {
+  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/**
+* ----------------------------------------
+* fin animation slide-in-bottom du bloc de texte
+* ----------------------------------------
+*/
+/**
+* ----------------------------------------
+*/
+/* Media Queries pour ajuster le layout sur les écrans plus petits */
+@media (max-width: 767px) {
+  /* line 153, app/assets/stylesheets/_cards.scss */
+  .card-size {
+    width: calc(90 / 2 * 1%);
+    /* Deux cartes par ligne */
+  }
+}
+
+/* Media Queries pour ajuster le layout sur les écrans plus petits */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* line 160, app/assets/stylesheets/_cards.scss */
+  .card-size {
+    width: calc(92 / 3 * 1%);
+    /* Trois cartes par ligne */
+  }
+}
+
+/* Media Queries pour ajuster le layout sur les écrans plus petits */
+@media (min-width: 1024px) {
+  /* line 167, app/assets/stylesheets/_cards.scss */
+  .card-size {
+    width: calc(92 / 4 * 1%);
+    /* Trois cartes par ligne */
+  }
+}
