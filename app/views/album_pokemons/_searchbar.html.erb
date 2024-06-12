@@ -28,7 +28,7 @@
 
 <div class="caroussel">
   <div id="caroussel_season" class="button-container">
-    <span class="label">Seasons :</span>
+    <span class="label">Saisons :</span>
     <% @seasons.each do |season| %>
       <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87", data: { season_id: season.id } %>
     <% end %>
@@ -37,6 +37,7 @@
 
 <div class="button-container">
   <% unless @extensions.nil? %>
+    <span class="label">Extensions :</span>
     <% @extensions.each do |extension| %>
       <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87" %>
     <% end %>
