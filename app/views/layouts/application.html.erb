@@ -15,10 +15,10 @@
     <nav class="navbar navbar-light navbar-custom d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
         <%= link_to image_tag("Cardtopia.png", alt: "Cardtopia Logo", class: "rounded responsive"), root_path %>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto button-deconnexion">
           <div class="actions">
             <% if user_signed_in? %>
-              <%= button_to 'Déconnexion', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"d-flex align-items-right" %>
+              <%= button_to 'Déconnexion', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "d-flex align-items-right", style: "color: #fbfcfa; background: #1e3d59; border-radius: 8px; border: 1px; border-color: $blanc-creme; border-style: solid; cursor: pointer; margin-right: 10px;" %>
             <% else %>
               <%= link_to 'Connexion', new_user_session_path, class: 'btn btn-primary' %>
               <%= link_to 'Inscription', new_user_registration_path, class: 'btn btn-secondary' %>
@@ -47,5 +47,6 @@
   </div>
   <%= javascript_include_tag 'sticky_button' %>
   <%= javascript_include_tag 'side_bar_actions' %>
+
 </body>
 </html>
