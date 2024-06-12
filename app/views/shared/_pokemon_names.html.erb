@@ -1,0 +1,3 @@
+<% pokemon_names.each do |name| %>
+  <%= link_to "#{name}", request.params.merge(name: name), class: "button-87" %>
+<% end %>
