@@ -19,7 +19,6 @@ export default class extends Controller {
   }
 
   filterByName(event) {
-    console.log(window.location.href);
     const url = new URL(window.location.href);
     url.searchParams.set("name", event.currentTarget.innerText);
     window.location.href = url;
