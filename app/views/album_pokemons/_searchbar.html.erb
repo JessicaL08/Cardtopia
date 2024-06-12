@@ -1,4 +1,5 @@
 
+
 <%= form_with(method: :get) do %>
   <div class="form-group d-flex align-items-center"> <!-- Utilisation de classes flexbox pour aligner les éléments -->
     <div> <!-- Div pour le label -->
@@ -24,34 +25,70 @@
   }
 </style>
 
+
+  <%# <div class="season-background"> %>
+  <div class="season-list-scrollable my-3">
+    <div class="season-list-content" style="white-space: nowrap; overflow-x: auto;">
+      <% @seasons.each do |season| %>
+        <div class="season-and-extensions" id="season-<%= season.id %>" style="display: inline-block; margin-right: 20px;">
+          <span class="season-name"><%= season.season_name %></span>
+          <% unless season.extensions.nil? %>
+            <div class="button-container" style="display: none;">
+              <% season.extensions.each do |extension| %>
+                <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87", style: "color: white; text-decoration: none;" %><%= " || " unless extension == season.extensions.last %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 <%# Code to have button of season or extension to find pokemon to add at the album %>
 
-<div class="caroussel">
+<!-- <div class="caroussel">
   <div id="caroussel_season" class="button-container">
     <span class="label">Saisons :</span>
     <% @seasons.each do |season| %>
       <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87", data: { season_id: season.id } %>
     <% end %>
   </div>
-</div>
+</div>-->
 
-<div class="button-container">
-  <% unless @extensions.nil? %>
-    <span class="label">Extensions :</span>
-    <% @extensions.each do |extension| %>
-      <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87" %>
+<!-- <div>
+  <div class="button-container">
+    <% unless @extensions.nil? %>
+    <strong>Extensions : </strong>
+    <br>
+      <% @extensions.each do |extension| %>
+  <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87", style: "color: white; text-decoration: none;" %><%= " || " unless extension == @extensions.last %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+</div> -->
 
-<style>
-  .extension-bubble {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-</style>
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll(".season-name").forEach(function(seasonName) {
+    seasonName.addEventListener("click", function(event) {
+      event.preventDefault();
+      const seasonAndExtensions = seasonName.parentElement;
+      const seasonId = seasonAndExtensions.id.split("-")[1];
+
+      // Afficher les extensions de la saison et masquer les autres
+      document.querySelectorAll(".season-and-extensions").forEach(function(seasonDiv) {
+        if (seasonDiv.id === seasonAndExtensions.id) {
+          seasonDiv.querySelector(".button-container").style.display = "block";
+        } else {
+          seasonDiv.querySelector(".button-container").style.display = "none";
+          seasonDiv.style.display = "none"; // Masquer la saison
+        }
+      });
+
+      document.querySelectorAll(".season-name").forEach(el => el.style.fontWeight = "normal");
+      seasonName.style.fontWeight = "bold";
+    });
+  });
+});
+</script>

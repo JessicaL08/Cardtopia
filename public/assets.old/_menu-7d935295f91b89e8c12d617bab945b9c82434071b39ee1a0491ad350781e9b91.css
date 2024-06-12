@@ -1,0 +1,109 @@
+/* line 2, app/assets/stylesheets/_menu.scss */
+.menu .dropdown {
+  width: 120px;
+  filter: url(#goo);
+}
+
+/* line 6, app/assets/stylesheets/_menu.scss */
+.menu .dropdown__face, .menu .dropdown__items {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+/* line 13, app/assets/stylesheets/_menu.scss */
+.menu .dropdown__face {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+/* line 19, app/assets/stylesheets/_menu.scss */
+.menu .dropdown__items {
+  margin: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  /* Take the full width of the viewport */
+  height: 100vh;
+  /* Take the full height of the viewport */
+  transform: none;
+  /* Remove the transform for centering */
+  list-style: none;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Center items vertically */
+  align-items: center;
+  /* Center items horizontally */
+  visibility: hidden;
+  z-index: -1;
+  opacity: 0;
+  overflow: auto;
+  transition: visibility 0.4s, opacity 0.4s, z-index 0.4s;
+}
+
+/* line 39, app/assets/stylesheets/_menu.scss */
+.menu .dropdown__items::before {
+  content: "";
+  background-color: #fff;
+  position: absolute;
+  bottom: auto;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40px;
+  width: 20px;
+}
+
+/* line 52, app/assets/stylesheets/_menu.scss */
+.menu .dropdown__arrow {
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) translateY(-50%);
+  transform-origin: left;
+}
+
+/* line 64, app/assets/stylesheets/_menu.scss */
+.menu .dropdown input {
+  display: none;
+}
+
+/* line 67, app/assets/stylesheets/_menu.scss */
+.menu .dropdown input:checked ~ .dropdown__items {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+
+/* line 76, app/assets/stylesheets/_menu.scss */
+body {
+  background-image: linear-gradient(140deg, #e2e2e2, #cdcdcd);
+  display: grid;
+  place-items: center;
+  font-family: "Lato", Arial, sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+/* line 85, app/assets/stylesheets/_menu.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 89, app/assets/stylesheets/_menu.scss */
+svg {
+  display: none;
+}
+
+/* line 93, app/assets/stylesheets/_menu.scss */
+.dropdown__text {
+  color: red;
+}

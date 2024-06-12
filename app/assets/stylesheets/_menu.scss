@@ -1,0 +1,117 @@
+.menu {
+  padding-left: 10px;
+  /* Ajouter un padding léger à gauche */
+
+  .dropdown {
+    width: 120px;
+    filter: url(#goo);
+
+    &__face,
+    &__items {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 25px;
+    }
+
+    &__face {
+      display: block;
+      position: relative;
+      cursor: pointer;
+      /* Optional: makes it clear that this is clickable */
+    }
+
+    &__items {
+      margin: 0;
+      position: relative;
+      /* Change to relative */
+      left: 0;
+      /* Align to the left */
+      top: 10px;
+      /* Adjust this value to control spacing */
+      width: 300%;
+      max-width: calc(100vw - 40px);
+      transform: translateX(0);
+      list-style: none;
+      list-style-type: none;
+      // display: flex;
+      // flex-direction: column;
+      /* Change to column to stack items vertically */
+      visibility: hidden;
+      z-index: -1;
+      opacity: 0;
+      height: 0;
+      /* Initially set height to 0 */
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.93, 0.88, 0.1, 0.8);
+
+      &::before {
+        content: "";
+        background-color: #fff;
+        position: absolute;
+        bottom: 100%;
+        left: 10px;
+        /* Adjust to position the arrow correctly */
+        transform: translateX(0);
+        height: 40px;
+        width: 20px;
+      }
+    }
+
+    &__arrow {
+      border-bottom: 2px solid #000;
+      border-right: 2px solid #000;
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      width: 10px;
+      height: 10px;
+      transform: rotate(45deg) translateY(-50%);
+      transform-origin: left;
+    }
+
+    input {
+      display: none;
+
+      &:checked~.dropdown__items {
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+        width: 500px;
+        /* Allow height to adjust based on content */
+        padding-top: 10px;
+        /* Adjust padding as needed */
+        z-index: 1;
+      }
+
+      &:checked~.dropdown__items li {
+        display: inline;
+        color: black;
+      }
+
+      &:checked~.dropdown__items a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  body {
+    background-image: linear-gradient(140deg, #e2e2e2, #cdcdcd);
+    display: grid;
+    place-items: center;
+    font-family: "Lato", Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  svg {
+    display: none;
+  }
+
+  .dropdown__text {
+    color: black;
+  }
+}

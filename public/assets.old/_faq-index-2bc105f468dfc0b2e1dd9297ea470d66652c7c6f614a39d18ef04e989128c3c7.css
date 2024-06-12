@@ -1,0 +1,109 @@
+@charset "UTF-8";
+/* line 3, app/assets/stylesheets/_faq-index.scss */
+.faq {
+  min-width: 40%;
+}
+
+/* line 6, app/assets/stylesheets/_faq-index.scss */
+.faq h2 {
+  text-align: center;
+}
+
+/* line 10, app/assets/stylesheets/_faq-index.scss */
+.faq .accordion {
+  max-width: 498px;
+}
+
+/* line 13, app/assets/stylesheets/_faq-index.scss */
+.faq .accordion .accordion-item {
+  background-color: #656363;
+  color: #f4f4f4;
+}
+
+/* line 19, app/assets/stylesheets/_faq-index.scss */
+.faq .accordion-button {
+  background-color: #1e3d59;
+  color: #f4f4f4;
+}
+
+/* line 26, app/assets/stylesheets/_faq-index.scss */
+.dracau-img {
+  max-width: 300px;
+  height: auto;
+}
+
+/**
+        * ----------------------------------------
+ * animation slide-in-left - bloc FAQ
+ * ----------------------------------------
+ */
+/* line 36, app/assets/stylesheets/_faq-index.scss */
+.slide-in-left {
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * fin animation slide-in-left - bloc FAQ
+ * ----------------------------------------
+ */
+/**
+  * ----------------------------------------
+  * animation slide-in-right - Dracaufeu
+  * ----------------------------------------
+  */
+/* line 77, app/assets/stylesheets/_faq-index.scss */
+.slide-in-right {
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/**
+  * ----------------------------------------
+  * fin animation slide-in-right - Dracaufeu
+  * ----------------------------------------
+  */
+/* Début de code pour animation JS */
+@keyframes fadeIn {
+  from {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* line 129, app/assets/stylesheets/_faq-index.scss */
+.hidden {
+  opacity: 0;
+}
+
+/* line 133, app/assets/stylesheets/_faq-index.scss */
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+/* Fin de code pour animation JS */

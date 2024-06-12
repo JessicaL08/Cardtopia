@@ -1,0 +1,66 @@
+/* line 2, app/assets/stylesheets/_statistic.scss */
+.statistic .extension-stat {
+  cursor: pointer;
+  margin-bottom: 4px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100px;
+  max-width: 97%;
+  background-color: #444444;
+}
+
+/* line 16, app/assets/stylesheets/_statistic.scss */
+.statistic .extension-stat h3,
+.statistic .extension-stat .stats {
+  background-color: #1e3d59;
+  margin: 0;
+  padding: 4px;
+  font-size: 13px;
+}
+
+/* line 24, app/assets/stylesheets/_statistic.scss */
+.statistic .extension-stat h3 {
+  font-size: 13px;
+}
+
+/* line 28, app/assets/stylesheets/_statistic.scss */
+.statistic .stats {
+  font-size: 16px;
+}
+
+/* line 32, app/assets/stylesheets/_statistic.scss */
+.statistic .progress {
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #e9ecef;
+  margin-bottom: 10px;
+}
+
+/* line 40, app/assets/stylesheets/_statistic.scss */
+.statistic .progress-bar {
+  background-color: #74c365;
+  transition: width 0.6s ease;
+}
+
+/* line 45, app/assets/stylesheets/_statistic.scss */
+.statistic .card-body {
+  padding: 15px;
+  background-color: #ffffff;
+}
+
+/* line 50, app/assets/stylesheets/_statistic.scss */
+.statistic .extension-details p {
+  margin: 0;
+  padding: 5px 0;
+}
+
+/* line 55, app/assets/stylesheets/_statistic.scss */
+.statistic .extension-details {
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+}
