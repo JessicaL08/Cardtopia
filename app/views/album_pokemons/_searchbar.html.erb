@@ -10,7 +10,7 @@
       </div>
     <% end %>
     <div data-search-pokemon-target="results">
-      
+
     </div>
   </div>
 
@@ -40,50 +40,30 @@
   }
 </style>
 
+<hr>
+  <div class="season-background">
+    <div class="season-list-scrollable my-1">
+      <div class="season-list-content" style="white-space: nowrap; overflow-x: auto;">
 
-  <%# <div class="season-background"> %>
-  <div class="season-list-scrollable my-3">
-    <div class="season-list-content" style="white-space: nowrap; overflow-x: auto;">
-      <% @seasons.each do |season| %>
-        <div class="season-and-extensions" id="season-<%= season.id %>" style="display: inline-block; margin-right: 20px;">
-          <span class="season-name"><%= season.season_name %></span>
-          <% unless season.extensions.nil? %>
-            <div class="button-container" style="display: none;">
-              <% season.extensions.each do |extension| %>
-                <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87", style: "color: white; text-decoration: none;" %><%= " || " unless extension == season.extensions.last %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+        <% @seasons.each do |season| %>
+          <div class="season-and-extensions" id="season-<%= season.id %>" style="display: inline-block; margin-right: 20px; display: flex;">
+            <span class="season-name button-scroll"><strong><%= season.season_name %></strong></span>
+            <% unless season.extensions.nil? %>
+              <div class="button-container" style="display: none;">
+                <% season.extensions.each do |extension| %>
+                  <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87 season-link button-scroll", style: "color: white; text-decoration: none;" %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
-<%# Code to have button of season or extension to find pokemon to add at the album %>
 
-<!-- <div class="caroussel">
-  <div id="caroussel_season" class="button-container">
-    <span class="label">Saisons :</span>
-    <% @seasons.each do |season| %>
-      <%= link_to season.season_name, request.params.merge(season_id: season.id), class: "button-87", data: { season_id: season.id } %>
-    <% end %>
-  </div>
-</div>-->
-
-<!-- <div>
-  <div class="button-container">
-    <% unless @extensions.nil? %>
-    <strong>Extensions : </strong>
-    <br>
-      <% @extensions.each do |extension| %>
-  <%= link_to extension.extension_name, request.params.merge(extension_id: extension.id, type: nil), class: "button-87", style: "color: white; text-decoration: none;" %><%= " || " unless extension == @extensions.last %>
-      <% end %>
-    <% end %>
-  </div>
-</div> -->
 
 <script>
-
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll(".season-name").forEach(function(seasonName) {
     seasonName.addEventListener("click", function(event) {
