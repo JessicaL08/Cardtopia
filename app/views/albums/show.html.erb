@@ -10,7 +10,7 @@
   <%= render 'album_pokemons/searchbar' %>
   <%= render 'album_pokemons/search-types' %>
 
-  <%#= link_to "Mes cartes", request.params.except(:type, :season_id, :name, :extension_id), class: 'btn btn-primary' %>
+  <%= link_to "Mes cartes", request.params.except(:type, :season_id, :name, :extension_id), class: 'btn btn-primary' %>
 
 <div class="w-100" data-controller="suppression" id="liste-elements" data-suppression-target="listeElements">
     <ul class="d-flex flex-wrap justify-content-center m-0 p-0 row p-0">
