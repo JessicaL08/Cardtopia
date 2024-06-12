@@ -31,6 +31,9 @@ Rails.application.routes.draw do
     member do
       get :render_content
     end
+    collection do
+      get :search
+    end
   end
 
   # get '/manifest.json', to: redirect('/assets/manifest.json')
