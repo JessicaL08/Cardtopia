@@ -3,8 +3,8 @@
 
   <%= render 'searchbar' %>
   <%= render 'search-types' %>
-
   <%= link_to "Rénitialise recherche", request.params.except(:type, :season_id, :name, :extension_id), class: 'btn btn-primary' %>
+<hr>
 
 
   <% if @pokemons&.any? %>
