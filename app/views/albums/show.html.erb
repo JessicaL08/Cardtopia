@@ -3,14 +3,14 @@
 <div class="show-album-name-album">
   <h1><%= @album.name %></h1>
     <%= link_to edit_album_path(@album) do %>
-      <%= image_tag("icons-nav/pencil_icon.svg", class: 'show-pokemon-edit-icon') %>
+      <%= image_tag("icons-nav/pencil_icon_white1.svg", class: 'show-pokemon-edit-icon') %>
     <% end %>
   </div>
 
   <%= render 'album_pokemons/searchbar' %>
   <%= render 'album_pokemons/search-types' %>
-
-  <%= link_to "Mes cartes", request.params.except(:type, :season_id, :name, :extension_id), class: 'btn btn-primary' %>
+  <%= link_to "Réinitialiser la recherche", request.params.except(:type, :season_id, :name, :extension_id), class: 'btn btn-primary', style: "color: #fbfcfa; background: #1e3d59; border-radius: 8px; border: 1px; border-style: solid; cursor: pointer; margin-bottom: 12px; margin-top: 3px;" %>
+  <hr>
 
 <div class="w-100" data-controller="suppression" id="liste-elements" data-suppression-target="listeElements">
     <ul class="d-flex flex-wrap justify-content-center m-0 p-0 row p-0">

@@ -1,4 +1,7 @@
 .menu {
+  padding-left: 10px;
+  /* Ajouter un padding léger à gauche */
+
   .dropdown {
     width: 120px;
     filter: url(#goo);
@@ -21,12 +24,13 @@
       margin: 0;
       position: relative;
       /* Change to relative */
-      left: 50%;
+      left: 0;
+      /* Align to the left */
       top: 10px;
       /* Adjust this value to control spacing */
       width: 300%;
       max-width: calc(100vw - 40px);
-      transform: translateX(-50%);
+      transform: translateX(0);
       list-style: none;
       list-style-type: none;
       // display: flex;
@@ -45,8 +49,9 @@
         background-color: #fff;
         position: absolute;
         bottom: 100%;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 10px;
+        /* Adjust to position the arrow correctly */
+        transform: translateX(0);
         height: 40px;
         width: 20px;
       }
@@ -77,13 +82,13 @@
         /* Adjust padding as needed */
         z-index: 1;
       }
-      &:checked~.dropdown__items li{
+
+      &:checked~.dropdown__items li {
         display: inline;
-        color:black;
+        color: black;
+      }
 
-        }
-
-      &:checked~.dropdown__items a{
+      &:checked~.dropdown__items a {
         text-decoration: none;
       }
     }

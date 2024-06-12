@@ -1,0 +1,4 @@
+/* line 1, app/assets/stylesheets/_selected.scss */
+.selected {
+  border: 2px solid red;
+}
