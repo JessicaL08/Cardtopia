@@ -1,6 +1,14 @@
+.season-background {
+    overflow-x: auto;
+      width: 100%;
+  // background-color: grey;
+  // border: solid #fbfcfa;
+  border-radius: 10px;
+  padding: 4px;
+  margin: 4px;
+}
+
 .season-list-scrollable {
-  overflow-x: auto;
-  width: 100%;
   white-space: nowrap;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
@@ -20,7 +28,7 @@
 
 .season-name {
   display: inline-block;
-  padding: 5px 10px;
+  padding: 4px 4px;
   background-color: grey;
   border-radius: 10px;
   color: black;
@@ -33,15 +41,6 @@
 
 .season-link .season-name.bold {
   font-weight: bold;
-}
-
-.season-background {
-  background-color: grey;
-  border: solid black;
-  border-radius: 10px;
-  padding: 5px;
-  margin: 5px;
-  overflow: hidden;
 }
 
 .extensions-container {
@@ -57,4 +56,31 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+}
+
+.season-link {
+  display: inline-block;
+  padding: 4px 4px;
+  background-color: grey;
+  border-radius: 10px;
+  color: black;
+  margin-right: 4px;
+}
+
+.season-link.bold {
+  font-weight: bold;
+}
+
+.button-scroll {
+  letter-spacing: 1px;
+  border-style: solid;
+  background-image: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  // font-size: 0.875rem;
+  // width: 100%;
+  padding: 4px 8px 4px 8px;
+  color: #ffffff !important;
+  background-color: #404040 !important;
+  border-width: 2px;
 }
