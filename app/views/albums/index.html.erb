@@ -3,10 +3,10 @@
 <% @albums.each do |album| %>
   <div class="album">
     <h2><%= link_to album.name, collection_album_path(@collection, album) %></h2>
-    <%= link_to 'Edit',  edit_collection_album_path(@collection, album) %>
+    <%= link_to 'Editer',  edit_collection_album_path(@collection, album) %>
     <%# <%= link_to 'Delete', collection_album_path(@collection, album), method: :delete, data: { confirm: 'Are you sure?' } %> %>
   </div>
 <% end %>
 
-<%= link_to 'Add New Album', new_collection_album_path(@collection), class: 'btn btn-primary' %>
-<%= link_to 'Back to Collections', collections_path, class: 'btn btn-secondary' %>
+<%= link_to 'Ajouter un album', new_collection_album_path(@collection), class: 'btn btn-primary' %>
+<%= link_to 'Retour aux collections', collections_path, class: 'btn btn-secondary' %>
