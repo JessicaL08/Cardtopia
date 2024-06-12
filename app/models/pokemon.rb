@@ -22,5 +22,4 @@ class Pokemon < ApplicationRecord
     type_en = I18n.t("pokemon_types").key(type)
     "energy/#{type_en}.png"
   end
-
 end
