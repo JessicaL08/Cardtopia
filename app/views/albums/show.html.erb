@@ -12,8 +12,6 @@
   <%= link_to "Rénitialise recherche", request.params.except(:type, :season_id, :name, :extension_id), class: 'btn btn-primary' %>
   <hr>
 
-  <%= link_to "Mes cartes", request.params.except(:type, :season_id, :name, :extension_id), class: 'btn', style: "color: #fbfcfa; background: #1e3d59; border-radius: 8px; border: 1px; border-style: solid; cursor: pointer; margin-bottom: 12px; margin-top: 3px" %>
-
 <div class="w-100" data-controller="suppression" id="liste-elements" data-suppression-target="listeElements">
     <ul class="d-flex flex-wrap justify-content-center m-0 p-0 row p-0">
       <% @pokemons.each do |pokemon| %>
