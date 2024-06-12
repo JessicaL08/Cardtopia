@@ -1,0 +1,12 @@
+/* line 1, app/assets/stylesheets/_responsive.scss */
+.responsive {
+  max-width: 72%;
+  height: auto;
+}
+
+/* line 6, app/assets/stylesheets/_responsive.scss */
+.navbar-custom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
