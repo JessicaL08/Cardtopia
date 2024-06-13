@@ -9,7 +9,7 @@
 
   <%= render 'album_pokemons/searchbar' %>
   <%= render 'album_pokemons/search-types' %>
-  
+
   <hr>
 
 <div class="w-100" data-controller="suppression" id="liste-elements" data-suppression-target="listeElements">
@@ -33,7 +33,7 @@
     </ul>
       <% if @pokemons.length <= 0 %>
         <div class="d-flex w-100 justify-content-center text-center">
-          <span><%= "Il n'y a pas encore de Pokémon" %></span>
+          <span style="margin-bottom: 18rem; margin-top: 12px;"><%= "Il n'y a pas encore de Pokémon" %></span>
         </div>
       <% end %>
     <button id="deleteSelectedButton" data-action="suppression#supprimerSelection" style="display: none;">
