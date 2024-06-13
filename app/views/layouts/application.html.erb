@@ -8,16 +8,13 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
-
-    <link rel="manifest" href="<%= 'manifest.json' %>">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="/public/icons/cardtopia-logo-192.png">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="shortcut icon" sizes="192x192" href="/public/icons/cardtopia-logo-192.png">
     <link rel="shortcut icon" sizes="128x128" href="/public/icons/cardtopia-logo-192.png">
-
-
   </head>
   <body class="index-body">
     <nav class="navbar navbar-light navbar-custom d-flex align-items-center">
@@ -56,6 +53,5 @@
   </div>
   <%= javascript_include_tag 'sticky_button' %>
   <%= javascript_include_tag 'side_bar_actions' %>
-
 </body>
 </html>
