@@ -2,10 +2,17 @@
 <div data-controller="search-pokemon">
   <!-- div for the real search bar with autocomplete -->
   <div class="d-none search-page" data-search-pokemon-target="search">
+    <h2>Recherche par nom ou ID du pokemon</h2>
     <%= form_with(method: :get) do %>
       <div class="form-group d-flex"> <!-- Utilisation de classes flexbox pour aligner les éléments -->
+
         <div class="align-search">
-          <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Evoli / pop3-13", data: { action: "keyup->search-pokemon#search" } %>  <!-- field to have the pokemon name autocomplete -->
+          <div class="float">
+            <i class="fa-solid fa-arrow-left mx-3 py-2" data-action="click->search-pokemon#fire"></i>
+          </div>
+          <div class="float">
+            <%= text_field_tag :name, params[:name], class: "form-control float", placeholder: "Evoli / pop3-13", data: { action: "keyup->search-pokemon#search" } %>  <!-- field to have the pokemon name autocomplete -->
+          </div>
         </div>
       </div>
     <% end %>
