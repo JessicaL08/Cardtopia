@@ -22,7 +22,7 @@
   <body class="index-body">
     <nav class="navbar navbar-light navbar-custom d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
-        <%= link_to image_tag("Cardtopia.png", alt: "Cardtopia Logo", class: "rounded responsive"), root_path %>
+        <%= link_to image_tag("Cardtopia.png", alt: "Cardtopia Logo", class: "rounded responsive clicked"), root_path %>
         <ul class="navbar-nav ml-auto button-deconnexion">
           <div class="actions">
             <% if user_signed_in? %>
@@ -38,9 +38,9 @@
     <%= yield %>
     <%= render "layouts/bottom_navbar" %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <div class="sticky-button" id="stickyButton">
+    <div class="sticky-button clicked" id="stickyButton">
       <i class="fa-solid fa-bars"></i>
-      <div class="sub-buttons" id="subButtons" style="visibility: hidden; ">
+      <div class="sub-buttons clicked" id="subButtons" style="visibility: hidden; ">
         <button id="home-button" onclick="window.location.href='/';"><i class="fa-solid fa-house"></i></button>
         <button id="delete-item" onclick="deleteItem();"><i class="fa-solid fa-trash"></i></button>
         <button id="edit-item" onclick="editItem();"><i class="fa-solid fa-pen-to-square"></i></button>
