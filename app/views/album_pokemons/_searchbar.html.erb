@@ -4,7 +4,7 @@
   <div class="d-none search-page" data-search-pokemon-target="search">
     <%= form_with(method: :get) do %>
       <div class="form-group d-flex"> <!-- Utilisation de classes flexbox pour aligner les éléments -->
-        <div class="ml-3"> <!-- Div pour le champ de texte avec une marge à gauche -->
+        <div class="align-search">
           <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Evoli / pop3-13", data: { action: "keyup->search-pokemon#search" } %>  <!-- field to have the pokemon name autocomplete -->
         </div>
       </div>
