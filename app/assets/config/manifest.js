@@ -5,7 +5,6 @@
 //= link info_button.js
 //= link sticky_button.js
 //= link side_bar_actions.js
-//= link activate_button_delete.js
 //= link side_bar_button_home.js
 //= link search_script.js
 //= link side_bar_button_show_collection.js
