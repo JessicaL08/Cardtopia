@@ -8,6 +8,10 @@
   margin: 4px;
 }
 
+.season-background::-webkit-scrollbar {
+  display: none;
+}
+
 .season-list-scrollable {
   white-space: nowrap;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
