@@ -44,7 +44,6 @@
         <button id="edit-item" onclick="editItem();"><i class="fa-solid fa-pen-to-square"></i></button>
         <button id="add-item" onclick="addItem();"><i class="fa-solid fa-plus"></i></button>
         <button id="go-back" onclick="goBack();"><i class="fa-solid fa-arrow-left"></i></button>
-        <button id="info-popup" onclick="showInfoPopup();"><i class="fa-solid fa-info-circle"></i></button>
         <% if controller_name == 'album_pokemons' && action_name == 'new' %>
           <button id="albums-button" onclick="window.location.href='<%= album_path(@album) %>';"><i class="fa-solid fa-images"></i></button>
         <% end %>
