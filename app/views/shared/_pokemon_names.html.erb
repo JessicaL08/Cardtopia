@@ -1,3 +1,4 @@
+<%# send the pokemon names under the searchbar %>
 <% pokemon_names.each do |name| %>
-  <p data-action="click->search-pokemon#filterByName"><%= name %></p>
+  <p data-action="click->search-pokemon#filterByName"><%= name %></p> <%# go to the url search pokemon when user click %>
 <% end %>

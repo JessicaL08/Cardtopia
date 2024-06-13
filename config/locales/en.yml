@@ -30,6 +30,7 @@
 en:
   hello: "Hello world"
 
+  # traduction of the types pokemon
   pokemon_types:
     fire: "Feu"
     water: "Eau"
