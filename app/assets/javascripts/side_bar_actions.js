@@ -13,7 +13,7 @@ function deleteItem() {
             // activez le mode de sélection
             const images = document.querySelectorAll('.pokemon-image');
             images.forEach(image => {
-              image.classList.add('selected-image');
+              image.style.opacity = '0.4';
             });
             enableCheckboxes();
 
@@ -115,9 +115,13 @@ document.addEventListener('DOMContentLoaded', function() {
             updateLinks();
             const image = checkbox.closest('.card-container').querySelector('.pokemon-image');
             if (checkbox.checked) {
-                image.classList.add('selected-image');
+                // image.classList.add('selected-image');
+                image.style.opacity = '0.4';
+
             } else {
-                image.classList.remove('selected-image');
+                // image.classList.remove('selected-image');
+                image.style.opacity = '1';
+
             }
         });
     });
@@ -130,9 +134,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateLinks();
                 const image = checkbox.closest('.card-container').querySelector('.pokemon-image');
                 if (checkbox.checked) {
-                    image.classList.add('selected-image');
+                   // image.classList.add('selected-image');
+                  image.style.opacity = '1';
                 } else {
-                    image.classList.remove('selected-image');
+                    // image.classList.remove('selected-image');
+                  image.style.opacity = '0.4';
                 }
                 event.preventDefault();
             }
