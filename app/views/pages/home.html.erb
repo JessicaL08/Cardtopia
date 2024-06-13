@@ -1,7 +1,14 @@
 
 <div class="container">
   <h1>Bienvenue sur Cardtopia</h1>
+
+ <div class="actions">
+    <% if user_signed_in? %>
       <%= link_to 'Accéder à mes collections', collections_path, class: 'btn btn-secondary' %>
+    <% else %>
+    <%= link_to 'Inscription', new_user_registration_path, class: 'btn btn-secondary', style: "color: #fbfcfa; background: #1e3d59; border-radius: 8px; border: 1px; border-color: $blanc-creme; border-style: solid; cursor: pointer; margin-right: 10px;" %>
+    <% end %>
+  </div>
 
   <p>Cardtopia vous permet de virtualiser vos albums de cartes Pokémon. Ajoutez des cartes à vos albums, gérez vos collections et bien plus encore.</p>
 
@@ -11,16 +18,6 @@
     </div>
     <%= image_tag("Mewto.png", class: "character") %>
   </div>
-
-  <div class="actions">
-    <% if user_signed_in? %>
-      <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
-    <% else %>
-      <%= link_to 'Connexion', new_user_session_path, class: 'btn btn-primary' %>
-      <%= link_to 'Inscription', new_user_registration_path, class: 'btn btn-secondary' %>
-    <% end %>
-  </div>
-
 
     <h2>FAQ</h2>
       <div class="faq d-flex flex-direction-row d-grid gap-4 flex-wrap justify-content-center align-items-center hidden">
