@@ -14,30 +14,17 @@
     </div>
   </div>
 
-  <%= form_with(method: :get) do %>
-    <div class="form-group d-flex align-items-center"> <!-- Utilisation de classes flexbox pour aligner les éléments -->
-      <div> <!-- Div pour le label -->
-        <%= label_tag :pokemon_id, "Nom Pokemon ou son ID :" %>
-      </div>
-      <div class="ml-3" data-action="click->search-pokemon#fire"> <!-- Div pour le champ de texte avec une marge à gauche -->
-        <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Evoli / pop3-13" %>
-      </div>
-      <div class="ml-3"> <!-- Div pour le bouton de recherche avec une marge à gauche -->
-      </div>
+<%= form_with(method: :get) do %>
+  <div class="form-group d-flex align-items-center"> <!-- Utilisation de classes flexbox pour aligner les éléments -->
+    <div class="ml-3 position-relative" data-action="click->search-pokemon#fire"> <!-- Div pour le champ de texte avec une marge à gauche -->
+      <%= text_field_tag :name, params[:name], class: "form-control search-input", placeholder: "Chercher un Pokemon" %>
+      <i class="fas fa-search search-icon"></i>
     </div>
+    <div class="ml-3"> <!-- Div pour le bouton de recherche avec une marge à gauche -->
+    </div>
+  </div>
   <% end %>
 </div>
-
-<style>
-  #liste-elements ul {
-    list-style-type: none; /* Enlève les puces de liste */
-    padding-left: 0; /* Enlève le padding par défaut */
-  }
-
-  #liste-elements li {
-    margin-bottom: 10px; /* Optionnel : Ajuste l'espacement entre les éléments */
-  }
-</style>
 
 <hr>
   <div class="season-background">
@@ -61,27 +48,4 @@
   </div>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll(".season-name").forEach(function(seasonName) {
-    seasonName.addEventListener("click", function(event) {
-      event.preventDefault();
-      const seasonAndExtensions = seasonName.parentElement;
-      const seasonId = seasonAndExtensions.id.split("-")[1];
-
-      // Afficher les extensions de la saison et masquer les autres
-      document.querySelectorAll(".season-and-extensions").forEach(function(seasonDiv) {
-        if (seasonDiv.id === seasonAndExtensions.id) {
-          seasonDiv.querySelector(".button-container").style.display = "block";
-        } else {
-          seasonDiv.querySelector(".button-container").style.display = "none";
-          seasonDiv.style.display = "none"; // Masquer la saison
-        }
-      });
-
-      document.querySelectorAll(".season-name").forEach(el => el.style.fontWeight = "normal");
-      seasonName.style.fontWeight = "bold";
-    });
-  });
-});
-</script>
+<%= javascript_include_tag 'extension_bar' %>

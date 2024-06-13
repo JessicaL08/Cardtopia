@@ -1,0 +1,18 @@
+.search-input {
+  padding-left: 3rem;
+  /* Ajuste la marge à gauche pour faire de la place à l'icône */
+  position: relative;
+  /* Position relative pour le conteneur */
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  /* Ajuste la position de l'icône vers la droite */
+  top: 50%;
+  /* Centre l'icône verticalement */
+  transform: translateY(-50%);
+  /* Centre l'icône verticalement */
+  color: #aaa;
+  /* Couleur de l'icône */
+}
