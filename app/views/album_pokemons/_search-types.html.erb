@@ -1,18 +1,20 @@
 <div class="type-list-scrollable my-3">
   <div class="type-list-content">
-    <% Pokemon::TYPES.each do |type| %>
-      <% if params[:type] == type.to_s %>
-        <%= link_to request.params.except(:type), class:"type-link #{type}" do %>
+    <% Pokemon::TYPES.each do |type| %> <!-- get all the types logo to create a link into them -->
+      <% if params[:type] == type.to_s %> <!-- regard if the parameter is present to have a toggle search -->
+        <%= link_to request.params.except(:type), class:"type-link #{type}" do %> <!-- request.params.except to remove the parameter into the field params -->
           <%= image_tag("energy/#{type}.png", class: "icon-type-search-bar") %>
         <% end %>
-        <% else %>
-          <%= link_to request.params.merge(type: type), class:"type-link #{type}" do %>
+      <% else %>
+        <%= link_to request.params.merge(type: type), class:"type-link #{type}" do %>  <!-- request.params.merge to create a special params define by the user -->
           <%= image_tag("energy/#{type}.png", class: "icon-type-search-bar") %>
         <% end %>
       <% end %>
     <% end %>
   </div>
 </div>
+
+<!-- NB: In the link_to we don't need to put some path cause we want to stay in the current url -->
 
 <script>
   const urlSearchParams = new URLSearchParams(window.location.search);

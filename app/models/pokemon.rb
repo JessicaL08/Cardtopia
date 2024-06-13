@@ -22,4 +22,7 @@ class Pokemon < ApplicationRecord
     type_en = I18n.t("pokemon_types").key(type)
     "energy/#{type_en}.png"
   end
+  # I18n : call the function to translate
+  # .t('value') : to have the specific method into the function
+  # .key('param') : to have the translation of the specific parameter
 end
