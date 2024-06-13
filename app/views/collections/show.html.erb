@@ -8,37 +8,31 @@
 </div>
 
 <!-- <%= button_to 'Supprimer Collection', collection_path(@collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %> -->
-<div class="d-flex flex-column align-items-left show-collection-title">
-  <h2 class="show-collection-h2">Albums</h2>
-</div>
+<div class="d-flex flex-column align-items-left">
 
-<div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
-  <% @collection.albums.each do |album| %>
-
-
-    <div class="card-album clicked">
-      <%= button_to album_path(album[:id]), method: :get do %>
-        <div class="photos-container">
-          <%= image_tag(album.getPokemonImg(0), class: 'photos-container-main')%>
-          <div class="photos-container-secondary">
-            <%= image_tag(album.getPokemonImg(1))%>
-            <%= image_tag(album.getPokemonImg(2))%>
+  <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+    <% @collection.albums.each do |album| %>
+      <div class="card-album clicked">
+        <%= button_to album_path(album[:id]), method: :get do %>
+          <div class="photos-container">
+            <%= image_tag(album.getPokemonImg(0), class: 'photos-container-main')%>
+            <div class="photos-container-secondary">
+              <%= image_tag(album.getPokemonImg(1))%>
+              <%= image_tag(album.getPokemonImg(2))%>
+            </div>
           </div>
-        </div>
-        <div class="card-album-infos row">
-          <span class="card-album-name-album"><%= album.name %> </span>
-          <span class="card-album-nb-card-album"><%= album.pokemons.size %> <%= album.pokecardcount %></span>
-        </div>
-      <% end %>
-    </div>
-  <%# -------- VISUEL ALBUM ----------- %>
-  <% end %>
-</div>
+          <div class="card-album-infos row">
+            <span class="card-album-name-album"><%= album.name %> </span>
+            <span class="card-album-nb-card-album"><%= album.pokemons.size %> <%= album.pokecardcount %></span>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
 <div class="statistic">
-  <div class="d-flex flex-column align-items-left show-collection-avancee">
-    <h2 class="show-collection-h2">Mes statistiques</h2>
-  </div>
+  <div class="d-flex flex-column align-items-left show-collection-avancee show-collection-title">
+
   <div class="container pt-0">
     <div class="row d-flex justify-content-center align-items-center">
       <% @seasons.each do |season| %>
@@ -69,5 +63,6 @@
       </div>
     </div>
 </div>
+    </div>
 
 <%= javascript_include_tag 'side_bar_button_show_collection' %>

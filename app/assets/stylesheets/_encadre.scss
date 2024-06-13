@@ -1,0 +1,29 @@
+  .show-collection-title {
+    border-radius: 8px;
+    /* Coins arrondis */
+    margin-top: 20px;
+    /* Marge en haut */
+    position: relative;
+    border: 4px solid white;
+    /* Ajoute une bordure */
+    padding: 20px;
+    /* Espace intérieur pour éviter que le contenu touche la bordure */
+    font: 24px Arial, sans-serif;
+    /* Police de caractères */
+  }
+
+  .show-collection-title::before {
+    content: "Mes statistiques";
+    /* Le texte à afficher */
+    position: absolute;
+    top: -20px;
+    /* Ajuste la position verticale du texte */
+    left: 10px;
+    /* Ajuste la position horizontale du texte */
+    background: #444444;
+    /* Arrière-plan blanc pour couvrir la bordure */
+    padding: 0 5px;
+    /* Espacement horizontal autour du texte */
+    font-weight: bold;
+    /* Texte en gras */
+  }
