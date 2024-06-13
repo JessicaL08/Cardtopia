@@ -21,19 +21,19 @@
     </div>
   </div>
 
-<%= form_with(method: :get) do %>
-  <div class="form-group d-flex align-items-center"> <!-- Utilisation de classes flexbox pour aligner les éléments -->
-    <div class="ml-3 position-relative" data-action="click->search-pokemon#fire"> <!-- Div pour le champ de texte avec une marge à gauche -->
-      <%= text_field_tag :name, params[:name], class: "form-control search-input", placeholder: "Chercher un Pokemon" %>
-      <i class="fas fa-search search-icon"></i>
+  <%= form_with(method: :get) do %>
+    <div class="form-group d-flex align-items-center"> <!-- Utilisation de classes flexbox pour aligner les éléments -->
+      <div class="ml-3 position-relative" data-action="click->search-pokemon#fire"> <!-- Div pour le champ de texte avec une marge à gauche -->
+        <%= text_field_tag :name, params[:name], class: "form-control search-input", placeholder: "Chercher un Pokemon" %>
+        <i class="fas fa-search search-icon"></i>
+      </div>
+      <div class="ml-3"> <!-- Div pour le bouton de recherche avec une marge à gauche -->
+      </div>
     </div>
-    <div class="ml-3"> <!-- Div pour le bouton de recherche avec une marge à gauche -->
-    </div>
-  </div>
   <% end %>
 </div>
+<%= link_to "Réinitialiser la recherche", request.params.except(:type, :season_id, :name, :extension_id), style: "color: #fbfcfa; cursor: pointer; margin-top: 3px; font-size: 10px" %>
 
-<hr>
   <div class="season-background">
     <div class="season-list-scrollable my-1">
       <div class="season-list-content" style="white-space: nowrap; overflow-x: auto;">
