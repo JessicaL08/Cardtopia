@@ -11,6 +11,10 @@ function deleteItem() {
         // si détail de l'album
         if (currentUrl.includes(`/albums/${albumId}`)) {
             // activez le mode de sélection
+            const images = document.querySelectorAll('.pokemon-image');
+            images.forEach(image => {
+              image.classList.add('selected-image');
+            });
             enableCheckboxes();
 
         } else {
