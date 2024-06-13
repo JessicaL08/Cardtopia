@@ -13,3 +13,4 @@
 //= link side_bar_button_new.js
 
 //= link manifest.json
+//= link extension_bar.js
