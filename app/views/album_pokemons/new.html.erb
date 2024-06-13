@@ -8,7 +8,6 @@
 
 
   <% if @pokemons&.any? %>
-
   <% if params[:extension_id].present? %>
     <% selected_extension = @seasons.map(&:extensions).flatten.find { |extension| extension.id == params[:extension_id].to_i } %>
     <% if selected_extension %>
