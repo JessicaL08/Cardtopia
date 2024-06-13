@@ -1,9 +1,17 @@
+@import "colors";
+
 .search-page {
-  background-color: grey;
+  background-color: $bg;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 1;
+  text-align: center;
+
+  .align-search {
+    margin-top: 10px;
+    padding: 0 25%;
+  }
 }
