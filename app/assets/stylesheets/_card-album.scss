@@ -1,8 +1,10 @@
+@import "colors";
+
 .card-album {
   display: flex;
   flex-direction: column;
   border-radius: 12px;
-  box-shadow: 5px 5px 15px 5px #3d3d3d;
+  box-shadow: 3px 3px #1e3d59;
   width: 180px;
   height: auto;
 

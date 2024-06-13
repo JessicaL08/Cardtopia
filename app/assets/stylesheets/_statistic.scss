@@ -1,13 +1,14 @@
 @import "colors";
 
 .statistic {
-  padding-top: 20px;
+  padding-top: 30px;
 
   .extension-stat {
     cursor: pointer;
     margin-bottom: 4px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px #373737;
 
     overflow: hidden;
 
