@@ -9,9 +9,15 @@
   height: 100vh;
   z-index: 1;
   text-align: center;
+  margin-top: 10px;
 
   .align-search {
     margin-top: 10px;
-    padding: 0 25%;
+    padding: 0 10%;
+
+    .float {
+      float: left;
+      display: inline;
+    }
   }
 }
