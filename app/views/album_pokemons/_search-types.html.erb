@@ -1,4 +1,4 @@
-<div class="type-list-scrollable my-3">
+<div class="type-list-scrollable my-3 px-3">
   <div class="type-list-content">
     <% Pokemon::TYPES.each do |type| %> <!-- get all the types logo to create a link into them -->
       <% if params[:type] == type.to_s %> <!-- regard if the parameter is present to have a toggle search -->
