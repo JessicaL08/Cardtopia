@@ -5,7 +5,16 @@
   <%= render 'search-types' %>
 <hr>
 
+
+
   <% if @pokemons&.any? %>
+  <% if params[:extension_id].present? %>
+    <% selected_extension = @seasons.map(&:extensions).flatten.find { |extension| extension.id == params[:extension_id].to_i } %>
+    <% if selected_extension %>
+      <h2 style="font-size: smaller; padding-left: 25px;">Extension sélectionnée: <%= selected_extension.extension_name %></h2>
+    <% end %>
+  <% end %>
+
     <div class="display-search">
       <div class="cards-container row" data-album-id="<%= @album.id %>" data-album-pokemons-path="<%= album_album_pokemons_path(@album) %>">
         <% @pokemons.each do |pokemon| %>
@@ -17,9 +26,9 @@
     </div>
   <% else %>
     <% if params[:name].present? && params[:extension_id].present? %>
-      <p>Pas de Pokémon trouvé avec ce nom dans cette extension.</p>
+      <p style="padding-left: 25px;">Pas de Pokémon trouvé avec ce nom dans cette extension.</p>
     <% else %>
-      <p>Pas de Pokémon trouvé avec ce nom.</p>
+      <p style="padding-left: 25px;">Pas de Pokémon trouvé avec ce nom.</p>
     <% end %>
   <% end %>
 
