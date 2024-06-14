@@ -56,7 +56,7 @@ function editItem() {
 function addItem() {
     const currentUrl = window.location.pathname;
 
-    if (currentUrl.includes("/collections.")) {
+    if (currentUrl.includes("/collections.") || currentUrl === "/collections") {
         window.location.href = "/collections/new";
     } else if (currentUrl.includes("/collections/")) {
         const collectionId = currentUrl.match(/\d+/)[0];
