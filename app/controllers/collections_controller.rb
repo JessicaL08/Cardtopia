@@ -17,7 +17,7 @@ class CollectionsController < ApplicationController
   def create
     @collection = current_user.collections.build(collection_params)
     if @collection.save
-      redirect_to collection_path, notice: "Collection créée avec succès."
+      redirect_to collection_path(@collection), notice: "Collection créée avec succès."
     else
       render :new
     end
