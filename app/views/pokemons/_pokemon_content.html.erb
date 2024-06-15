@@ -1,31 +1,43 @@
 <div class="info-zone slide-in-bottom" data-carousel-target="content">
   <div class="zone fs-6 text">
     <span class="title">Informations</span><br>
-    <div class="col"><span>Nom: </span><%= pokemon.pokemon_name%></div>
-    <div class="col"><span>Saison - Extension: </span> <%= pokemon.pokemon_id%></div>
+    <div class="col"><span>Nom: </span><%= pokemon.pokemon_name %></div>
+    <div class="col"><span>Saison - Extension: </span> <%= pokemon.pokemon_id %></div>
     <div class="col">
-      <% pokemon.metadata["types"].each do |type| %>
-        <span>Type:
-          <%= image_tag(pokemon.icon_type_src(type), class: 'icon') %>
-        </span>
-      <%end%>
+      <% if pokemon.metadata["types"].present? %>
+        <% pokemon.metadata["types"].each do |type| %>
+          <span>Type:
+            <%= image_tag(pokemon.icon_type_src(type), class: 'icon') %>
+          </span>
+        <% end %>
+      <% else %>
+        <span>Type: Non disponible</span>
+      <% end %>
     </div>
-    <div class="col"><span>Rareté: </span><%= pokemon.rarity%></div>
+    <div class="col"><span>Rareté: </span><%= pokemon.rarity %></div>
   </div>
   <div class="zone fs-6 text">
     <span class="title">Attaques et effets</span><br>
-    <% pokemon.metadata["attaques"].each do |attaque| %>
-      <div class="d-flex flex-column">
-        <div class="show-pokemon-attaque-name"><span>Nom: </span><%= attaque["name"] %></div>
-        <div class="show-pokemon-attaque-name"><span>Dégat: </span><%= attaque["damage"] %></div>
-        <div class="show-pokemon-attaque-name"><span>Effet: </span><%= attaque["effect"] %></div>
-      </div>
-      <span>Coût:
-        <% attaque["cost"].each do |cost| %>
-          <%= image_tag(pokemon.icon_type_src(cost), class: 'icon text-start') %>
-        <% end %>
-      </span>
-      <br>
+    <% if pokemon.metadata["attaques"].present? %>
+      <% pokemon.metadata["attaques"].each do |attaque| %>
+        <div class="d-flex flex-column">
+          <div class="show-pokemon-attaque-name"><span>Nom: </span><%= attaque["name"] %></div>
+          <div class="show-pokemon-attaque-name"><span>Dégat: </span><%= attaque["damage"] %></div>
+          <div class="show-pokemon-attaque-name"><span>Effet: </span><%= attaque["effect"] %></div>
+        </div>
+        <span>Coût:
+          <% if attaque["cost"].present? %>
+            <% attaque["cost"].each do |cost| %>
+              <%= image_tag(pokemon.icon_type_src(cost), class: 'icon text-start') %>
+            <% end %>
+          <% else %>
+            <span>Cost: Non disponible</span>
+          <% end %>
+        </span>
+        <br>
+      <% end %>
+    <% else %>
+      <span>Attaques: Non disponible</span>
     <% end %>
   </div>
 </div>
