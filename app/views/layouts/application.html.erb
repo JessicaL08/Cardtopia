@@ -44,13 +44,64 @@
         <button id="edit-item" onclick="editItem();"><i class="fa-solid fa-pen-to-square"></i></button>
         <button id="add-item" onclick="addItem();"><i class="fa-solid fa-plus"></i></button>
         <button id="go-back" onclick="goBack();"><i class="fa-solid fa-arrow-left"></i></button>
+        <button id="popup" onclick="showInfoPopup();"><i class="fa-solid fa-circle-info"></i></button>
+
         <% if controller_name == 'album_pokemons' && action_name == 'new' %>
+            <div id="dataContainer" data-album-path="<%= album_path(@album) %>"></div>
+
           <button id="albums-button" onclick="window.location.href='<%= album_path(@album) %>';"><i class="fa-solid fa-images"></i></button>
         <% end %>
       </div>
     </div>
   </div>
+
+  <div id="customPopup" class="custom-popup">
+    <div class="custom-popup-content">
+        <span class="close-button" onclick="closePopup()">&times;</span>
+        <p id="popupMessage"></p>
+    </div>
+</div>
   <%= javascript_include_tag 'sticky_button' %>
   <%= javascript_include_tag 'side_bar_actions' %>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<style>
+.custom-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: black;
+}
+
+.custom-popup-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
 </body>
 </html>

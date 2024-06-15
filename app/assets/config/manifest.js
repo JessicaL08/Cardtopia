@@ -10,6 +10,7 @@
 //= link side_bar_button_show_collection.js
 //= link faq_animation.js
 //= link side_bar_button_new.js
+//= link side_bar_pokemon_show.js
 
 //= link manifest.json
 //= link extension_bar.js
