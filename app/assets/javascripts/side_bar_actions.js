@@ -75,23 +75,56 @@ function goBack() {
 
 function showInfoPopup() {
     const currentUrl = window.location.pathname;
-    const infoMessage = "";
+    let infoMessage = "";
 
     if (currentUrl === "/") {
-        infoMessage = "Explorez notre site creez des albums dans vos collections de cartes préférées!";
+        infoMessage = "Explore notre site crée des albums dans ta collections de cartes préférées!";
     } else if (currentUrl === "/collections") {
-        infoMessage = "Parcourez vos collections. Choisissez en une pour voir les albums qu'elle contient ou créez une nouvelle collection pour commencer votre aventure !";
-    } else if (currentUrl.includes("/collections/")) {
-        infoMessage = "Découvrez tous les albums de votre collection. Ajoutez de nouveaux albums pour compléter votre collection de cartes Pokémon.";
-    } else if (currentUrl.includes("/albums/")) {
-        infoMessage = "Regardez toutes les cartes Pokémon de votre album. Ajoutez de nouvelles cartes pour compléter votre collection !";
+        infoMessage = 'Parcoure tes collections. Choisis en une pour voir tes albums ou crée une nouvelle collection pour commencer ton aventure en cliquant sur <span id="add-icon" class="clickable-icon"><i class="fa-solid fa-plus"></i></span>';
     } else if (currentUrl.includes("/album_pokemons/new")) {
-        infoMessage = "Parcourez les saisons, les extensions et les cartes Pokémon pour ajouter une nouvelle carte à votre album.";
+        infoMessage = 'Parcoure les saisons, les extensions pour ajouter une nouvelle carte à ton album. Tu peux aussi taper un nom de pokemon dans la recherche et choisir la ou les cartes que tu veux ajouter. Quand tu as fini, tu peux retourner sur tes albums en cliquant sur <span id="album-icon" class="clickable-icon"><i class="fa-solid fa-images"></i></span> !';
+    } else if (currentUrl.includes("/collections/")) {
+        infoMessage = 'Découvre tous les albums de ta collection. Ajoute ton premier album, ou de nouveaux en cliquant sur <span id="add-icon" class="clickable-icon"><i class="fa-solid fa-plus"></i></span>. Edit ta collection avec le bouton <span id="edit-icon" class="clickable-icon"><i class="fa-solid fa-pen-to-square"></i></span>';
+    } else if (currentUrl.includes("/albums/")) {
+        infoMessage = 'Regarde toutes les cartes Pokémon de ton album. Ajoute de nouvelles cartes pour compléter ta collection en cliquant sur le bouton <span id="add-icon" class="clickable-icon"><i class="fa-solid fa-plus"></i></span> du menu. Supprime des pokemons avec <span id="delete-icon" class="clickable-icon"><i class="fa-solid fa-trash"></i></span>, tu peux aussi les filtrer par types. Tu peux aussi éditer ton album avec le bouton <span id="edit-icon" class="clickable-icon"><i class="fa-solid fa-pen-to-square"></i></span>';
     } else {
-        infoMessage = "Informations spécifiques à cette page non disponibles.";
+        infoMessage = 'Informations spécifiques à cette page non disponibles.';
     }
 
-    alert(infoMessage);
+    document.getElementById("popupMessage").innerHTML = infoMessage;
+    document.getElementById("customPopup").style.display = "block";
+
+    // Ajoutez les gestionnaires d'événements aux icônes
+    if (document.getElementById("add-icon")) {
+        document.getElementById("add-icon").addEventListener("click", addItem);
+    }
+    if (document.getElementById("edit-icon")) {
+        document.getElementById("edit-icon").addEventListener("click", editItem);
+    }
+    if (document.getElementById("delete-icon")) {
+        document.getElementById("delete-icon").addEventListener("click", deleteItem);
+    }
+    if (document.getElementById("album-icon")) {
+        document.getElementById("album-icon").addEventListener("click", albumItem);
+    }
+}
+
+function albumItem() {
+    // Rediriger vers la page des albums
+    const albumPath = document.getElementById('dataContainer').getAttribute('data-album-path');
+    window.location.href = albumPath;
+}
+
+function closePopup() {
+    document.getElementById("customPopup").style.display = "none";
+}
+
+// Pour fermer la fenêtre quand on clique en dehors
+window.onclick = function(event) {
+    const popup = document.getElementById("customPopup");
+    if (event.target === popup) {
+        popup.style.display = "none";
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
