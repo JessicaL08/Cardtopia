@@ -5,7 +5,9 @@
     <div class="collection">
       <h2><%= link_to collection.name, collection_path(collection) %></h2>
       <div class="actions">
-        <%= link_to 'Supprimer', collection_path(collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        <!-- <%= link_to 'Supprimer', collection_path(collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>-->
+        <%= button_to 'Supprimer', collection_path(collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+
       </div>
     </div>
   <% end %>
