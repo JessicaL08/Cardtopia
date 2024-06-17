@@ -1,7 +1,6 @@
 <div class="container">
-
-<div class="show-album-name-album">
-  <h1 style="font-size: 40px;"><%= @album.name %></h1>
+  <div class="show-album-name-album">
+    <h1 style="font-size: 40px;"><%= @album.name %></h1>
     <%= link_to edit_album_path(@album) do %>
       <%= image_tag("icons-nav/pencil_icon_white1.svg", class: 'show-pokemon-edit-icon') %>
     <% end %>
@@ -9,19 +8,25 @@
 
   <%= render 'album_pokemons/searchbar' %>
   <%= render 'album_pokemons/search-types' %>
-
   <hr>
 
-<div class="w-100" data-controller="suppression" id="liste-elements" data-suppression-target="listeElements">
+  <div class="w-100" data-controller="suppression" id="liste-elements" data-suppression-target="listeElements">
     <ul class="d-flex flex-wrap justify-content-center m-0 p-0 row p-0">
       <% @pokemons.each do |pokemon| %>
-<li class="col-lg-3 col-md-4 col-sm-6 col-6" style="list-style-type: none;">
-          <div class="card-container">
+        <li class="col-lg-3 col-md-4 col-sm-6 col-6" style="list-style-type: none;">
+          <div class="card-container position-relative">
             <div class="img-size">
               <% if pokemon.image != "/high.webp" %>
                 <%= link_to image_tag(pokemon.image, class: "pokemon-image clicked", id: "nolink"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
               <% else %>
-                <%= link_to image_tag("Pika-no-image.png", class: "pokemon-image no-image clicked", id: "nolink"), album_album_pokemon_pokemon_path(@album.id, pokemon.id) %>
+                <%= link_to album_album_pokemon_pokemon_path(@album.id, pokemon.id) do %>
+                  <%= image_tag("Pika-no-image.png", class: "pokemon-image no-image clicked", id: "nolink") %>
+                  <div class="pokemon-details">
+                    <p><strong>Nom:</strong> <%= pokemon.pokemon_name %></p>
+                    <p><strong>Saison:</strong> <%= pokemon.pokemon_id %></p>
+                    <p><strong>Extension:</strong> <%= pokemon.extension_id %></p>
+                  </div>
+                <% end %>
               <% end %>
             </div>
             <div class="text-center mt-2">
@@ -31,16 +36,16 @@
         </li>
       <% end %>
     </ul>
-      <% if @pokemons.length <= 0 %>
-        <div class="d-flex w-100 justify-content-center text-center">
-          <span style="margin-bottom: 18rem; margin-top: 12px;"><%= "Il n'y a pas encore de Pokémon" %></span>
-        </div>
-      <% end %>
+    <% if @pokemons.length <= 0 %>
+      <div class="d-flex w-100 justify-content-center text-center">
+        <span style="margin-bottom: 18rem; margin-top: 12px;"><%= "Il n'y a pas encore de Pokémon" %></span>
+      </div>
+    <% end %>
     <button id="deleteSelectedButton" data-action="suppression#supprimerSelection" style="display: none;">
-    <i class="fas fa-check" style="color: green; background-color: white; padding: 8px; width: 32px; height: 32px; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%;"></i>
-</button>
-<button id="cancelSelectedButton" onclick="location.reload();" style="display: none;">
-    <i class="fas fa-times" style="color: red; background-color: white; padding: 8px; width: 32px; height: 32px; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%;"></i>
-</button>
+      <i class="fas fa-check" style="color: green; background-color: white; padding: 8px; width: 32px; height: 32px; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%;"></i>
+    </button>
+    <button id="cancelSelectedButton" onclick="location.reload();" style="display: none;">
+      <i class="fas fa-times" style="color: red; background-color: white; padding: 8px; width: 32px; height: 32px; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%;"></i>
+    </button>
   </div>
 </div>

@@ -15,15 +15,20 @@
     <% end %>
   <% end %>
 
-<div class="display-search">
-  <div class="cards-container row" data-album-id="<%= @album.id %>" data-album-pokemons-path="<%= album_album_pokemons_path(@album) %>">
-    <% @pokemons.each_with_index do |pokemon, index| %>
-      <div class="card col-6 col-sm-6 col-md-4 col-lg-3 my-1" data-pokemon-id="<%= pokemon.id %>">
-        <%= pokemon_image_tag(pokemon, index) %>
+    <div class="display-search">
+      <div class="cards-container row" data-album-id="<%= @album.id %>" data-album-pokemons-path="<%= album_album_pokemons_path(@album) %>">
+        <% @pokemons.each_with_index do |pokemon, index| %>
+          <div class="card col-6 col-sm-6 col-md-4 col-lg-3 my-1 position-relative" data-pokemon-id="<%= pokemon.id %>">
+            <%= pokemon_image_tag(pokemon, index) %>
+            <div class="pokemon-details-new">
+              <p><strong>Nom:</strong> <%= pokemon.pokemon_name %></p>
+              <p><strong>Saison:</strong> <%= pokemon.pokemon_id %></p>
+              <p><strong>Extension:</strong> <%= pokemon.extension_id %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-</div>
+    </div>
   <% else %>
     <% if params[:name].present? && params[:extension_id].present? %>
       <p style="padding-left: 25px;">Pas de Pokémon trouvé avec ce nom dans cette extension.</p>
@@ -31,8 +36,7 @@
       <p style="padding-left: 25px;">Pas de Pokémon trouvé avec ce nom.</p>
     <% end %>
   <% end %>
+</div>
 
   <%= javascript_include_tag 'search_script' %>
   <%= javascript_include_tag 'side_bar_button_new' %>
-
-</div>
