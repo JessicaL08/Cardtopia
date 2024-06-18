@@ -67,12 +67,12 @@ class AlbumsController < ApplicationController
       @pokemons = @pokemons.where("extension_id = ?", params[:extension_id])
       @pokemons = @pokemons.where("metadata @> ?", { types: [I18n.t("pokemon_types.#{params[:type]}")] }.to_json)
     elsif params[:name].present? && params[:extension_id].present?
-      @pokemons = Pokemon.where("unaccent(pokemons.pokemon_name) ILIKE ? OR unaccent(pokemons.pokemon_id) ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
+      @pokemons = Pokemon.where("pokemons.pokemon_name ILIKE ? OR unaccent(pokemons.pokemon_name) ILIKE ? OR pokemons.pokemon_id ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%", "%#{params[:name]}%")
       @pokemons = @pokemons.where("extension_id = ?", params[:extension_id])
     elsif params[:extension_id].present? # find pokemon where user click on button extension
       @pokemons = @pokemons.where("pokemons.extension_id = ?", params[:extension_id])
     elsif params[:name].present? # find pokemon where user put name
-      @pokemons = @pokemons.where("unaccent(pokemons.pokemon_name) ILIKE ? OR unaccent(pokemons.pokemon_id) ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
+      @pokemons = Pokemon.where("pokemons.pokemon_name ILIKE ? OR unaccent(pokemons.pokemon_name) ILIKE ? OR pokemons.pokemon_id ILIKE ?", "%#{params[:name]}%", "%#{params[:name]}%", "%#{params[:name]}%")
     elsif params[:type].present?
       @pokemons = @pokemons.where("metadata @> ?", { types: [I18n.t("pokemon_types.#{params[:type]}")] }.to_json)  # I18n cause we want to traduce the name of types to have the good references with the db
     end
